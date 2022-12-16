@@ -2,11 +2,6 @@
 SheWoreWhat
 ===========
 
-.. image:: https://readthedocs.org/projects/sheworewhat/badge/?version=latest
-        :target: https://sheworewhat.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
-
 * Free software: MIT license
 * Documentation: https://sheworewhat.readthedocs.io.
 
