@@ -2,13 +2,6 @@
 SheWoreWhat
 ===========
 
-
-.. image:: https://img.shields.io/pypi/v/sheworewhat.svg
-        :target: https://pypi.python.org/pypi/sheworewhat
-
-.. image:: https://img.shields.io/travis/JasmineOrtega/sheworewhat.svg
-        :target: https://travis-ci.com/JasmineOrtega/sheworewhat
-
 .. image:: https://readthedocs.org/projects/sheworewhat/badge/?version=latest
         :target: https://sheworewhat.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
