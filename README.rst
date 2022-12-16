@@ -14,11 +14,6 @@ SheWoreWhat
         :alt: Documentation Status
 
 
-
-
-Python Boilerplate contains all the boilerplate you need to create a Python package.
-
-
 * Free software: MIT license
 * Documentation: https://sheworewhat.readthedocs.io.
 
