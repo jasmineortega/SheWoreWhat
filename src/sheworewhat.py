@@ -26,6 +26,10 @@ def closet_df(path="../data/ClosetData.csv"):
     # create IDs per item
     closet = closet.reset_index().rename(columns={"index": "ID"})
 
+    # format strings to create item name
+    closet["Item"] = closet["Item"].map(str.title)
+    closet["Brand"] = closet["Brand"].map(str.title)
+
     # create item name
     closet["Name"] = closet["Brand"] + " " + closet["Item"]
 
