@@ -63,11 +63,11 @@ def closet_cat(closet_df):
         bottom_df : pandas.DataFrame
             Dataframe containing only bottom data.
 
-        fb_df : pandas.DataFrame
-            Dataframe containing only full-body data.
-
         acc_df : pandas.DataFrame
             Dataframe containing only accessory data.
+
+        fb_df : pandas.DataFrame
+            Dataframe containing only full-body data.
 
         shoes_df : pandas.DataFrame
             Dataframe containing only shoe data.
