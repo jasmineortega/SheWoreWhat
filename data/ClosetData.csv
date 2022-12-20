@@ -1,4 +1,4 @@
-﻿Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Price,2023 Addition,Price
+﻿Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price
 Turtleneck,Top,Sweater,Black,Plain,Zara,"Secondhand, Thrifted",cheap,,
 Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
 Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
@@ -72,7 +72,7 @@ Scarf,Accessory,Scarf,"Black, Brown",Plaid,No Brand,"Secondhand, Thrifted",cheap
 Tote Bag,Accessory,Bag,Green,Logo,UBC,New,cheap,,
 Tiny Purse,Accessory,Bag,Gold,Plain,No Brand,"Secondhand, Thrifted",cheap,,
 Crossbody,Accessory,Bag,Black,Bow,Karl Lagerfield,"Secondhand, Gifted",cheap,,
-Shoulder Bag,Accessory,Bag,Black,Heart,,"Secondhand, Gifted",cheap,,
+Shoulder Bag,Accessory,Bag,Black,Heart,LovCat Paris,"Secondhand, Gifted",cheap,,
 Strappy Sandals,Shoes,Sandal,Black,Plain,No Brand,"Secondhand, Thrifted",cheap,,
 Tennis Shoe,Shoes,Workout ,"Black, White",Plain,Adidas,New,pricy,,
 Sandal,Shoes,Sandal,Navy,Celestial,Tevas,New,pricy,,
