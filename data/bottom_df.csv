@@ -1,14 +1,14 @@
 ,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,Name
-3,3,Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,No,,Aerie Jeans
-7,7,Skort,Bottom,Skirt,Black,Plain,Girlfriend Collective,New,pricy,No,,Girlfriend Collective Skort
-21,21,Miniskirt,Bottom,Skirt,"Black, White",Houndstooth,Forever 21,"Secondhand, Thrifted",Cheap,No,,Forever 21 Miniskirt
-22,22,Leggings,Bottom,Workout ,Brown,Plain,Aerie,New,cheap,No,,Aerie Leggings - Brown
-23,23,Leggings,Bottom,Workout ,Navy,Plain,Aerie,New,cheap,No,,Aerie Leggings  - Navy
-24,24,Leggings,Bottom,Workout ,Green,Plain,Aerie,New,cheap,No,,Aerie Leggings - Green
-25,25,Leggings,Bottom,Workout ,Red,Plain,Aerie,New,cheap,No,,Aerie Leggings - Red
-26,26,Leggings,Bottom,Workout ,Black,Plain,Aerie,New,cheap,No,,Aerie Leggings - Black
-27,27,Yoga Pant,Bottom,Workout ,Black,Plain,Aerie,New,cheap,No,,Aerie Yoga Pant
-30,30,Soft Pant,Bottom,Pants,"Black, White",Stripe,Uniqlo,"Secondhand, Thrifted",cheap,No,,Uniqlo Soft Pant
-34,34,Asymmterical Skirt,Bottom,Skirt,Black,Plaid,Hollister,New,pricy,No,,Hollister Asymmterical Skirt
-35,35,Maxi Skirt,Bottom,Skirt,Black,Plain,Msk,"Secondhand, Thrifted",cheap,No,,Msk Maxi Skirt
-64,64,Trouser,Bottom,Pants,Tan,Plain,Le Suit,"Secondhand, Thrifted",cheap,No,,Le Suit Trouser
+3,3,Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,No,,"3 Aerie Jeans, Blue"
+7,7,Skort,Bottom,Skirt,Black,Plain,Girlfriend Collective,New,pricy,No,,"7 Girlfriend Collective Skort, Black"
+21,21,Miniskirt,Bottom,Skirt,"Black, White",Houndstooth,Forever 21,"Secondhand, Thrifted",Cheap,No,,"21 Forever 21 Miniskirt, Black, White"
+22,22,Leggings,Bottom,Workout ,Brown,Plain,Aerie,New,cheap,No,,"22 Aerie Leggings, Brown"
+23,23,Leggings,Bottom,Workout ,Navy,Plain,Aerie,New,cheap,No,,"23 Aerie Leggings, Navy"
+24,24,Leggings,Bottom,Workout ,Green,Plain,Aerie,New,cheap,No,,"24 Aerie Leggings, Green"
+25,25,Leggings,Bottom,Workout ,Red,Plain,Aerie,New,cheap,No,,"25 Aerie Leggings, Red"
+26,26,Leggings,Bottom,Workout ,Black,Plain,Aerie,New,cheap,No,,"26 Aerie Leggings, Black"
+27,27,Yoga Pant,Bottom,Workout ,Black,Plain,Aerie,New,cheap,No,,"27 Aerie Yoga Pant, Black"
+30,30,Soft Pant,Bottom,Pants,"Black, White",Stripe,Uniqlo,"Secondhand, Thrifted",cheap,No,,"30 Uniqlo Soft Pant, Black, White"
+34,34,Asymmterical Skirt,Bottom,Skirt,Black,Plaid,Hollister,New,pricy,No,,"34 Hollister Asymmterical Skirt, Black"
+35,35,Maxi Skirt,Bottom,Skirt,Black,Plain,Msk,"Secondhand, Thrifted",cheap,No,,"35 Msk Maxi Skirt, Black"
+64,64,Trouser,Bottom,Pants,Tan,Plain,Le Suit,"Secondhand, Thrifted",cheap,No,,"64 Le Suit Trouser, Tan"

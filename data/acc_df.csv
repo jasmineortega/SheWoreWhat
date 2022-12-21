@@ -1,11 +1,12 @@
 ,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,Name
-10,10,Beanie,Accessory,Hat,"Tan, White",Stripe,Athleta,New,cheap,No,,Athleta Beanie
-69,69,Scarf,Accessory,Scarf,"Black, Brown",Plaid,No Brand,"Secondhand, Thrifted",cheap,No,,No Brand Scarf
-70,70,Tote Bag,Accessory,Bag,Green,Logo,Ubc,New,cheap,No,,Ubc Tote Bag
-71,71,Tiny Purse,Accessory,Bag,Gold,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,No Brand Tiny Purse
-72,72,Crossbody,Accessory,Bag,Black,Bow,Karl Lagerfield,"Secondhand, Gifted",cheap,No,,Karl Lagerfield Crossbody
-73,73,Shoulder Bag,Accessory,Bag,Black,Heart,Lovcat Paris,"Secondhand, Gifted",cheap,No,,Lovcat Paris Shoulder Bag
-81,81,Gold Hoops,Accessory,Jewelry,Gold,Plain,No Brand,"Secondhand, Gifted",pricy,No,,No Brand Gold Hoops
-82,82,Christmas Tree Hoops,Accessory,Jewelry,Gold,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,No Brand Christmas Tree Hoops
-83,83,Square Hoops,Accessory,Jewelry,Gold,Plain,Tj Maxx,New,cheap,No,,Tj Maxx Square Hoops
-85,85,Tote Bag,Accessory,Bag,Green,Logo,Ubc,New,cheap,No,,Ubc Tote Bag
+10,10,Beanie,Accessory,Hat,"Tan, White",Stripe,Athleta,New,cheap,No,,"10 Athleta Beanie, Tan, White"
+69,69,Scarf,Accessory,Scarf,"Black, Brown",Plaid,No Brand,"Secondhand, Thrifted",cheap,No,,"69 No Brand Scarf, Black, Brown"
+70,70,Tote Bag,Accessory,Bag,Green,Logo,Ubc,New,cheap,No,,"70 Ubc Tote Bag, Green"
+71,71,Tiny Purse,Accessory,Bag,Gold,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,"71 No Brand Tiny Purse, Gold"
+72,72,Crossbody,Accessory,Bag,Black,Bow,Karl Lagerfield,"Secondhand, Gifted",cheap,No,,"72 Karl Lagerfield Crossbody, Black"
+73,73,Shoulder Bag,Accessory,Bag,Black,Heart,Lovcat Paris,"Secondhand, Gifted",cheap,No,,"73 Lovcat Paris Shoulder Bag, Black"
+81,81,Gold Hoops,Accessory,Jewelry,Gold,Plain,No Brand,"Secondhand, Gifted",pricy,No,,"81 No Brand Gold Hoops, Gold"
+82,82,Christmas Tree Hoops,Accessory,Jewelry,Gold,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,"82 No Brand Christmas Tree Hoops, Gold"
+83,83,Square Hoops,Accessory,Jewelry,Gold,Plain,Tj Maxx,New,cheap,No,,"83 Tj Maxx Square Hoops, Gold"
+85,85,Tote Bag,Accessory,Bag,Green,Logo,Ubc,New,cheap,No,,"85 Ubc Tote Bag, Green"
+86,86,Purse,Accessory,Bag,White,Vintage,No Brand,"Secondhand, Depop",cheap,No,,"86 No Brand Purse, White"
