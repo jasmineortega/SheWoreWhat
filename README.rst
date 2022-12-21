@@ -3,7 +3,6 @@ SheWoreWhat
 ===========
 
 * Free software: MIT license
-* Documentation: https://sheworewhat.readthedocs.io.
 
 
 Features
