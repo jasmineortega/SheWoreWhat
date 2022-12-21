@@ -29,9 +29,10 @@ def closet_df(path="../data/ClosetData.csv"):
     # format strings to create item name
     closet["Item"] = closet["Item"].map(str.title)
     closet["Brand"] = closet["Brand"].map(str.title)
-
-    # create item name
-    closet["Name"] = closet["ID"].apply(str) + " " + closet["Brand"] + " " + closet["Item"] + ", " + closet["Color"]
+    closet["PrimaryC"] = closet["Color"].str[:5]
+    
+    # create item name 
+    closet["Name"] = closet["ID"].apply(str) + " " + closet["Brand"] + " " + closet["Item"] + " - " + closet["PrimaryC"]
 
     # NaNs in 2023 addition column
     for i, value in enumerate(closet["2023"]):
