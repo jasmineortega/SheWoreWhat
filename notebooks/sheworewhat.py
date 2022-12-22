@@ -124,6 +124,7 @@ def complete_df(closet, path="../data/2023TestData.csv"):
     # extract ID number from value
     form["ID"] = form.value.str.extract("(\d+)").astype(int)
 
+    # god there must be an easier way than this
     form_counts = (
         form.groupby(["value", "ID"])
         .count()
@@ -132,7 +133,7 @@ def complete_df(closet, path="../data/2023TestData.csv"):
         .drop(["variable"], axis=1)
     )
 
-    # left join closet + df
+    # left join closet + 2023 data
     complete_df = pd.merge(closet, form_counts, how="left", on="ID")
     complete_df["Name"] = complete_df["Brand"] + " " + complete_df["Item"]
     complete_df = complete_df[
