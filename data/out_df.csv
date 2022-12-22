@@ -1,7 +1,7 @@
-,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,Name
-11,11,Coat,Outerwear,Coat,"Black, White","Fur, Houndstooth",Zara,"Secondhand, Thrifted",Cheap,No,,"11 Zara Coat, Black, White"
-36,36,Jacket,Outerwear,Coat,Beige,Corduroy,Sf415,"Secondhand, Thrifted",cheap,No,,"36 Sf415 Jacket, Beige"
-60,60,Trenchcoat,Outerwear,Coat,Beige,Plain,Merona,"Secondhand, Thrifted",cheap,No,,"60 Merona Trenchcoat, Beige"
-61,61,Wool Coat,Outerwear,Coat,Tan,Plain,Rachel Zoe,New,cheap,No,,"61 Rachel Zoe Wool Coat, Tan"
-67,67,Sport Coat,Outerwear,Coat,White,Plaid,Innovations By Izzy,"Secondhand, Thrifted",cheap,No,1.0,"67 Innovations By Izzy Sport Coat, White"
-84,84,Puffer,Outerwear,Coat,Green,Plain,Hollister,New,pricy,No,,"84 Hollister Puffer, Green"
+,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,PrimaryC,Name
+11,11,Coat,Outerwear,Coat,"Black, White","Fur, Houndstooth",Zara,"Secondhand, Thrifted",Cheap,No,,Black,11 Zara Coat - Black
+36,36,Jacket,Outerwear,Coat,Beige,Corduroy,Sf415,"Secondhand, Thrifted",cheap,No,,Beige,36 Sf415 Jacket - Beige
+60,60,Trenchcoat,Outerwear,Coat,Beige,Plain,Merona,"Secondhand, Thrifted",cheap,No,,Beige,60 Merona Trenchcoat - Beige
+61,61,Wool Coat,Outerwear,Coat,Tan,Plain,Rachel Zoe,New,cheap,No,,Tan,61 Rachel Zoe Wool Coat - Tan
+67,67,Sport Coat,Outerwear,Coat,White,Plaid,Innovations By Izzy,"Secondhand, Thrifted",cheap,No,1.0,White,67 Innovations By Izzy Sport Coat - White
+84,84,Puffer,Outerwear,Coat,Green,Plain,Hollister,New,pricy,No,,Green,84 Hollister Puffer - Green

@@ -1,10 +1,10 @@
-,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,Name
-8,8,Sandals,Shoes,Sandal,"Black, White",Yin-Yang,Paloma Wool,New,expensive,No,,"8 Paloma Wool Sandals, Black, White"
-9,9,Boots,Shoes,Boots,Black,Plain,Blondo,New,expensive,No,,"9 Blondo Boots, Black"
-74,74,Strappy Sandals,Shoes,Sandal,Black,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,"74 No Brand Strappy Sandals, Black"
-75,75,Tennis Shoe,Shoes,Workout ,"Black, White",Plain,Adidas,New,pricy,No,,"75 Adidas Tennis Shoe, Black, White"
-76,76,Sandal,Shoes,Sandal,Navy,Celestial,Tevas,New,pricy,No,,"76 Tevas Sandal, Navy"
-77,77,Knee-High Boots,Shoes,Boots,Black,Plain,Marshall'S,New,cheap,No,,"77 Marshall'S Knee-High Boots, Black"
-78,78,Chunky Heel,Shoes,Heel,Black,Plain,Steve Madden,New,pricy,No,,"78 Steve Madden Chunky Heel, Black"
-79,79,Satin Sandal,Shoes,Heel,Pink,Satin,Steve Madden,New,pricy,No,,"79 Steve Madden Satin Sandal, Pink"
-80,80,Sandal,Shoes,Heel,"White, Gold",Plain,Karl Lagerfield,"Secondhand, Thrifted",pricy,No,35.0,"80 Karl Lagerfield Sandal, White, Gold"
+,ID,Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price,PrimaryC,Name
+8,8,Sandals,Shoes,Sandal,"Black, White",Yin-Yang,Paloma Wool,New,expensive,No,,Black,8 Paloma Wool Sandals - Black
+9,9,Boots,Shoes,Boots,Black,Plain,Blondo,New,expensive,No,,Black,9 Blondo Boots - Black
+74,74,Strappy Sandals,Shoes,Sandal,Black,Plain,No Brand,"Secondhand, Thrifted",cheap,No,,Black,74 No Brand Strappy Sandals - Black
+75,75,Tennis Shoe,Shoes,Workout ,"Black, White",Plain,Adidas,New,pricy,No,,Black,75 Adidas Tennis Shoe - Black
+76,76,Sandal,Shoes,Sandal,Navy,Celestial,Tevas,New,pricy,No,,Navy,76 Tevas Sandal - Navy
+77,77,Knee-High Boots,Shoes,Boots,Black,Plain,Marshall'S,New,cheap,No,,Black,77 Marshall'S Knee-High Boots - Black
+78,78,Chunky Heel,Shoes,Heel,Black,Plain,Steve Madden,New,pricy,No,,Black,78 Steve Madden Chunky Heel - Black
+79,79,Satin Sandal,Shoes,Heel,Pink,Satin,Steve Madden,New,pricy,No,,Pink,79 Steve Madden Satin Sandal - Pink
+80,80,Sandal,Shoes,Heel,"White, Gold",Plain,Karl Lagerfield,"Secondhand, Thrifted",pricy,No,35.0,White,80 Karl Lagerfield Sandal - White
