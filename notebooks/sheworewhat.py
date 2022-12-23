@@ -132,8 +132,6 @@ def complete_df(closet, path="../data/2023TestData.csv"):
         .rename(columns={"Date": "count"})
         .drop(["variable"], axis=1)
     )
-    form_counts["count"] = form_counts["count"].astype(int)
-
     # left join closet + 2023 data
     complete_df = pd.merge(closet, form_counts, how="left", on="ID")
     complete_df["Name"] = complete_df["Brand"] + " " + complete_df["Item"]
@@ -153,5 +151,6 @@ def complete_df(closet, path="../data/2023TestData.csv"):
         ]
     ]
     complete_df = complete_df.fillna(0).rename(columns={"count": "Count"})
+    complete_df["Count"] = complete_df["Count"].astype(int)
 
     return complete_df
