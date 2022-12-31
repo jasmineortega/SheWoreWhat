@@ -1,7 +1,7 @@
 ﻿Item,Category,Sub-Category,Color,Pattern,Brand,Bought,Cost,2023,Price
 Turtleneck,Top,Sweater,Black,Plain,Zara,"Secondhand, Thrifted",cheap,,
-Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
-Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
+Tropical Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
+Leopard Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
 Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,
 Shirt,Top,Shirt,"Black, White",Cheetah,Free People,"Secondhand, Depop",cheap,,
 Body Suit,Top,Shirt,Black,Plain,Express,New,cheap,,
@@ -86,3 +86,7 @@ Square Hoops,Accessory,Jewelry,Gold,Plain,TJ Maxx,New,cheap,,
 Puffer,Outerwear,Coat,Green,Plain,Hollister,New,pricy,,
 Tote Bag,Accessory,Bag,Green,Logo,UBC,New,cheap,,
 Purse,Accessory,Bag,White,Vintage,No Brand,"Secondhand, Depop",cheap,,
+Bow,Accessory,Hat,Black,Plain,Target,New,cheap,,10
+Snake Tights,Accessory,Tight,Black,Snake,Amazon,New,cheap,,21
+Purse,Accessory,Bag,Silver,Rhinestone,Francesca's,New,pricy,,
+Jean Jacket,Outerwear,Coat,Black,Plain,Levi's,New,pricy,,
