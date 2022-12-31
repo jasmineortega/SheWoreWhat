@@ -124,7 +124,6 @@ def complete_df(closet, path="../data/2023TestData.csv"):
     # extract ID number from value
     form["ID"] = form.value.str.extract("(\d+)").astype(int)
 
-    # god there must be an easier way than this
     form_counts = (
         form.groupby(["value", "ID"])
         .count()
@@ -132,7 +131,8 @@ def complete_df(closet, path="../data/2023TestData.csv"):
         .rename(columns={"Date": "count"})
         .drop(["variable"], axis=1)
     )
-    # left join closet + 2023 data
+
+    # left join closet + df
     complete_df = pd.merge(closet, form_counts, how="left", on="ID")
     complete_df["Name"] = complete_df["Brand"] + " " + complete_df["Item"]
     complete_df = complete_df[
@@ -183,15 +183,15 @@ def top_10_df(path="../data/2023TestData.csv"):
     time_df["Day"] = time_df["Date"].dt.day_name()
 
     # data wrangling to select top 10 most worn items
-    closet = sww.closet_df()
-    worn_df = sww.complete_df(closet)
+    closet = closet_df()
+    worn_df = complete_df(closet)
     most_worn = worn_df.nlargest(10, columns="Count")
 
     # merge dataframes
     df = pd.merge(closet, df, how="right", on="ID")
     df = df[["ID", "Item", "Color", "Pattern", "Category", "Date"]]
 
-    top_10 = most_worn["Count"].to_list()
+    top_10 = most_worn["ID"].to_list()
 
     return top_10, df
 
@@ -211,7 +211,6 @@ def plot_heatmap(df, top_10, i=0):
     --------
         heatplot : altair.Chart
             Heatmap plot for a single item over a single calender year.
-
     """
 
     # column of day of week for one calender year
