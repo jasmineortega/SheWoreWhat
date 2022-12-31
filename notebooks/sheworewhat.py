@@ -148,6 +148,7 @@ def complete_df(closet, path="../data/2023TestData.csv"):
             "Brand",
             "Cost",
             "2023",
+            "Price"
         ]
     ]
     complete_df = complete_df.fillna(0).rename(columns={"count": "Count"})
