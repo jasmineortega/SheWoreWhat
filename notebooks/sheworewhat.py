@@ -148,7 +148,7 @@ def complete_df(closet, path="../data/2023TestData.csv"):
             "Brand",
             "Cost",
             "2023",
-            "Price"
+            "Price",
         ]
     ]
     complete_df = complete_df.fillna(0).rename(columns={"count": "Count"})
@@ -197,21 +197,22 @@ def top_10_df(path="../data/2023TestData.csv"):
     return top_10, df
 
 
-def plot_heatmap(df, top_10, i=0):
+def plot_heatmap(top_10, df, i=0):
     """
     Function for heatmap plot.
 
     Parameters:
     -----------
-         df : pandas.DataFrame
-
          top_10 : list
             List containing the IDs of the top 10 most worn items.
+
+         df : pandas.DataFrame
 
     Returns:
     --------
         heatplot : altair.Chart
             Heatmap plot for a single item over a single calender year.
+
     """
 
     # column of day of week for one calender year
@@ -261,14 +262,85 @@ def plot_heatmap(df, top_10, i=0):
                     labelAngle=-60,
                 ),
             ),
-            alt.Y("Day", sort=weekdays),
+            alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#7c9e7b"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#74a675"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
         )
         .properties(height=200, width=600)
+        .configure_axis(grid=False, domain=False)
     )
     return heat_plot
+
+
+def plot_cpw():
+    """
+    Function for 2023 cost-per-wear plot.
+
+    Parameters:
+    -----------
+        None
+
+    Returns:
+    --------
+        plot : altair.Chart
+            Scatter plot of item counts over price.
+    """
+
+    # read in Google sheet idea
+    df = (
+        pd.read_csv("../data/2023TestData.csv")
+        .drop("Timestamp", axis=1)
+        .melt("Date")
+        .dropna()
+    )
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["ID"] = df.value.str.extract("(\d+)").astype(int)
+
+    # calculate 2023 cost-per-wear
+    complete_df = pd.merge(worn_df, df, how="inner", on="ID")
+    complete_df = complete_df[
+        [
+            "ID",
+            "Name",
+            "Count",
+            "Category",
+            "Sub-Category",
+            "Pattern",
+            "Cost",
+            "2023",
+            "Date",
+            "Price",
+        ]
+    ]
+    complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(2)
+
+    plot = (
+        alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
+        .mark_circle(opacity=0.80)
+        .encode(
+            alt.X("Price"),
+            alt.Y("Count", title="Times Worn"),
+            alt.Color(
+                "Category",
+                scale=alt.Scale(
+                    range=[
+                        "#bb8c9d",
+                        "#9a8ca6",
+                        "#8ba88a",
+                        "#5bccc1",
+                        "#e0ddd5",
+                        "#7c9e7b",
+                    ]
+                ),
+            ),
+            alt.Size("CPW", legend=None),
+            alt.Tooltip(["Name", "Category", "CPW"]),
+        )
+        .configure_axis(grid=False)
+    )
+
+    return plot
