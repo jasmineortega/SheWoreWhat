@@ -190,7 +190,7 @@ def top_10_df(path="../data/2023TestData.csv"):
 
     # merge dataframes
     df = pd.merge(closet, df, how="right", on="ID")
-    df = df[["ID", "Item", "Color", "Pattern", "Category", "Date"]]
+    df = df[["ID", "Item", "Color", "Pattern", "Category", "Date", "Brand"]]
 
     top_10 = most_worn["ID"].to_list()
 
