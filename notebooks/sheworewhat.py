@@ -154,3 +154,121 @@ def complete_df(closet, path="../data/2023TestData.csv"):
     complete_df["Count"] = complete_df["Count"].astype(int)
 
     return complete_df
+
+
+def top_10_df(path="../data/2023TestData.csv"):
+    """
+    Function to return IDs and counts of top 10 most worn items.
+
+    Parameters:
+    -----------
+         path : str
+            Path to CSV file containing closet information.
+
+    Returns:
+    --------
+        top_10 : list
+            List containing the IDs of the top 10 most worn items.
+
+        df : pandas.DataFrame
+            Dataframe containing data only for top 10 most worn items.
+    """
+    df = pd.read_csv(path).drop("Timestamp", axis=1).melt("Date").dropna()
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["ID"] = df.value.str.extract("(\d+)").astype(int)
+
+    # column of day of week for one calender year
+    time_df = pd.DataFrame()
+    time_df["Date"] = pd.date_range(df["Date"].min(), periods=365)
+    time_df["Day"] = time_df["Date"].dt.day_name()
+
+    # data wrangling to select top 10 most worn items
+    closet = sww.closet_df()
+    worn_df = sww.complete_df(closet)
+    most_worn = worn_df.nlargest(10, columns="Count")
+
+    # merge dataframes
+    df = pd.merge(closet, df, how="right", on="ID")
+    df = df[["ID", "Item", "Color", "Pattern", "Category", "Date"]]
+
+    top_10 = most_worn["Count"].to_list()
+
+    return top_10, df
+
+
+def plot_heatmap(df, top_10, i=0):
+    """
+    Function for heatmap plot.
+
+    Parameters:
+    -----------
+         df : pandas.DataFrame
+
+         top_10 : list
+            List containing the IDs of the top 10 most worn items.
+
+    Returns:
+    --------
+        heatplot : altair.Chart
+            Heatmap plot for a single item over a single calender year.
+
+    """
+
+    # column of day of week for one calender year
+    time_df = pd.DataFrame()
+    time_df["Date"] = pd.date_range(df["Date"].min(), periods=365)
+    time_df["Day"] = time_df["Date"].dt.day_name()
+
+    heatmap_data = df.loc[df["ID"] == top_10[i]]  # need to make this dynamic in plot
+    item_name = heatmap_data["Brand"].iloc[0] + " " + heatmap_data["Item"].iloc[0]
+
+    # isolate item data
+    year = pd.merge(time_df, heatmap_data, how="outer", on="Date")
+    year["Item"] = year["Item"].replace(np.nan, 0)
+    year["Bool"] = np.where(year["Item"] == 0, 0, 1)
+
+    # this is horrible to read lol
+    # wrangling for prettier plotting
+    week = time_df["Date"].dt.isocalendar()
+    year["Week"] = week["week"].fillna(52)
+    year["Week"] = year["Week"].fillna(52)
+    year["First_day"] = year["Date"] - year["Date"].dt.weekday * np.timedelta64(1, "D")
+    week = time_df["Date"].dt.strftime("%m-%d-%y")
+    year["Week"] = year["First_day"].dt.strftime("%m-%d")
+    year = year[["Date", "Day", "Item", "ID", "Bool", "Week"]]
+
+    weekdays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Sunday",
+    ]
+
+    heat_plot = (
+        alt.Chart(year, title=f"{item_name} in 2023")
+        .mark_rect(
+            stroke="white",
+            strokeWidth=3,
+            opacity=0.9,
+        )
+        .encode(
+            alt.X(
+                "Week:O",
+                axis=alt.Axis(
+                    labelAngle=-60,
+                ),
+            ),
+            alt.Y("Day", sort=weekdays),
+            alt.Color(
+                "Bool",
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#7c9e7b"]),
+                legend=None,
+            ),
+            alt.Tooltip(["Date", "Day"]),
+        )
+        .properties(height=200, width=600)
+    )
+    return heat_plot
