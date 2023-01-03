@@ -176,7 +176,20 @@ def plot_mostworn(worn_df):
 
 
 def plot_facet(worn_df):
+    """
+    Function to plot top 5 most worn items per clothing category.
 
+    Parameters:
+    ----------
+        worn_df : pandas.DataFrame
+            Df containing 2023 closet log data, generated from complete_closet function.
+
+    Returns:
+    --------
+        category_plot : altair.Chart
+            Six concatenated altair plots for Top, Bottom, Full Body, Outerwear, Accesories,
+            and Shoe categories.
+    """
     categories = ["Top", "Bottom", "Full Body", "Outerwear", "Accessory", "Shoes"]
 
     cat_plots = []
@@ -250,7 +263,7 @@ def top_10_df(path="../data/2023Data.csv"):
 
 def plot_heatmap(top_10, df, i=0):
     """
-    Function for heatmap plot.
+    Function for heatmap plot. This is some knarly code I apologize.
 
     Parameters:
     -----------
