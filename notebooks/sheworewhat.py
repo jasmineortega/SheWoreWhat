@@ -148,6 +148,7 @@ def complete_df(closet, path="../data/2023Data.csv"):
             "Color",
             "Pattern",
             "Brand",
+            "Bought",
             "Cost",
             "2023",
             "Price",
@@ -162,7 +163,7 @@ def complete_df(closet, path="../data/2023Data.csv"):
 def plot_mostworn(worn_df):
     most_worn = worn_df.nlargest(15, columns="Count")
     closet_comp = (
-        alt.Chart(most_worn, title="2023 Most Worn Pieces")
+        alt.Chart(most_worn, title="Twn Most Worn Pieces in 2023")
         .mark_bar(color="#bb8c9d")
         .encode(
             alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
