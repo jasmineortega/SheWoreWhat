@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import altair as alt
+import dash_bootstrap_components as dbc
 
 
 def closet_df(path="../data/ClosetData.csv"):
@@ -101,7 +103,7 @@ def closet_cat(df):
     return acc_df, bottom_df, fb_df, out_df, shoes_df, top_df
 
 
-def complete_df(closet, path="../data/2023TestData.csv"):
+def complete_df(closet, path="../data/2023Data.csv"):
     """
     Function to merge raw closet data and collected 2023 data.
 
@@ -157,7 +159,56 @@ def complete_df(closet, path="../data/2023TestData.csv"):
     return complete_df
 
 
-def top_10_df(path="../data/2023TestData.csv"):
+def plot_mostworn(worn_df):
+    most_worn = worn_df.nlargest(15, columns="Count")
+    closet_comp = (
+        alt.Chart(most_worn, title="2023 Most Worn Pieces")
+        .mark_bar(color="#6ce4d8")
+        .encode(
+            alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
+            alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
+            alt.Tooltip("Count"),
+        )
+        .configure_axis(grid=False, domain=False)
+    )
+
+    return closet_comp
+
+
+def plot_facet(worn_df):
+
+    categories = ["Top", "Bottom", "Full Body", "Outerwear", "Accessory", "Shoes"]
+
+    cat_plots = []
+
+    for i in categories:
+        category_worn = worn_df.loc[worn_df["Category"] == i].nlargest(
+            5, columns="Count"
+        )
+
+        category_plot = (
+            alt.Chart(category_worn, title=f"2023 Most Worn {i}")
+            .mark_bar(
+                color="#827191",
+            )
+            .encode(
+                alt.X("Name", title="", axis=alt.Axis(labelAngle=-45), sort="-y"),
+                alt.Y("Count", title="# of Times Worn", axis=alt.Axis(tickMinStep=1)),
+                alt.Tooltip(["Name", "Count"]),
+            )
+            .properties(height=200, width=150)
+        )
+        cat_plots.append(category_plot)
+
+    # configure altair charts
+    row1 = alt.hconcat(cat_plots[0], cat_plots[1], cat_plots[2])
+    row2 = alt.hconcat(cat_plots[3], cat_plots[4], cat_plots[5])
+
+    category_plot = alt.vconcat(row1, row2).configure_axis(grid=False, domain=False)
+    return category_plot
+
+
+def top_10_df(path="../data/2023Data.csv"):
     """
     Function to return IDs and counts of top 10 most worn items.
 
@@ -276,7 +327,7 @@ def plot_heatmap(top_10, df, i=0):
     return heat_plot
 
 
-def plot_cpw():
+def plot_cpw(worn_df):
     """
     Function for 2023 cost-per-wear plot.
 
@@ -292,7 +343,7 @@ def plot_cpw():
 
     # read in Google sheet idea
     df = (
-        pd.read_csv("../data/2023TestData.csv")
+        pd.read_csv("../data/2023Data.csv")
         .drop("Timestamp", axis=1)
         .melt("Date")
         .dropna()
