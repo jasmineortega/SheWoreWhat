@@ -236,7 +236,7 @@ def plot_color(worn_df):
         tooltip=["Color", "count()"],
     )
 
-    plot_color = base.mark_arc(innerRadius=1)  # , stroke="#e3e1de")
+    plot_color = base.mark_arc(innerRadius=0, opacity=0.80)
     return plot_color
 
 
