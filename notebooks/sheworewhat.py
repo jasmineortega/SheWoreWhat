@@ -161,9 +161,9 @@ def complete_df(closet, path="../data/2023Data.csv"):
 
 
 def plot_mostworn(worn_df):
-    most_worn = worn_df.nlargest(15, columns="Count")
+    most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
-        alt.Chart(most_worn, title="Twn Most Worn Pieces in 2023")
+        alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(color="#bb8c9d")
         .encode(
             alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
@@ -236,8 +236,10 @@ def plot_color(worn_df):
         tooltip=["Color", "count()"],
     )
 
-    plot_color = base.mark_arc(innerRadius=0, opacity=0.80).configure_view(
-        strokeWidth=0
+    plot_color = (
+        base.mark_arc(innerRadius=0, opacity=0.80)
+        .configure_view(strokeWidth=0)
+        .configure_title(color="#706f6c")
     )
     return plot_color
 
@@ -302,7 +304,7 @@ def plot_bought(worn_df):
         plot : altair.Chart
             Pie chart of secondhand vs new closet composition.
     """
-    base = alt.Chart(worn_df, title="Closet Categories").encode(
+    base = alt.Chart(worn_df, title="Clothing Composition").encode(
         theta=alt.Theta("count()", stack=True),
         color="Bought",
         tooltip=["Bought", "count()"],
