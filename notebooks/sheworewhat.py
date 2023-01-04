@@ -176,6 +176,70 @@ def plot_mostworn(worn_df):
     return closet_comp
 
 
+def plot_color(worn_df):
+    """
+    Function for color composition of color.
+
+    Parameters:
+    -----------
+        worn_df : pandas.DataFrame
+
+    Returns:
+    --------
+        plot : altair.Chart
+            Pie chart of colors present in closet.
+    """
+    color_df = pd.concat(
+        [
+            worn_df[["ID", "Item", "Count", "Category"]],
+            worn_df["Color"].str.split(",", n=2, expand=True),
+        ],
+        axis=1,
+    )
+
+    color_df = color_df.melt(
+        id_vars=["ID"], value_vars=[0], var_name="former_column", value_name="Color"
+    ).fillna("Delete")
+
+    # only keep multiple colors if present
+    color_df = color_df[color_df["Color"] != "Delete"]
+
+    base = alt.Chart(color_df, title="Color Composition of 2023 Closet").encode(
+        theta=alt.Theta("count()", stack=True),
+        color=alt.Color(
+            "Color",
+            scale=alt.Scale(
+                range=[
+                    "#edc59a",  # beige
+                    "#1a1919",  # black
+                    "#455ad1",  # blue
+                    "#422d08",  # brown
+                    "#6e353a",  # burgundy
+                    "#9c501e",  # clay
+                    "#ffffcc",  # cream
+                    "#dbbb07",  # gold
+                    "#6e6e6e",  # gray
+                    "#056e0e",  # green
+                    "#c2addb",  # lavender
+                    "#243763",  # navy
+                    "#fa9c3e",  # orange
+                    "#e872cc",  # pink,
+                    "#ff2930",  # red
+                    "#bdb3b4",  # silver
+                    "#ab8f72",  # tan
+                    "#ffffff",  # white
+                    "#faf20a",  # yellow
+                ]
+            ),
+            legend=None,
+        ),
+        tooltip=["Color", "count()"],
+    )
+
+    plot_color = base.mark_arc(innerRadius=1)  # , stroke="#e3e1de")
+    return plot_color
+
+
 def plot_facet(worn_df):
     """
     Function to plot top 5 most worn items per clothing category.
