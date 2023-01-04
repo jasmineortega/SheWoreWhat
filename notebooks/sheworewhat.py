@@ -255,6 +255,12 @@ def plot_categories(worn_df):
         plot : altair.Chart
             Pie chart of clothing categories present in closet.
     """
+    worn_df["Bought"] = worn_df["Bought"].str.replace(
+        "Secondhand, Thrifted", "Thrifted"
+    )
+    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Depop", "Vintage")
+    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Gifted", "Gifted")
+
     base = alt.Chart(worn_df, title="Closet Categories").encode(
         theta=alt.Theta("count()", stack=True),
         color="Category",
