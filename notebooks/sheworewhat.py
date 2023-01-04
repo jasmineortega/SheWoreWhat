@@ -236,8 +236,46 @@ def plot_color(worn_df):
         tooltip=["Color", "count()"],
     )
 
-    plot_color = base.mark_arc(innerRadius=0, opacity=0.80)
+    plot_color = base.mark_arc(innerRadius=0, opacity=0.80).configure_view(
+        strokeWidth=0
+    )
     return plot_color
+
+
+def plot_categories(worn_df):
+    """
+    Function for categorial composition of closet
+
+    Parameters:
+    -----------
+        worn_df : pandas.DataFrame
+
+    Returns:
+    --------
+        plot : altair.Chart
+            Pie chart of clothing categories present in closet.
+    """
+    base = alt.Chart(worn_df, title="Closet Categoies").encode(
+        theta=alt.Theta("count()", stack=True),
+        color="Category",
+        tooltip=["Category", "count()"],
+    )
+
+    cat = base.mark_arc(innerRadius=0, opacity=0.85)
+    txt = base.mark_text(radius=185, size=15).encode(
+        alt.Color(
+            "Category",
+            scale=alt.Scale(
+                range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#e0ddd5", "#bfae8f"]
+            ),
+            legend=None,
+        ),
+        text="Category",
+    )
+
+    plot_categories = cat + txt
+    plot_categories = plot_categories.configure_view(strokeWidth=0)
+    return plot_categories
 
 
 def plot_facet(worn_df):
