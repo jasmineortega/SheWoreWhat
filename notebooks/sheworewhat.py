@@ -255,14 +255,14 @@ def plot_categories(worn_df):
         plot : altair.Chart
             Pie chart of clothing categories present in closet.
     """
-    base = alt.Chart(worn_df, title="Closet Categoies").encode(
+    base = alt.Chart(worn_df, title="Closet Categories").encode(
         theta=alt.Theta("count()", stack=True),
         color="Category",
         tooltip=["Category", "count()"],
     )
 
     cat = base.mark_arc(innerRadius=0, opacity=0.85)
-    txt = base.mark_text(radius=185, size=15).encode(
+    txt = base.mark_text(radius=130, size=15).encode(
         alt.Color(
             "Category",
             scale=alt.Scale(
@@ -274,8 +274,53 @@ def plot_categories(worn_df):
     )
 
     plot_categories = cat + txt
-    plot_categories = plot_categories.configure_view(strokeWidth=0)
+    plot_categories = (
+        plot_categories.configure_view(strokeWidth=0)
+        .properties(height=200, width=600)
+        .configure_title(color="#706f6c")
+    )
+
     return plot_categories
+
+
+def plot_bought(worn_df):
+    """
+    Function for secondhand vs new closet composition.
+
+    Parameters:
+    -----------
+        worn_df : pandas.DataFrame
+
+    Returns:
+    --------
+        plot : altair.Chart
+            Pie chart of secondhand vs new closet composition.
+    """
+    base = alt.Chart(worn_df, title="Closet Categories").encode(
+        theta=alt.Theta("count()", stack=True),
+        color="Bought",
+        tooltip=["Bought", "count()"],
+    )
+
+    cat = base.mark_arc(innerRadius=0, opacity=0.85)
+    txt = base.mark_text(angle=20, radius=127, size=15).encode(
+        alt.Color(
+            "Bought",
+            scale=alt.Scale(
+                range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#e0ddd5", "#bfae8f"]
+            ),
+            legend=None,
+        ),
+        text="Bought",
+    )
+
+    plot_bought = cat + txt
+    plot_bought = (
+        plot_bought.configure_view(strokeWidth=0)
+        .properties(height=200, width=600)
+        .configure_title(color="#706f6c")
+    )
+    return plot_bought
 
 
 def plot_facet(worn_df):
