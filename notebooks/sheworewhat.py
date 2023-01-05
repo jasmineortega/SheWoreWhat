@@ -279,7 +279,7 @@ def plot_categories(worn_df):
     )
 
     cat = base.mark_arc(innerRadius=0, opacity=0.80)
-    txt = base.mark_text(radius=175, size=15).encode(
+    txt = base.mark_text(radius=177, size=15).encode(
         alt.Color(
             "Category",
             scale=alt.Scale(
