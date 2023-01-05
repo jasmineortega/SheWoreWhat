@@ -164,7 +164,12 @@ def plot_mostworn(worn_df):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
-        .mark_bar(color="#bb8c9d", cornerRadiusBottomRight=10, cornerRadiusTopRight=10)
+        .mark_bar(
+            color="#bb8c9d",
+            cornerRadiusBottomRight=10,
+            cornerRadiusTopRight=10,
+            opacity=0.85,
+        )
         .encode(
             alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
@@ -274,7 +279,7 @@ def plot_categories(worn_df):
     )
 
     cat = base.mark_arc(innerRadius=0, opacity=0.80)
-    txt = base.mark_text(radius=130, size=15).encode(
+    txt = base.mark_text(radius=175, size=15).encode(
         alt.Color(
             "Category",
             scale=alt.Scale(
@@ -288,7 +293,6 @@ def plot_categories(worn_df):
     plot_categories = cat + txt
     plot_categories = (
         plot_categories.configure_view(strokeWidth=0)
-        .properties(height=200, width=600)
         .configure_title(color="#706f6c")
         .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
     )
@@ -326,11 +330,13 @@ def plot_bought(worn_df):
         .encode(
             alt.X("count()", title="Count"),
             alt.Y("Bought", sort="-x"),
+            tooltip="count()",
         )
         .configure_title(color="#706f6c")
         .configure_axis(
             grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
         )
+        .properties(height=200)
     )
     return plot
 
@@ -483,7 +489,7 @@ def plot_heatmap(top_10, df, i=0):
         .mark_rect(
             stroke="white",
             strokeWidth=3,
-            opacity=0.9,
+            opacity=0.85,
         )
         .encode(
             alt.X(
@@ -553,7 +559,7 @@ def plot_cpw(worn_df):
 
     plot = (
         alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
-        .mark_circle(opacity=0.80)
+        .mark_circle(opacity=0.85)
         .encode(
             alt.X("Price"),
             alt.Y("Count", title="Times Worn"),
