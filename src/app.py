@@ -16,7 +16,7 @@ server = app.server
 
 app.title = "She Wore What 2023"
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])  # QUARTZ OR LUX
+app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 app.layout = dbc.Container(
     [
         html.Br(),
@@ -38,7 +38,7 @@ app.layout = dbc.Container(
                             "trends so I can make smarter decisions about my purchases in the future.",
                         )
                     ],
-                    width={"size": 6},
+                    width={"size": 6, "offset": 3},
                 )
             ]
         ),
@@ -55,59 +55,26 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
-                                                            html.Br(),
-                                                            html.Br(),
+                                                            html.H4("The process"),
                                                             html.P(
-                                                                "The first thing I did was log everything in my closet. "
-                                                                "A tedious process, but in the end I had {y} pieces."
-                                                                "The majority of my closet is black or white."
-                                                                "Colors represented in my closet -- need to add secondary colors."
+                                                                "The first thing I did was take stock of everything in my closet -- "
+                                                                "all {x} pieces. The most popular colors in my closet were black and white"
+                                                                " -- need to add secondary colors still and also these numbers dont add up (87 colors and 93 items?)."
                                                             ),
+                                                            html.Br(),
                                                         ],
                                                         width={"size": 6, "offset": 3},
                                                     ),
-                                                    dbc.Row(
-                                                        [
-                                                            dbc.Col(
-                                                                [
-                                                                    html.P(
-                                                                        "In 2023, I added {x} new items to my closet. Of these items, "
-                                                                        "__% of the items were pre-loved (obtained through secondhand "
-                                                                        "stores or hand me down. It's my goal for 90% of my closet to be secondhand!"
-                                                                    )
-                                                                ],
-                                                                width={"offset": 3},
-                                                            ),
-                                                            #                                         dbc.Col[(
-                                                            #                                                 html.H4("Well done!")
-                                                            #                                         )],
-                                                            dbc.Col(
-                                                                [
-                                                                    html.Div(
-                                                                        [
-                                                                            html.Iframe(
-                                                                                id="new-items",
-                                                                                style={
-                                                                                    "border-width": "0",
-                                                                                    "width": "100%",
-                                                                                    "height": "400px",
-                                                                                },
-                                                                                srcDoc=sww.plot_color(
-                                                                                    worn_df
-                                                                                ).to_html(),
-                                                                            )
-                                                                        ]
-                                                                    )
-                                                                ]
-                                                            ),
-                                                        ]
-                                                    ),
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
                                                     dbc.Col(
                                                         [
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
-                                                                        id="color",
+                                                                        id="color_composition",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
@@ -119,8 +86,9 @@ app.layout = dbc.Container(
                                                                     )
                                                                 ]
                                                             )
-                                                        ]
-                                                    ),
+                                                        ],
+                                                        width={"size": 6, "offset": 4},
+                                                    )
                                                 ]
                                             ),
                                             dbc.Row(
@@ -152,7 +120,8 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
-                                                                "I own a lot of tops and very few coats."
+                                                                "There was a lot of interesting patterns to deduce from my existing closet."
+                                                                "For example, almost all my tops are secondhands while all my pants were purchased brand-new."
                                                             ),
                                                         ],
                                                         width={"size": 3},
@@ -181,6 +150,44 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "In 2023, I added {x} new items to my closet. Of these items, "
+                                                                "__% of the items were pre-loved (obtained through secondhand "
+                                                                "stores or hand me down. It's my goal for 90% of my closet to be secondhand!"
+                                                            )
+                                                        ],
+                                                        width={"size": 6, "offset": 3},
+                                                    )
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="facet-items",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=sww.plot_facet(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ],
+                                                        width={"size": 6, "offset": 3},
+                                                    )
+                                                ]
+                                            ),
                                         ],
                                         title="Wardrobe Analysis",
                                     ),
@@ -190,8 +197,8 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
-                                                            html.P(
-                                                                "My top 10 most worn items ..."
+                                                            html.H4(
+                                                                "Top 10 Most Worn Items"
                                                             )
                                                         ]
                                                     ),
@@ -241,6 +248,56 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item"
+                                                                " so far is my green Hollister Puffer jacket. Winter was especially brutal in 2023, which also "
+                                                                "explains that my second most worn piece is my Blondo waterproof boots!"
+                                                            ),
+                                                            html.P(
+                                                                "While this data is interesting, it's too general to learn which items are considered core staples."
+                                                                " Let's take a peak at the most worn items per category (tops, bottoms, shoes) instead!"
+                                                            ),
+                                                        ]
+                                                    )
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="new-items",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "700px",
+                                                                        },
+                                                                        srcDoc=sww.plot_facet(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ],
+                                                        width={"size": 6},
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "Super interesting insightful data insights"
+                                                            ),
+                                                        ]
+                                                    ),
+                                                ]
+                                            ),
                                         ],
                                         title="Most Worn Items of 2023",
                                     ),
@@ -251,11 +308,15 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.H4("Cost-per-wear"),
                                                             html.P(
-                                                                "Cost-per-wear: price of item / number of time worn"
-                                                                "Please note, the cost-per-wear was only calculated for items for which price"
+                                                                "Cost-per-wear: price of item / number of times worn in a single year"
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "Note: cost-per-wear was only calculated for items for which the price"
                                                                 "was known, including items purchased secondhand. "
-                                                            )
+                                                            ),
                                                         ]
                                                     ),
                                                     dbc.Col(
@@ -283,8 +344,11 @@ app.layout = dbc.Container(
                                         title="Cost Per Wear",
                                     ),
                                     dbc.AccordionItem(
-                                        "This is the content of the third section",
-                                        title="Item 3",
+                                        html.P(
+                                            "This would be a fun section to look at winter/spring/fall/summer trends. "
+                                            "Unfortunately, we are only 15 days into winter so the data is not there yet."
+                                        ),
+                                        title="Seasonal Trends",
                                     ),
                                 ],
                                 start_collapsed=True,
