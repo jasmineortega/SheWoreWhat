@@ -164,13 +164,14 @@ def plot_mostworn(worn_df):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
-        .mark_bar(color="#bb8c9d")
+        .mark_bar(color="#bb8c9d", cornerRadiusBottomRight=10, cornerRadiusTopRight=10)
         .encode(
             alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
             alt.Tooltip("Count"),
         )
         .configure_axis(grid=False, domain=False)
+        .configure_title(color="#706f6c")
     )
 
     return closet_comp
@@ -269,7 +270,7 @@ def plot_categories(worn_df):
         tooltip=["Category", "count()"],
     )
 
-    cat = base.mark_arc(innerRadius=0, opacity=0.85)
+    cat = base.mark_arc(innerRadius=0, opacity=0.80)
     txt = base.mark_text(radius=130, size=15).encode(
         alt.Color(
             "Category",
@@ -293,7 +294,7 @@ def plot_categories(worn_df):
 
 def plot_bought(worn_df):
     """
-    Function for secondhand vs new closet composition.
+    Function for secondhand vs new closet items.
 
     Parameters:
     -----------
@@ -302,33 +303,31 @@ def plot_bought(worn_df):
     Returns:
     --------
         plot : altair.Chart
-            Pie chart of secondhand vs new closet composition.
+            Bar chart of secondhand vs new closet composition.
     """
-    base = alt.Chart(worn_df, title="Clothing Composition").encode(
-        theta=alt.Theta("count()", stack=True),
-        color="Bought",
-        tooltip=["Bought", "count()"],
+    worn_df["Bought"] = worn_df["Bought"].str.replace(
+        "Secondhand, Thrifted", "Thrifted"
     )
+    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Depop", "Vintage")
+    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Gifted", "Gifted")
 
-    cat = base.mark_arc(innerRadius=0, opacity=0.85)
-    txt = base.mark_text(angle=20, radius=127, size=15).encode(
-        alt.Color(
-            "Bought",
-            scale=alt.Scale(
-                range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#e0ddd5", "#bfae8f"]
-            ),
-            legend=None,
-        ),
-        text="Bought",
-    )
-
-    plot_bought = cat + txt
-    plot_bought = (
-        plot_bought.configure_view(strokeWidth=0)
-        .properties(height=200, width=600)
+    plot = (
+        alt.Chart(worn_df, title="New vs Secondhand Items")
+        .mark_bar(
+            color="#bfae8f",
+            cornerRadiusBottomRight=10,
+            cornerRadiusTopRight=10,
+            opacity=0.85,
+        )
+        .encode(
+            alt.X("count()", title="Count"),
+            alt.Y("Bought", sort="-x"),
+        )
         .configure_title(color="#706f6c")
+        .configure_axis(grid=False, domain=False)
+        .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
     )
-    return plot_bought
+    return plot
 
 
 def plot_facet(worn_df):
@@ -373,7 +372,11 @@ def plot_facet(worn_df):
     row1 = alt.hconcat(cat_plots[0], cat_plots[1], cat_plots[2])
     row2 = alt.hconcat(cat_plots[3], cat_plots[4], cat_plots[5])
 
-    category_plot = alt.vconcat(row1, row2).configure_axis(grid=False, domain=False)
+    category_plot = (
+        alt.vconcat(row1, row2)
+        .configure_axis(grid=False, domain=False)
+        .configure_title(color="#706f6c")
+    )
     return category_plot
 
 
@@ -492,6 +495,7 @@ def plot_heatmap(top_10, df, i=0):
         )
         .properties(height=200, width=600)
         .configure_axis(grid=False, domain=False)
+        .configure_title(color="#706f6c")
     )
     return heat_plot
 
@@ -561,6 +565,7 @@ def plot_cpw(worn_df):
             alt.Tooltip(["Name", "Category", "CPW"]),
         )
         .configure_axis(grid=False)
+        .configure_title(color="#706f6c")
     )
 
     return plot
