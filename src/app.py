@@ -2,9 +2,10 @@ from dash import Dash, html, dcc, Input, Output
 import altair as alt
 import dash_bootstrap_components as dbc
 import pandas as pd
-import sheworewhat as sww
+import numpy as np
 
-alt.data_transformers.disable_max_rows()
+
+import sheworewhat as sww
 
 closet = sww.closet_df()
 worn_df = sww.complete_df(closet)
@@ -44,13 +45,158 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(
-                    [  #
+                    [
                         html.Div(
                             dbc.Accordion(
                                 [
-                                    # top 10 plots + facet plots
                                     dbc.AccordionItem(
                                         [
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "The first thing I did was log everything in my closet. "
+                                                                "A tedious process, but in the end I had {y} pieces."
+                                                                "The majority of my closet is black or white."
+                                                                "Colors represented in my closet -- need to add secondary colors."
+                                                            ),
+                                                        ],
+                                                        width={"size": 6, "offset": 3},
+                                                    ),
+                                                    dbc.Row(
+                                                        [
+                                                            dbc.Col(
+                                                                [
+                                                                    html.P(
+                                                                        "In 2023, I added {x} new items to my closet. Of these items, "
+                                                                        "__% of the items were pre-loved (obtained through secondhand "
+                                                                        "stores or hand me down. It's my goal for 90% of my closet to be secondhand!"
+                                                                    )
+                                                                ],
+                                                                width={"offset": 3},
+                                                            ),
+                                                            #                                         dbc.Col[(
+                                                            #                                                 html.H4("Well done!")
+                                                            #                                         )],
+                                                            dbc.Col(
+                                                                [
+                                                                    html.Div(
+                                                                        [
+                                                                            html.Iframe(
+                                                                                id="new-items",
+                                                                                style={
+                                                                                    "border-width": "0",
+                                                                                    "width": "100%",
+                                                                                    "height": "400px",
+                                                                                },
+                                                                                srcDoc=sww.plot_color(
+                                                                                    worn_df
+                                                                                ).to_html(),
+                                                                            )
+                                                                        ]
+                                                                    )
+                                                                ]
+                                                            ),
+                                                        ]
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="color",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=sww.plot_color(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ]
+                                                    ),
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="catwheel",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=sww.plot_categories(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
+                                                            ),
+                                                        ]
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "I own a lot of tops and very few coats."
+                                                            ),
+                                                        ],
+                                                        width={"size": 3},
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="bought",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=sww.plot_bought(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
+                                                            ),
+                                                        ]
+                                                    ),
+                                                ]
+                                            ),
+                                        ],
+                                        title="Wardrobe Analysis",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "My top 10 most worn items ..."
+                                                            )
+                                                        ]
+                                                    ),
+                                                ]
+                                            ),
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
@@ -62,72 +208,16 @@ app.layout = dbc.Container(
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
-                                                                            "height": "400px",
+                                                                            "height": "300px",
                                                                         },
                                                                         srcDoc=sww.plot_mostworn(
                                                                             worn_df
                                                                         ).to_html(),
-                                                                    ),
+                                                                    )
                                                                 ]
                                                             ),
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "My top 10 most worn items of the year. Some of these seem"
-                                                                " obvious -- my Hollister puffer coat is my go-to winter coat. My gold brand "
-                                                                "hoop earrings are a daily staple. But this plot doesn't tell us much on it's own"
-                                                                "let's break down the items by category. "
-                                                                "Note to self: would be cool to insert images here"
-                                                            ),
-                                                        ]
-                                                    ),
-                                                ]
-                                            ),
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [html.Br(), html.P("Facets!")]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="top5_cat",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "800px",
-                                                                        },
-                                                                        srcDoc=sww.plot_facet(
-                                                                            worn_df
-                                                                        ).to_html(),
-                                                                    ),
-                                                                ]
-                                                            ),
-                                                        ]
-                                                    ),
-                                                ]
-                                            ),
-                                        ],
-                                        title="Most Worn Items Overall",
-                                    ),
-                                    dbc.AccordionItem(
-                                        [
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "Fun little heatmap of the top 10 items -- need to work on drop down menu."
-                                                            ),
-                                                        ]
+                                                        ],
+                                                        width={"size": 5},
                                                     ),
                                                     dbc.Col(
                                                         [
@@ -152,7 +242,7 @@ app.layout = dbc.Container(
                                                 ]
                                             ),
                                         ],
-                                        title="Item Heatmap Throughout 2023",
+                                        title="Most Worn Items of 2023",
                                     ),
                                     # cost per wear
                                     dbc.AccordionItem(
@@ -177,7 +267,7 @@ app.layout = dbc.Container(
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
-                                                                            "height": "400px",
+                                                                            "height": "425px",
                                                                         },
                                                                         srcDoc=sww.plot_cpw(
                                                                             worn_df
@@ -209,7 +299,7 @@ app.layout = dbc.Container(
 )
 
 if __name__ == "__main__":
-    app.run_server(port=8078, debug=False)
+    app.run_server(port=8076, debug=False)
 
 # for running remotely
 # if __name__ == "__main__":
