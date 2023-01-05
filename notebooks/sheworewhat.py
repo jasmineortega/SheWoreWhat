@@ -170,8 +170,10 @@ def plot_mostworn(worn_df):
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
             alt.Tooltip("Count"),
         )
-        .configure_axis(grid=False, domain=False)
         .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
     )
 
     return closet_comp
@@ -241,6 +243,7 @@ def plot_color(worn_df):
         base.mark_arc(innerRadius=0, opacity=0.80)
         .configure_view(strokeWidth=0)
         .configure_title(color="#706f6c")
+        .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
     )
     return plot_color
 
@@ -287,6 +290,7 @@ def plot_categories(worn_df):
         plot_categories.configure_view(strokeWidth=0)
         .properties(height=200, width=600)
         .configure_title(color="#706f6c")
+        .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
     )
 
     return plot_categories
@@ -324,8 +328,9 @@ def plot_bought(worn_df):
             alt.Y("Bought", sort="-x"),
         )
         .configure_title(color="#706f6c")
-        .configure_axis(grid=False, domain=False)
-        .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
+        .configure_axis(
+            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+        )
     )
     return plot
 
@@ -374,7 +379,9 @@ def plot_facet(worn_df):
 
     category_plot = (
         alt.vconcat(row1, row2)
-        .configure_axis(grid=False, domain=False)
+        .configure_axis(
+            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+        )
         .configure_title(color="#706f6c")
     )
     return category_plot
@@ -494,7 +501,9 @@ def plot_heatmap(top_10, df, i=0):
             alt.Tooltip(["Date", "Day"]),
         )
         .properties(height=200, width=600)
-        .configure_axis(grid=False, domain=False)
+        .configure_axis(
+            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+        )
         .configure_title(color="#706f6c")
     )
     return heat_plot
@@ -564,7 +573,7 @@ def plot_cpw(worn_df):
             alt.Size("CPW", legend=None),
             alt.Tooltip(["Name", "Category", "CPW"]),
         )
-        .configure_axis(grid=False)
+        .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
     )
 
