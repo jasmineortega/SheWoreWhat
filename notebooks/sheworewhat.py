@@ -576,7 +576,7 @@ def plot_cpw(worn_df):
                     ]
                 ),
             ),
-            alt.Size("CPW", legend=None),
+            # alt.Size("CPW", legend=None),
             alt.Tooltip(["Name", "Category", "CPW"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
