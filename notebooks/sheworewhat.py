@@ -103,7 +103,7 @@ def closet_cat(df):
     return acc_df, bottom_df, fb_df, out_df, shoes_df, top_df
 
 
-def complete_df(closet, path="../data/2023Data.csv"):
+def worn(closet, path="../data/2023Data.csv"):
     """
     Function to merge raw closet data and collected 2023 data.
 
@@ -112,12 +112,12 @@ def complete_df(closet, path="../data/2023Data.csv"):
         closet : pandas.DataFrame
             Dataframe containing complete closet log.
         path : string
-            String containing path of CSV of collected data.
+            Path to CSV containing 2023 collected outfit data.
 
     Returns
     -------
-        complete_df : pandas.DataFrame
-            Dataframe containing "ID", "Name", "count", "Item",
+        worn_df : pandas.DataFrame
+            Complete and standardized dataframe containing "ID", "Name", "count", "Item",
             "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
 
@@ -157,7 +157,7 @@ def complete_df(closet, path="../data/2023Data.csv"):
     complete_df = complete_df.fillna(0).rename(columns={"count": "Count"})
     complete_df["Count"] = complete_df["Count"].astype(int)
 
-    return complete_df
+    return worn_df
 
 
 def plot_mostworn(worn_df):
@@ -191,7 +191,7 @@ def plot_color(worn_df):
     Parameters:
     -----------
         worn_df : pandas.DataFrame
-
+            Standardized dataframe obtained from worn function.
     Returns:
     --------
         plot : altair.Chart
@@ -255,12 +255,12 @@ def plot_color(worn_df):
 
 def plot_categories(worn_df):
     """
-    Function for categorial composition of closet
+    Function for categorial composition of closet.
 
     Parameters:
     -----------
         worn_df : pandas.DataFrame
-
+            Standardized dataframe obtained from worn function.
     Returns:
     --------
         plot : altair.Chart
@@ -348,7 +348,7 @@ def plot_facet(worn_df):
     Parameters:
     ----------
         worn_df : pandas.DataFrame
-            Df containing 2023 closet log data, generated from complete_closet function.
+            Standardized dataframe obtained from worn function.
 
     Returns:
     --------
@@ -446,6 +446,8 @@ def plot_heatmap(top_10, df, i=0):
          df : pandas.DataFrame
             Dataframe obtained from top_10_df containing count and ID of most worn items.
 
+        i : int
+            Positional number of the item to plot (0-9 for top 10)
     Returns:
     --------
         heatplot : altair.Chart
