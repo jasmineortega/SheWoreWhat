@@ -235,7 +235,7 @@ def plot_color(worn_df):
                     "#ff2930",  # red
                     "#bdb3b4",  # silver
                     "#ab8f72",  # tan
-                    "#ffffff",  # white
+                    "#faf9f6",  # white
                     "#faf20a",  # yellow
                 ]
             ),
