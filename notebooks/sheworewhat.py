@@ -135,9 +135,9 @@ def worn(closet, path="../data/2023Data.csv"):
     )
 
     # left join closet + df
-    complete_df = pd.merge(closet, form_counts, how="left", on="ID")
-    complete_df["Name"] = complete_df["Brand"] + " " + complete_df["Item"]
-    complete_df = complete_df[
+    worn_df = pd.merge(closet, form_counts, how="left", on="ID")
+    worn_df["Name"] = worn_df["Brand"] + " " + worn_df["Item"]
+    worn_df = worn_df[
         [
             "ID",
             "Name",
@@ -154,8 +154,8 @@ def worn(closet, path="../data/2023Data.csv"):
             "Price",
         ]
     ]
-    complete_df = complete_df.fillna(0).rename(columns={"count": "Count"})
-    complete_df["Count"] = complete_df["Count"].astype(int)
+    worn_df = worn_df.fillna(0).rename(columns={"count": "Count"})
+    worn_df["Count"] = worn_df["Count"].astype(int)
 
     return worn_df
 
@@ -421,7 +421,7 @@ def top_10_df(path="../data/2023Data.csv"):
 
     # data wrangling to select top 10 most worn items
     closet = closet_df()
-    worn_df = complete_df(closet)
+    worn_df = worn(closet)
     most_worn = worn_df.nlargest(10, columns="Count")
 
     # merge dataframes
@@ -560,13 +560,14 @@ def plot_cpw(worn_df):
         ]
     ]
     complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(2)
+    complete_df["Cost Per Wear"] = "$" + complete_df["CPW"].astype(str) + "0"
 
     plot = (
         alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
         .mark_circle(opacity=0.85)
         .encode(
-            alt.X("Price"),
-            alt.Y("Count", title="Times Worn"),
+            alt.X("Price", scale=alt.Scale(domain=(0, 200))),
+            alt.Y("Count", scale=alt.Scale(domain=(0, 16)), title="Times Worn"),
             alt.Color(
                 "Category",
                 scale=alt.Scale(
@@ -580,8 +581,8 @@ def plot_cpw(worn_df):
                     ]
                 ),
             ),
-            # alt.Size("CPW", legend=None),
-            alt.Tooltip(["Name", "Category", "CPW"]),
+            alt.Size("CPW", scale=alt.Scale(domain=[0, 35]), legend=None),
+            alt.Tooltip(["Name", "Category", "Cost Per Wear"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
