@@ -307,7 +307,7 @@ def plot_bought(worn_df):
     Parameters:
     -----------
         worn_df : pandas.DataFrame
-
+            Standardized closet dataframe obtained via the worn function.
     Returns:
     --------
         plot : altair.Chart
@@ -440,9 +440,11 @@ def plot_heatmap(top_10, df, i=0):
     Parameters:
     -----------
          top_10 : list
-            List containing the IDs of the top 10 most worn items.
+            List containing the IDs of the top 10 most worn items,
+            obtained from top_10_df function
 
          df : pandas.DataFrame
+            Dataframe obtained from top_10_df containing count and ID of most worn items.
 
     Returns:
     --------
