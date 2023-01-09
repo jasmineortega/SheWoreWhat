@@ -8,7 +8,7 @@ import numpy as np
 import sheworewhat as sww
 
 closet = sww.closet_df()
-worn_df = sww.complete_df(closet)
+worn_df = sww.worn(closet)
 top_10, heat_df = sww.top_10_df()
 
 app = Dash(__name__)
@@ -377,7 +377,7 @@ app.layout = dbc.Container(
 )
 
 if __name__ == "__main__":
-    app.run_server(port=8071, debug=False)
+    app.run_server(port=8073, debug=False)
 
 # for running remotely
 # if __name__ == "__main__":
