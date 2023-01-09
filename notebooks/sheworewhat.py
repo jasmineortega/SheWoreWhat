@@ -559,7 +559,7 @@ def plot_cpw(worn_df):
             "Price",
         ]
     ]
-    complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(2)
+    complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(1)
     complete_df["Cost Per Wear"] = "$" + complete_df["CPW"].astype(str) + "0"
 
     plot = (
