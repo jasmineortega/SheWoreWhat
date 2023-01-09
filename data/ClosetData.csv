@@ -2,7 +2,7 @@
 Turtleneck,Top,Sweater,Black,Plain,Zara,"Secondhand, Thrifted",cheap,,
 Tropical Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
 Leopard Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
-Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,
+Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,50
 Shirt,Top,Shirt,"Black, White",Cheetah,Free People,"Secondhand, Depop",cheap,,
 Body Suit,Top,Shirt,Black,Plain,Express,New,cheap,,25
 Body Suit,Top,Shirt,White,Plain,Express,New,cheap,,25
@@ -48,7 +48,7 @@ Sleeveless Mockneck,Top,Tanktop,"Pink, Silver",Plain,By Design,"Secondhand, Thri
 Vest,Top,Vest,White,Plain,No Brand,"Secondhand, Thrifted",cheap,,
 Tank,Top,Tanktop,Yellow,Plain,Weavers Girl,"Secondhand, Thrifted",cheap,,
 Square-neck Tank,Top,Tanktop,Black,Plain,American Eagle,New,cheap,,
-Cutout Tank,Top,Tanktop,Black,Plain,Vero Moda,New,cheap,,
+Cutout Tank,Top,Tanktop,Black,Plain,Vero Moda,New,cheap,,19
 Crewneck Sweater,Top,Sweater,Gray,Logo,Glossier,"Secondhand, Thrifted",cheap,,
 Maxi Dress,Full Body,Dress,Burgundy,Plain,Pull + Bear,New,pricy,,
 Square-neck Dress,Full Body,Dress,Black,Velvet,579,"Secondhand, Thrifted",cheap,,
@@ -88,6 +88,11 @@ Tote Bag,Accessory,Bag,Green,Logo,UBC,New,cheap,,20
 Purse,Accessory,Bag,White,Vintage,No Brand,"Secondhand, Depop",cheap,,20
 Bow,Accessory,Hat,Black,Plain,Target,New,cheap,,10
 Snake Tights,Accessory,Tight,Black,Snake,Amazon,New,cheap,,21
-Purse,Accessory,Bag,Silver,Rhinestone,Francesca's,New,pricy,,60
+Purse,Accessory,Bag,Silver,Rhinestone,Francesca's,New,pricy,,
 Jean Jacket,Outerwear,Coat,Black,Plain,Levi's,New,pricy,,
 Star Earrings,Accessory,Jewelry,"Blue, Silver",Plain,No Brand,"Secondhand, Gifted",cheap,,
+Baseball Cap,Accessory,Hat,White,Logo,Taylor Swift,New,pricy,,35
+Baseball Cap,Accessory,Hat,White,Logo,Davis Farmer's Market,New,cheap,,
+Sunglasses,Accessory,Glasses,"Black, Gold",Plain,Ray-Ban,New,expensive,,160
+Tights,Accessory,Tight,Black,Plain,H&M,New,cheap,,
+Workout Tank,Top,Tanktop,"Pink, White",Floral,EVCR,New,cheap,,
