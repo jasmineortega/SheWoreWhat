@@ -473,7 +473,7 @@ def plot_heatmap(top_10, df, i=0):
     week = time_df["Date"].dt.isocalendar()
     year["Week"] = week["week"].fillna(52)
     year["Week"] = year["Week"].fillna(52)
-    year["First_day"] = year["Date"] - year["Date"].dt.weekday * np.timedelta64(1, "D")
+    year["First_day"] = year["Date"].dt.to_period("W-SAT").dt.start_time
     week = time_df["Date"].dt.strftime("%m-%d-%y")
     year["Week"] = year["First_day"].dt.strftime("%m-%d")
     year = year[["Date", "Day", "Item", "ID", "Bool", "Week"]]
@@ -515,6 +515,7 @@ def plot_heatmap(top_10, df, i=0):
             grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
         )
         .configure_title(color="#706f6c")
+        .configure_view(strokeWidth=0)
     )
     return heat_plot
 
