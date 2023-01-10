@@ -426,11 +426,13 @@ def top_10_df(path="../data/2023Data.csv"):
 
     # merge dataframes
     df = pd.merge(closet, df, how="right", on="ID")
+    top_id = most_worn["ID"].to_list()
+    top_item = (most_worn["Brand"] + " " + most_worn["Item"]).to_list()
+
+    top_10 = dict(zip(top_id, top_item))
     df = df[["ID", "Item", "Color", "Pattern", "Category", "Date", "Brand"]]
 
-    top_10 = most_worn["ID"].to_list()
-
-    return top_10, df
+    return top_10, top_id, top_item, df  # not sure which one i need yet lol
 
 
 def plot_heatmap(top_10, df, i=0):
