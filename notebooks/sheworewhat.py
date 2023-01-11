@@ -253,6 +253,60 @@ def plot_color(worn_df):
     return plot_color
 
 
+def plot_newitems(worn_df):
+    """
+    Plots new items purchased in 2023.
+
+    Parameters:
+    -----------
+        worn_df : pandas.DataFrame
+            Standardized dataframe obtained from worn function.
+    Returns:
+    --------
+        plot : altair.Chart
+            Pie chart of new items purchased in 2023.
+    """
+    # change this to "Yes"
+    new_2023 = worn_df.loc[worn_df["2023"] == "No"]
+    new_2023["Bought"] = new_2023["Bought"].str.replace(
+        "Secondhand, Thrifted", "Thrifted"
+    )
+    new_2023["Bought"] = new_2023["Bought"].str.replace("Secondhand, Depop", "Vintage")
+    new_2023["Bought"] = new_2023["Bought"].str.replace("Secondhand, Gifted", "Gifted")
+    new_2023["Secondhand"] = [
+        "New" if i == "New" else "Secondhand" for i in new_2023["Bought"]
+    ]
+
+    plot = (
+        alt.Chart(new_2023, title="New Items Purchased in 2023")
+        .mark_arc()
+        .encode(
+            theta=alt.Theta("count()", stack=True),
+            color=alt.Color(
+                "Bought",
+                scale=alt.Scale(
+                    range=[
+                        "#bb8c9d",
+                        "#9a8ca6",
+                        "#8ba88a",
+                        "#5bccc1",
+                        "#e0ddd5",
+                        "#bfae8f",
+                    ]
+                ),
+            ),
+            tooltip=["Bought", "count()"],
+        )
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+        )
+        .configure_view(strokeWidth=0)
+    )
+
+    return plot
+
+
 def plot_categories(worn_df):
     """
     Function for categorial composition of closet.
