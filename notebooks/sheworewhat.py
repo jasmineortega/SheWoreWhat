@@ -318,18 +318,22 @@ def plot_bought(worn_df):
     )
     worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Depop", "Vintage")
     worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Gifted", "Gifted")
+    worn_df["Secondhand"] = [
+        "New" if i == "New" else "Secondhand" for i in worn_df["Bought"]
+    ]
 
     plot = (
         alt.Chart(worn_df, title="New vs Secondhand Items")
-        .mark_bar(
-            color="#bfae8f",
-            cornerRadiusBottomRight=10,
-            cornerRadiusTopRight=10,
-            opacity=0.85,
-        )
+        .mark_bar(cornerRadiusBottomRight=10, cornerRadiusTopRight=10, opacity=0.85)
         .encode(
             alt.X("count()", title="Count"),
-            alt.Y("Bought", sort="-x"),
+            alt.Y("Secondhand", sort="-x"),
+            alt.Color(
+                "Bought",
+                scale=alt.Scale(
+                    range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#7c9e7b"]
+                ),
+            ),
             tooltip="count()",
         )
         .configure_title(color="#706f6c")
@@ -404,9 +408,10 @@ def top_10_df(path="../data/2023Data.csv"):
 
     Returns:
     --------
-        top_10 : list
+        top_id : list
             List containing the IDs of the top 10 most worn items.
-
+        top_item : list
+            List containing the item names of the top 10 most worn items.
         df : pandas.DataFrame
             Dataframe containing data only for top 10 most worn items.
     """
@@ -429,13 +434,12 @@ def top_10_df(path="../data/2023Data.csv"):
     top_id = most_worn["ID"].to_list()
     top_item = (most_worn["Brand"] + " " + most_worn["Item"]).to_list()
 
-    top_10 = dict(zip(top_id, top_item))
     df = df[["ID", "Item", "Color", "Pattern", "Category", "Date", "Brand"]]
 
-    return top_10, top_id, top_item, df  # not sure which one i need yet lol
+    return top_id, top_item, df
 
 
-def plot_heatmap(top_10, df, i=0):
+def plot_heatmap(top_10, df, z=0):
     """
     Function for heatmap plot. This is some knarly code I apologize.
 
@@ -462,7 +466,7 @@ def plot_heatmap(top_10, df, i=0):
     time_df["Date"] = pd.date_range(df["Date"].min(), periods=365)
     time_df["Day"] = time_df["Date"].dt.day_name()
 
-    heatmap_data = df.loc[df["ID"] == top_10[i]]  # need to make this dynamic in plot
+    heatmap_data = df.loc[df["ID"] == top_10[z]]  # need to make this dynamic in plot
     item_name = heatmap_data["Brand"].iloc[0] + " " + heatmap_data["Item"].iloc[0]
 
     # isolate item data
