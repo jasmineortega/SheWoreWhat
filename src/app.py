@@ -9,7 +9,7 @@ import sheworewhat as sww
 
 closet = sww.closet_df()
 worn_df = sww.worn(closet)
-top_10, heat_df = sww.top_10_df()
+top_id, top_item, heat_df = sww.top_10_df()
 
 app = Dash(__name__)
 server = app.server
@@ -244,18 +244,30 @@ app.layout = dbc.Container(
                                                         [
                                                             html.Div(
                                                                 [
+                                                                    dcc.Dropdown(
+                                                                        id="select-item",
+                                                                        options=[
+                                                                            {
+                                                                                "label": item,
+                                                                                "value": i,
+                                                                            }
+                                                                            for i, item in enumerate(
+                                                                                top_item
+                                                                            )
+                                                                        ],
+                                                                    ),
                                                                     html.Iframe(
-                                                                        id="heatmap",
+                                                                        id="heatmap_item",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
-                                                                            "height": "300px",
+                                                                            "height": "400px",
                                                                         },
                                                                         srcDoc=sww.plot_heatmap(
-                                                                            top_10,
+                                                                            top_id,
                                                                             heat_df,
                                                                         ).to_html(),
-                                                                    )
+                                                                    ),
                                                                 ]
                                                             ),
                                                         ]
@@ -376,9 +388,15 @@ app.layout = dbc.Container(
     fluid=True,
 )
 
+
+@app.callback(Output("heatmap_item", "srcDoc"), Input("select-item", "value"))
+def update_output(z):
+    return sww.plot_heatmap(top_id, heat_df, z).to_html()
+
+
 if __name__ == "__main__":
     app.run_server(port=8073, debug=False)
 
-# for running remotely
+# for running production
 # if __name__ == "__main__":
 #     app.run_server(debug=True)
