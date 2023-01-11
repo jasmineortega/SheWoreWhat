@@ -165,7 +165,7 @@ def plot_mostworn(worn_df):
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(
-            color="#bb8c9d",
+            color="#8ba88a",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
@@ -582,7 +582,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#74a675"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#8ba88a"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
