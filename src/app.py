@@ -133,7 +133,7 @@ app.layout = dbc.Container(
                                                                 "stores or hand me down."
                                                             )
                                                         ],
-                                                        width={"size": 6},
+                                                        width={"size": 8},
                                                     ),
                                                     dbc.Col(
                                                         [
@@ -146,13 +146,14 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        srcDoc=sww.plot_facet(
+                                                                        srcDoc=sww.plot_newitems(
                                                                             worn_df
                                                                         ).to_html(),
                                                                     )
                                                                 ]
                                                             )
-                                                        ]
+                                                        ],
+                                                        width={"size": 4},
                                                     ),
                                                 ]
                                             ),
@@ -291,41 +292,15 @@ app.layout = dbc.Container(
                                                     )
                                                 ]
                                             ),
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="new-items",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "700px",
-                                                                        },
-                                                                        srcDoc=sww.plot_facet(
-                                                                            worn_df
-                                                                        ).to_html(),
-                                                                    )
-                                                                ]
-                                                            )
-                                                        ],
-                                                        width={"size": 6},
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "Super interesting insightful data insights"
-                                                            ),
-                                                        ]
-                                                    ),
-                                                ]
-                                            ),
                                         ],
                                         title="Most Worn Items of 2023",
+                                    ),
+                                    dbc.AccordionItem(
+                                        html.P(
+                                            "This would be a fun section to look at winter/spring/fall/summer trends. "
+                                            "Unfortunately, we are only 15 days into winter so the data is not there yet."
+                                        ),
+                                        title="Seasonal Trends",
                                     ),
                                     # cost per wear
                                     dbc.AccordionItem(
@@ -369,13 +344,6 @@ app.layout = dbc.Container(
                                         ],
                                         title="Cost Per Wear",
                                     ),
-                                    dbc.AccordionItem(
-                                        html.P(
-                                            "This would be a fun section to look at winter/spring/fall/summer trends. "
-                                            "Unfortunately, we are only 15 days into winter so the data is not there yet."
-                                        ),
-                                        title="Seasonal Trends",
-                                    ),
                                 ],
                                 start_collapsed=True,
                             )
@@ -395,7 +363,7 @@ def update_output(z):
 
 
 if __name__ == "__main__":
-    app.run_server(port=8073, debug=False)
+    app.run_server(port=8076, debug=False)
 
 # for running production
 # if __name__ == "__main__":
