@@ -1,5 +1,5 @@
 ===========
-SheWoreWhat
+SheWoreWhat 2023
 ===========
 
 Sustainable fashion dashboard displaying personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku. 
