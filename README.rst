@@ -2,6 +2,8 @@
 SheWoreWhat
 ===========
 
+Sustainable fashion dashboard displaying personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. 
+
 * Free software: MIT license
 
 
