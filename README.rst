@@ -25,7 +25,6 @@ The dashboard itself is composed of four sections (*for now...*)
   - Here, I calculated the price-per-wear for each item in my clost (where price is known). Which item was the most cost-efficient? Were the pricy items in my closet worth the money? This is a useful metric I can refer to when thinking about adding a new piece to my wardrobe. 
   - *Note:* Majority of items in my closet were purchased prior to 2023. Thus, cost-per-wear here is calculated only for the year 2023 for ease of comparasion. Most of the prices I've listed for items were verified by online reciepts or credit card statements. 
 
-* TODO
 
 Credits
 -------
