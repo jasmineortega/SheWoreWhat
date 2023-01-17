@@ -363,8 +363,7 @@ def update_output(z):
 
 
 if __name__ == "__main__":
-    app.run_server(port=8076, debug=False)
-
+    app.run_server(port=8073, debug=False)
 # for running production
 # if __name__ == "__main__":
 #     app.run_server(debug=True)
