@@ -160,7 +160,7 @@ def worn(closet, path="../data/2023Data.csv"):
     return worn_df
 
 
-def plot_mostworn(worn_df):
+def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
@@ -174,6 +174,11 @@ def plot_mostworn(worn_df):
             alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
             alt.Tooltip("Count"),
+            color=alt.condition(
+                alt.datum.Name == item_name,
+                alt.value("#8ba88a"),  # highlights selected bar
+                alt.value("#e0ddd5"),
+            ),
         )
         .configure_title(color="#706f6c")
         .configure_axis(
