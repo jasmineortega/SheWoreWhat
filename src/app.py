@@ -233,7 +233,8 @@ app.layout = dbc.Container(
                                                                             "height": "300px",
                                                                         },
                                                                         srcDoc=sww.plot_mostworn(
-                                                                            worn_df
+                                                                            worn_df,
+                                                                            top_item[0],
                                                                         ).to_html(),
                                                                     )
                                                                 ]
@@ -246,11 +247,14 @@ app.layout = dbc.Container(
                                                             html.Div(
                                                                 [
                                                                     dcc.Dropdown(
-                                                                        id="select-item",
+                                                                        id="item_name",
                                                                         options=[
                                                                             {
                                                                                 "label": item,
-                                                                                "value": i,
+                                                                                "value": [
+                                                                                    i,
+                                                                                    item,
+                                                                                ],
                                                                             }
                                                                             for i, item in enumerate(
                                                                                 top_item
@@ -357,13 +361,20 @@ app.layout = dbc.Container(
 )
 
 
-@app.callback(Output("heatmap_item", "srcDoc"), Input("select-item", "value"))
-def update_output(z):
-    return sww.plot_heatmap(top_id, heat_df, z).to_html()
+@app.callback(Output("top10", "srcDoc"), Input("item_name", "value"))
+def update_highlight(item_name):
+    x = item_name[1]
+    return sww.plot_mostworn(worn_df, x).to_html()
+
+
+@app.callback(Output("heatmap_item", "srcDoc"), Input("item_name", "value"))
+def update_output(item_name):
+    y = item_name[0]
+    return sww.plot_heatmap(top_id, heat_df, y).to_html()
 
 
 if __name__ == "__main__":
-    app.run_server(port=8073, debug=False)
+    app.run_server(port=8070, debug=False)
 # for running production
 # if __name__ == "__main__":
 #     app.run_server(debug=True)
