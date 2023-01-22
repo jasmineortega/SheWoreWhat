@@ -103,7 +103,7 @@ def closet_cat(df):
     return acc_df, bottom_df, fb_df, out_df, shoes_df, top_df
 
 
-def worn(closet, path="../data/2023Data.csv"):
+def worn(closet):
     """
     Function to merge raw closet data and collected 2023 data.
 
@@ -111,8 +111,6 @@ def worn(closet, path="../data/2023Data.csv"):
     ----------
         closet : pandas.DataFrame
             Dataframe containing complete closet log.
-        path : string
-            Path to CSV containing 2023 collected outfit data.
 
     Returns
     -------
@@ -121,7 +119,9 @@ def worn(closet, path="../data/2023Data.csv"):
             "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
 
-    form = pd.read_csv(path).drop("Timestamp", axis=1).melt("Date").dropna()
+    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
+    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
+    form = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
 
     # extract ID number from value
     form["ID"] = form.value.str.extract("(\d+)").astype(int)
