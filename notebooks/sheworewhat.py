@@ -473,14 +473,13 @@ def plot_facet(worn_df):
     return category_plot
 
 
-def top_10_df(path="../data/2023Data.csv"):
+def top_10_df():
     """
     Function to return IDs and counts of top 10 most worn items.
 
     Parameters:
     -----------
-         path : str
-            Path to CSV file containing closet information.
+        None
 
     Returns:
     --------
@@ -491,7 +490,10 @@ def top_10_df(path="../data/2023Data.csv"):
         df : pandas.DataFrame
             Dataframe containing data only for top 10 most worn items.
     """
-    df = pd.read_csv(path).drop("Timestamp", axis=1).melt("Date").dropna()
+    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
+    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
+    df = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
+
     df["Date"] = pd.to_datetime(df["Date"])
     df["ID"] = df.value.str.extract("(\d+)").astype(int)
 
