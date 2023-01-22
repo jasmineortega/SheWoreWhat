@@ -619,12 +619,10 @@ def plot_cpw(worn_df):
     """
 
     # read in Google sheet idea
-    df = (
-        pd.read_csv("../data/2023Data.csv")
-        .drop("Timestamp", axis=1)
-        .melt("Date")
-        .dropna()
-    )
+    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
+    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
+    df = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
+
     df["Date"] = pd.to_datetime(df["Date"])
     df["ID"] = df.value.str.extract("(\d+)").astype(int)
 
