@@ -5,7 +5,8 @@ import pandas as pd
 import numpy as np
 
 import sheworewhat as sww
-from .sheworewhat import *
+
+# from .sheworewhat import *
 
 closet = sww.closet_df()
 worn_df = sww.worn(closet)
