@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 # import sheworewhat as sww
-def closet_df(path="../data/ClosetData.csv"):
+def closet_df(path="data/ClosetData.csv"):
     """
     Function to import CSV data and return df with unique identifiers.
 
