@@ -1059,4 +1059,4 @@ def update_output(item_name):
 
 # for running production
 if __name__ == "__main__":
-app.run_server(debug=True)
+    app.run_server(debug=True)
