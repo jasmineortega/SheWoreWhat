@@ -5,10 +5,11 @@ app = Dash(__name__)
 server = app.server
 
 
-@app.route("/")
-def index():
-    return "Woohoo"
-
+app.layout = html.Div(
+    [
+        dcc.Dropdown(id="ycol", value="release_year", options=[1, 2, 3]),
+    ]
+)
 
 if __name__ == "__main__":
     app.run(debug=True)
