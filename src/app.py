@@ -1,6 +1,8 @@
 from flask import Flask, render_template
+from dash import Dash, html, dcc, Input, Output
 
-app = Flask(__name__)
+app = Dash(__name__)
+server = app.server
 
 
 @app.route("/")
