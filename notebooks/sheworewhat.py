@@ -664,7 +664,7 @@ def plot_cpw(worn_df):
         .mark_circle(opacity=0.70)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 200))),
-            alt.Y("Count", scale=alt.Scale(domain=(0, 16)), title="Times Worn"),
+            alt.Y("Count", scale=alt.Scale(domain=(0, 60)), title="Times Worn"),
             alt.Color(
                 "Category",
                 scale=alt.Scale(
