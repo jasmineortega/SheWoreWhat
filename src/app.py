@@ -3,8 +3,6 @@ import altair as alt
 import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
-
-
 import sheworewhat as sww
 
 closet = sww.closet_df()
