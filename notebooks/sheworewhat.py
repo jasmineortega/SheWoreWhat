@@ -165,7 +165,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(
-            color="#8ba88a",
+            color="#d81159",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
@@ -176,7 +176,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#8ba88a"),  # highlights selected bar
+                alt.value("#218380"),  # highlights selected bar
                 alt.value("#e0ddd5"),
             ),
         )
@@ -291,12 +291,12 @@ def plot_newitems(worn_df):
                 "Bought",
                 scale=alt.Scale(
                     range=[
-                        "#bb8c9d",
-                        "#9a8ca6",
-                        "#8ba88a",
-                        "#5bccc1",
-                        "#e0ddd5",
-                        "#bfae8f",
+                        "#ffbc42",
+                        "#d81159",
+                        "#652d8f",
+                        "#25592a",
+                        "#218380",
+                        "#73d2de",
                     ]
                 ),
                 legend=None,
@@ -311,7 +311,14 @@ def plot_newitems(worn_df):
         alt.Color(
             "Bought",
             scale=alt.Scale(
-                range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#e0ddd5", "#bfae8f"]
+                range=[
+                    "#ffbc42",
+                    "#d81159",
+                    "#652d8f",
+                    "#25592a",
+                    "#218380",
+                    "#73d2de",
+                ]
             ),
             legend=None,
         ),
@@ -359,7 +366,7 @@ def plot_categories(worn_df):
         alt.Color(
             "Category",
             scale=alt.Scale(
-                range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#e0ddd5", "#bfae8f"]
+                range=["#ffbc42", "#d81159", "#652d8f", "#25592a", "#218380", "#73d2de"]
             ),
             legend=None,
         ),
@@ -407,7 +414,14 @@ def plot_bought(worn_df):
             alt.Color(
                 "Bought",
                 scale=alt.Scale(
-                    range=["#bb8c9d", "#9a8ca6", "#8ba88a", "#5bccc1", "#7c9e7b"]
+                    range=[
+                        "#ffbc42",
+                        "#d81159",
+                        "#652d8f",
+                        "#25592a",
+                        "#218380",
+                        "#73d2de",
+                    ]
                 ),
             ),
             tooltip="count()",
@@ -589,7 +603,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#8ba88a"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#218380"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
@@ -655,12 +669,12 @@ def plot_cpw(worn_df):
                 "Category",
                 scale=alt.Scale(
                     range=[
-                        "#bb8c9d",
-                        "#9a8ca6",
-                        "#8ba88a",
-                        "#5bccc1",
-                        "#e0ddd5",
-                        "#7c9e7b",
+                        "#ffbc42",
+                        "#d81159",
+                        "#652d8f",
+                        "#25592a",
+                        "#218380",
+                        "#73d2de",
                     ]
                 ),
             ),
@@ -669,6 +683,7 @@ def plot_cpw(worn_df):
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
+        .interactive()
     )
 
     return plot
