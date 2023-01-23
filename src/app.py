@@ -373,8 +373,9 @@ def update_output(item_name):
     return sww.plot_heatmap(top_id, heat_df, y).to_html()
 
 
-if __name__ == "__main__":
-    app.run_server(port=8070, debug=False)
-# for running production
 # if __name__ == "__main__":
-#     app.run_server(debug=True)
+#     app.run_server(port=8070, debug=False)
+
+# for running production
+if __name__ == "__main__":
+    app.run_server(debug=True)
