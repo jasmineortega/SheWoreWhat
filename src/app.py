@@ -4,6 +4,15 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 
+color_aes = [
+    "#ffbc42",  # gold
+    "#d81159",  # magenta
+    "#652d8f",  # purple
+    "#7373de",  # lavender
+    "#73d2de",  # light blue
+    "#25592a",  # green
+]
+
 
 def closet_df(path="data/ClosetData.csv"):
     """
@@ -165,7 +174,6 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(
-            color="#d81159",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
@@ -176,7 +184,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#218380"),  # highlights selected bar
+                alt.value("#73d2de"),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
         )
@@ -288,16 +296,7 @@ def plot_newitems(worn_df):
             theta=alt.Theta("count()", stack=True),
             color=alt.Color(
                 "Bought",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",  # gold
-                        "#d81159",  # magenta
-                        "#652d8f",  # purple
-                        "#7373de",  # lavender
-                        "#73d2de",  # light blue
-                        "#25592a",  # green
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
                 legend=None,
             ),
             tooltip=["Bought", "count()"],
@@ -309,16 +308,7 @@ def plot_newitems(worn_df):
     txt = base.mark_text(angle=0, radius=180, size=15).encode(
         alt.Color(
             "Bought",
-            scale=alt.Scale(
-                range=[
-                    "#ffbc42",  # gold
-                    "#d81159",  # magenta
-                    "#652d8f",  # purple
-                    "#7373de",  # lavender
-                    "#25592a",  # green
-                    "#73d2de",  # light blue
-                ]
-            ),
+            scale=alt.Scale(range=color_aes),
             legend=None,
         ),
         text="Bought",
@@ -364,16 +354,7 @@ def plot_categories(worn_df):
     txt = base.mark_text(radius=177, size=15).encode(
         alt.Color(
             "Category",
-            scale=alt.Scale(
-                range=[
-                    "#ffbc42",  # gold
-                    "#d81159",  # magenta
-                    "#652d8f",  # purple
-                    "#7373de",  # lavender
-                    "#25592a",  # green
-                    "#73d2de",  # light blue
-                ]
-            ),
+            scale=alt.Scale(range=color_aes),
             legend=None,
         ),
         text="Category",
@@ -419,16 +400,7 @@ def plot_bought(worn_df):
             alt.Y("Secondhand", sort="-x"),
             alt.Color(
                 "Bought",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",  # gold
-                        "#d81159",  # magenta
-                        "#652d8f",  # purple
-                        "#7373de",  # lavender
-                        "#25592a",  # green
-                        "#73d2de",  # light blue
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
             ),
             tooltip="count()",
         )
@@ -673,16 +645,7 @@ def plot_cpw(worn_df):
             alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
             alt.Color(
                 "Category",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",  # gold
-                        "#d81159",  # magenta
-                        "#652d8f",  # purple
-                        "#7373de",  # lavender
-                        "#25592a",  # green
-                        "#73d2de",  # light blue
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
             ),
             alt.Size("CPW", scale=alt.Scale(domain=[0, 35]), legend=None),
             alt.Tooltip(["Name", "Category", "Cost Per Wear"]),
