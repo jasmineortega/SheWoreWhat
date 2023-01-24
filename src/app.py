@@ -272,7 +272,7 @@ def plot_newitems(worn_df):
             Pie chart of new items purchased in 2023.
     """
     # change this to "Yes"
-    new_2023 = worn_df.loc[worn_df["2023"] == "No"]
+    new_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
     new_2023["Bought"] = new_2023["Bought"].str.replace(
         "Secondhand, Thrifted", "Thrifted"
     )
@@ -664,7 +664,7 @@ def plot_cpw(worn_df):
         .mark_circle(opacity=0.70)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 200))),
-            alt.Y("Count", scale=alt.Scale(domain=(0, 60)), title="Times Worn"),
+            alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
             alt.Color(
                 "Category",
                 scale=alt.Scale(
@@ -712,10 +712,13 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         html.P(
-                            "Hi! My name is Jasmine and I tracked every single item of clothing I wore in 2023. "
+                            "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, I thought "
                             "this would be a fun project to help me analyze my personal style"
                             "trends so I can make smarter decisions about my purchases in the future.",
+                        ),
+                        html.P(
+                            "Please note: project is still under construction :-) "
                         )
                     ]
                 )
@@ -737,8 +740,7 @@ app.layout = dbc.Container(
                                                             html.H4("The process"),
                                                             html.P(
                                                                 "The first thing I did was take stock of everything in my closet -- "
-                                                                "all {x} pieces. The most popular colors in my closet were black and white"
-                                                                " -- need to add secondary colors still and also these numbers dont add up (87 colors and 93 items?)."
+                                                                "all 99 pieces. The most frequent colors that appeared in my closet were black and white, followed by navy and green"
                                                             ),
                                                             html.Br(),
                                                         ]
@@ -794,8 +796,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
-                                                                "There was a lot of interesting patterns to deduce from my existing closet."
-                                                                "For example, almost all my tops are secondhands while all my pants were purchased brand-new."
+                                                                "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)
                                                             ),
                                                         ],
                                                         width={"size": 8},
@@ -807,9 +808,12 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.P(
-                                                                "In 2023, I added {x} new items to my closet. Of these items, "
-                                                                "__% of the items were pre-loved (obtained through secondhand "
-                                                                "stores or hand me down."
+                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
+                                                                "For ethical and sustainability reasons, I aspire for my closet for "
+                                                                "the majority of my closet to be secondhand! "
+                                                                "In 2023, I added 1 new item to my closet. Of these items, "
+                                                                "100% of these items were pre-loved (obtained through secondhand "
+                                                                "stores or hand me down)."
                                                             )
                                                         ],
                                                         width={"size": 8},
@@ -862,12 +866,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
-                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
-                                                                "For ethical and sustainability reasons, I aspire for my closet for "
-                                                                "the majority of my closet to be secondhand! "
-                                                                "If you'd like to learn more about the exploitative labor practices of fast fashion, "
-                                                                "I highly recommend listening to Binchtopia's 'SheInvestigation' episode, which inspired me to "
-                                                                "track my own personal style patterns so I can spend more wisely."
+                                                                "Currently, about 50% of my closet is secondhand!"
                                                             ),
                                                         ]
                                                     ),
@@ -892,9 +891,8 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     html.P(
-                                                        "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item"
-                                                        " so far is my green Hollister Puffer jacket. Winter was especially brutal in 2023, which also "
-                                                        "explains that my second most worn piece is my Blondo waterproof boots!"
+                                                        "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item is "
+                                                        "my Adidas tennis shoes. They are my go-to workout shoe and I try to workout a few times a week!"
                                                     )
                                                 ]
                                             ),
@@ -963,13 +961,8 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.P(
-                                                                "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item"
-                                                                " so far is my green Hollister Puffer jacket. Winter was especially brutal in 2023, which also "
-                                                                "explains that my second most worn piece is my Blondo waterproof boots!"
-                                                            ),
-                                                            html.P(
-                                                                "While this data is interesting, it's too general to learn which items are considered core staples."
-                                                                " Let's take a peak at the most worn items per category (tops, bottoms, shoes) instead!"
+                                                                "While this data is interesting, I'm curious how my style habits evolved with the seasons."
+                                                                "So let's take a peek at the most worn item per season."
                                                             ),
                                                         ]
                                                     )
@@ -980,8 +973,8 @@ app.layout = dbc.Container(
                                     ),
                                     dbc.AccordionItem(
                                         html.P(
-                                            "This would be a fun section to look at winter/spring/fall/summer trends. "
-                                            "Unfortunately, we are only 15 days into winter so the data is not there yet."
+                                            "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
+                                            "Unfortunately, we are only one month into winter so the data is not there (yet!)"
                                         ),
                                         title="Seasonal Trends",
                                     ),
