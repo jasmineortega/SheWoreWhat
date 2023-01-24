@@ -2,6 +2,7 @@
 SheWoreWhat 2023
 ===========
 
+**Under construction**
 A dashboard displaying personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku! 
 
 The Process
@@ -9,11 +10,9 @@ The Process
 1. Log all items in closet
 2. Collect daily outfit data via Google Form (Jan 01 - Dec 31, 2023)
 
-* Free software: MIT license
-
 The Dashboard:
 -------------
-The dashboard itself is composed of four sections (*for now...*)
+The dashboard itself is composed of four sections (*for now*)
 
 1. Wardrobe Analysis
   - Here, I took stock of the items that exist in my closet. What colors dominate my closet? How many of my items were purchased secondhand, new?
