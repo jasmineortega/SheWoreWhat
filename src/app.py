@@ -687,6 +687,7 @@ def plot_cpw(worn_df):
 
     return plot
 
+
 closet = closet_df()
 worn_df = worn(closet)
 top_id, top_item, heat_df = top_10_df()
@@ -717,9 +718,7 @@ app.layout = dbc.Container(
                             "this would be a fun project to help me analyze my personal style"
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
-                        html.P(
-                            "Please note: project is still under construction :-) "
-                        )
+                        html.P("Please note: project is still under construction :-) "),
                     ]
                 )
             ]
@@ -767,42 +766,42 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="catwheel",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "400px",
-                                                                        },
-                                                                        srcDoc=plot_categories(
-                                                                            worn_df
-                                                                        ).to_html(),
-                                                                    )
-                                                                ]
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)"
-                                                            ),
-                                                        ],
-                                                        width={"size": 8},
-                                                    ),
-                                                ]
-                                            ),
+                                            # dbc.Row(
+                                            #     [
+                                            #         dbc.Col(
+                                            #             [
+                                            #                 html.Br(),
+                                            #                 html.Div(
+                                            #                     [
+                                            #                         html.Iframe(
+                                            #                             id="catwheel",
+                                            #                             style={
+                                            #                                 "border-width": "0",
+                                            #                                 "width": "100%",
+                                            #                                 "height": "400px",
+                                            #                             },
+                                            #                             srcDoc=plot_categories(
+                                            #                                 worn_df
+                                            #                             ).to_html(),
+                                            #                         )
+                                            #                     ]
+                                            #                 ),
+                                            #             ]
+                                            #         ),
+                                            #         dbc.Col(
+                                            #             [
+                                            #                 html.Br(),
+                                            #                 html.Br(),
+                                            #                 html.Br(),
+                                            #                 html.Br(),
+                                            #                 html.P(
+                                            #                     "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)"
+                                            #                 ),
+                                            #             ],
+                                            #             width={"size": 8},
+                                            #         ),
+                                            #     ]
+                                            # ),
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
