@@ -687,6 +687,9 @@ def plot_cpw(worn_df):
 
     return plot
 
+closet = closet_df()
+worn_df = worn(closet)
+top_id, top_item, heat_df = top_10_df()
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 server = app.server
