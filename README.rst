@@ -29,6 +29,7 @@ The dashboard itself is composed of four sections (*for now...*)
 
 Credits
 -------
+* If you'd like to learn more about the exploitative labor practices of fast fashion, I highly recommend listening to [Binchtopia's 'SheInvestigation'](https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727) episode, which inspired me to reflect on my personal fast-fashion habits."
 * Free software: MIT license
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
