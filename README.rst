@@ -2,7 +2,8 @@
 SheWoreWhat 2023
 ===========
 
-**Under construction**
+**Under construction as of Jan 24, 2023**
+
 A dashboard displaying personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku! 
 
 The Process
