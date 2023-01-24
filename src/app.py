@@ -294,9 +294,8 @@ def plot_newitems(worn_df):
                         "#d81159",  # magenta
                         "#652d8f",  # purple
                         "#7373de",  # lavender
-                        "#25592a",  # green
-                        # "#218380",  # teal
                         "#73d2de",  # light blue
+                        "#25592a",  # green
                     ]
                 ),
                 legend=None,
@@ -317,7 +316,6 @@ def plot_newitems(worn_df):
                     "#652d8f",  # purple
                     "#7373de",  # lavender
                     "#25592a",  # green
-                    # "#218380",  # teal
                     "#73d2de",  # light blue
                 ]
             ),
@@ -373,7 +371,6 @@ def plot_categories(worn_df):
                     "#652d8f",  # purple
                     "#7373de",  # lavender
                     "#25592a",  # green
-                    # "#218380",  # teal
                     "#73d2de",  # light blue
                 ]
             ),
@@ -429,7 +426,6 @@ def plot_bought(worn_df):
                         "#652d8f",  # purple
                         "#7373de",  # lavender
                         "#25592a",  # green
-                        # "#218380",  # teal
                         "#73d2de",  # light blue
                     ]
                 ),
@@ -613,7 +609,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#218380"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#7373de"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
@@ -684,7 +680,6 @@ def plot_cpw(worn_df):
                         "#652d8f",  # purple
                         "#7373de",  # lavender
                         "#25592a",  # green
-                        # "#218380",  # teal
                         "#73d2de",  # light blue
                     ]
                 ),
@@ -694,6 +689,7 @@ def plot_cpw(worn_df):
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
+        .interactive()
     )
 
     return plot
