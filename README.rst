@@ -29,8 +29,8 @@ The dashboard itself is composed of four sections (*for now...*)
 
 Credits
 -------
-* `Binchtopia's 'SheInvestigation' <https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727>`_ episode, which inspired me to reflect on the exploitative nature of fast fashion in relation to my personal shopping habits.
-*BlondeBrokeAndBougie's `Closet Wrapped <https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en>`_
+* Binchtopia's `'SheInvestigation' <https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727>`_ episode, which inspired me to reflect on the exploitative nature of fast fashion in relation to my personal shopping habits.
+* BlondeBrokeAndBougie's `Closet Wrapped <https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en>`_
 * Free software: MIT license
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
