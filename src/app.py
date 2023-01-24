@@ -796,7 +796,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
-                                                                "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)
+                                                                "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)"
                                                             ),
                                                         ],
                                                         width={"size": 8},
