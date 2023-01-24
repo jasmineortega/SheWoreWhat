@@ -271,7 +271,6 @@ def plot_newitems(worn_df):
         plot : altair.Chart
             Pie chart of new items purchased in 2023.
     """
-    # change this to "Yes"
     new_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
     new_2023["Bought"] = new_2023["Bought"].str.replace(
         "Secondhand, Thrifted", "Thrifted"
@@ -770,46 +769,7 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
-                                                            html.Br(),
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="catwheel",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "400px",
-                                                                        },
-                                                                        srcDoc=plot_categories(
-                                                                            worn_df
-                                                                        ).to_html(),
-                                                                    )
-                                                                ]
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.Br(),
                                                             html.P(
-                                                                "I was surprised to discover that the majority of my closet is tops (shirts, sweaters, tank tops, etc)"
-                                                            ),
-                                                        ],
-                                                        width={"size": 8},
-                                                    ),
-                                                ]
-                                            ),
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [
-                                                            html.P(
-                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
-                                                                "For ethical and sustainability reasons, I aspire for my closet for "
-                                                                "the majority of my closet to be secondhand! "
                                                                 "In 2023, I added 1 new item to my closet. Of these items, "
                                                                 "100% of these items were pre-loved (obtained through secondhand "
                                                                 "stores or hand me down)."
@@ -865,6 +825,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
+                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
                                                                 "Currently, about 50% of my closet is secondhand!"
                                                             ),
                                                         ]
@@ -1018,6 +979,13 @@ app.layout = dbc.Container(
                                             )
                                         ],
                                         title="Cost Per Wear",
+                                    ),
+                                    dbc.AccordionItem(
+                                        html.P(
+                                            "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
+                                            "factories, here are some articles and podcasts that I found very helpful: "
+                                        ),
+                                        title="Resources",
                                     ),
                                 ],
                                 start_collapsed=True,
