@@ -986,7 +986,9 @@ app.layout = dbc.Container(
                                             "factories, here are some articles and podcasts that I found very helpful: "
                                         ),
                                         html.Link(
-                                            "https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727"
+                                            [
+                                                "https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727"
+                                            ]
                                         ),
                                         title="Resources",
                                     ),
