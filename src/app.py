@@ -4,13 +4,22 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 
+# color_aes = [
+#     "#ffbc42",  # gold
+#     "#d81159",  # magenta
+#     "#652d8f",  # purple
+#     "#7373de",  # lavender
+#     "#73d2de",  # light blue
+#     "#73de83",  # green
+# ]
+
 color_aes = [
-    "#ffbc42",  # gold
-    "#d81159",  # magenta
-    "#652d8f",  # purple
-    "#7373de",  # lavender
+    "#73de83",  # green
     "#73d2de",  # light blue
-    "#25592a",  # green
+    "#7373de",  # lavender
+    "#652d8f",  # purple
+    "#d81159",  # magenta
+    "#ffbc42",  # gold
 ]
 
 
@@ -184,7 +193,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#73d2de"),  # highlighted bar
+                alt.value("#7373de"),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
         )
@@ -674,7 +683,7 @@ app.layout = dbc.Container(
             dbc.Col(
                 html.B("She Wore What 2023"),
                 style={"font-weight": "bold", "color": "#218380", "font-size": "200%"},
-                width={"offset": 5},
+                width={"offset": 4},
             )
         ),
         html.Br(),
@@ -683,12 +692,14 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         html.P(
+                            "Pardon my appearance: dashboard under construction still! "
+                        ),
+                        html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, I thought "
                             "this would be a fun project to help me analyze my personal style"
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
-                        html.P("Please note: project is still under construction :-) "),
                     ]
                 )
             ]
