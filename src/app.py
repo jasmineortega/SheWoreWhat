@@ -825,7 +825,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.Br(),
                                                             html.P(
-                                                                "I try my best to reduce buying 'new' clothing items as much as possible. ""
+                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
                                                                 "Currently, about 50% of my closet is secondhand!"
                                                             ),
                                                         ]
