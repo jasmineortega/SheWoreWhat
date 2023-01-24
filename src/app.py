@@ -679,13 +679,14 @@ def plot_cpw(worn_df):
                 ),
             ),
             alt.Size("CPW", scale=alt.Scale(domain=[0, 35]), legend=None),
-            alt.Tooltip(["Name", "Category", "Cost Per Wear"]),
+            alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
     )
 
     return plot
+
 
 closet = closet_df()
 worn_df = worn(closet)
@@ -714,12 +715,10 @@ app.layout = dbc.Container(
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, I thought "
-                            "this would be a fun project to help me analyze my personal style"
+                            "this would be a fun project to help me analyze my personal style "
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
-                        html.P(
-                            "Please note: project is still under construction :-) "
-                        )
+                        html.P("Please note: project is still under construction :-) "),
                     ]
                 )
             ]
