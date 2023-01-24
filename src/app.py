@@ -9,14 +9,17 @@ server = app.server
 
 app.title = "She Wore What 2023"
 
-path = "data/ClosetData.csv"
 
-closet = pd.read_csv(path)
-
-
-app.layout = html.Div(
+app.layout = dbc.Container(
     [
-        dcc.Dropdown(id="ycol", value="optionz", options=[1, 2, 3]),
+        html.Br(),
+        dbc.Row(
+            dbc.Col(
+                html.B("She Wore What 2023"),
+                style={"font-weight": "bold", "color": "#000000", "font-size": "150%"},
+                width={"offset": 5},
+            )
+        ),
     ]
 )
 
