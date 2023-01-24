@@ -985,11 +985,6 @@ app.layout = dbc.Container(
                                             "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
                                             "factories, here are some articles and podcasts that I found very helpful: "
                                         ),
-                                        html.Link(
-                                            [
-                                                "https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727"
-                                            ]
-                                        ),
                                         title="Resources",
                                     ),
                                 ],
