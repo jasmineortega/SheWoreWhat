@@ -290,12 +290,13 @@ def plot_newitems(worn_df):
                 "Bought",
                 scale=alt.Scale(
                     range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
+                        "#ffbc42",  # gold
+                        "#d81159",  # magenta
+                        "#652d8f",  # purple
+                        "#7373de",  # lavender
+                        "#25592a",  # green
+                        # "#218380",  # teal
+                        "#73d2de",  # light blue
                     ]
                 ),
                 legend=None,
@@ -311,12 +312,13 @@ def plot_newitems(worn_df):
             "Bought",
             scale=alt.Scale(
                 range=[
-                    "#ffbc42",
-                    "#d81159",
-                    "#652d8f",
-                    "#25592a",
-                    "#218380",
-                    "#73d2de",
+                    "#ffbc42",  # gold
+                    "#d81159",  # magenta
+                    "#652d8f",  # purple
+                    "#7373de",  # lavender
+                    "#25592a",  # green
+                    # "#218380",  # teal
+                    "#73d2de",  # light blue
                 ]
             ),
             legend=None,
@@ -365,7 +367,15 @@ def plot_categories(worn_df):
         alt.Color(
             "Category",
             scale=alt.Scale(
-                range=["#ffbc42", "#d81159", "#652d8f", "#25592a", "#218380", "#73d2de"]
+                range=[
+                    "#ffbc42",  # gold
+                    "#d81159",  # magenta
+                    "#652d8f",  # purple
+                    "#7373de",  # lavender
+                    "#25592a",  # green
+                    # "#218380",  # teal
+                    "#73d2de",  # light blue
+                ]
             ),
             legend=None,
         ),
@@ -414,12 +424,13 @@ def plot_bought(worn_df):
                 "Bought",
                 scale=alt.Scale(
                     range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
+                        "#ffbc42",  # gold
+                        "#d81159",  # magenta
+                        "#652d8f",  # purple
+                        "#7373de",  # lavender
+                        "#25592a",  # green
+                        # "#218380",  # teal
+                        "#73d2de",  # light blue
                     ]
                 ),
             ),
@@ -668,12 +679,13 @@ def plot_cpw(worn_df):
                 "Category",
                 scale=alt.Scale(
                     range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
+                        "#ffbc42",  # gold
+                        "#d81159",  # magenta
+                        "#652d8f",  # purple
+                        "#7373de",  # lavender
+                        "#25592a",  # green
+                        # "#218380",  # teal
+                        "#73d2de",  # light blue
                     ]
                 ),
             ),
@@ -702,7 +714,7 @@ app.layout = dbc.Container(
         dbc.Row(
             dbc.Col(
                 html.B("She Wore What 2023"),
-                style={"font-weight": "bold", "color": "#000000", "font-size": "150%"},
+                style={"font-weight": "bold", "color": "#218380", "font-size": "200%"},
                 width={"offset": 5},
             )
         ),
