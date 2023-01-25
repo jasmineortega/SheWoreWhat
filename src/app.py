@@ -572,7 +572,6 @@ def plot_heatmap(top_10, df, z=0):
         .mark_rect(
             stroke="white",
             strokeWidth=3,
-            opacity=0.80,
         )
         .encode(
             alt.X(
@@ -586,6 +585,9 @@ def plot_heatmap(top_10, df, z=0):
                 "Bool",
                 scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73d2de"]),
                 legend=None,
+            ),
+            opacity=alt.condition(
+                alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
             ),
             alt.Tooltip(["Date", "Day"]),
         )
