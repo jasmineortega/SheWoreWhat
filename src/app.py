@@ -188,13 +188,15 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
                 alt.value("#73d2de"),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
+            opacity=alt.condition(
+                alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
+            ),
         )
         .configure_title(color="#706f6c")
         .configure_axis(
             labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
         )
     )
-
     return closet_comp
 
 
@@ -570,7 +572,6 @@ def plot_heatmap(top_10, df, z=0):
         .mark_rect(
             stroke="white",
             strokeWidth=3,
-            opacity=0.80,
         )
         .encode(
             alt.X(
@@ -586,6 +587,9 @@ def plot_heatmap(top_10, df, z=0):
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
+            opacity=alt.condition(
+                alt.datum.Bool == 1, alt.value(0.85), alt.value(0.50)
+            ),
         )
         .properties(height=200, width=600)
         .configure_axis(
@@ -663,7 +667,7 @@ closet = closet_df()
 worn_df = worn(closet)
 top_id, top_item, heat_df = top_10_df()
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
 
 app.title = "She Wore What 2023"
@@ -685,6 +689,7 @@ app.layout = dbc.Container(
                     [
                         html.P(
                             "Pardon my appearance: dashboard under construction still! "
+                            "Under constru"
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
@@ -963,6 +968,7 @@ app.layout = dbc.Container(
                                     ),
                                 ],
                                 start_collapsed=True,
+                                always_open=True,
                             )
                         )
                     ]
