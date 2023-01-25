@@ -586,10 +586,9 @@ def plot_heatmap(top_10, df, z=0):
                 scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73d2de"]),
                 legend=None,
             ),
-            opacity=alt.condition(
-                alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
-            ),
             alt.Tooltip(["Date", "Day"]),
+            opacity=0.85
+            ),
         )
         .properties(height=200, width=600)
         .configure_axis(
