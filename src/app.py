@@ -544,7 +544,7 @@ def season(day):
     return s
 
 
-def seasonal_dfs():
+def split_seasons():
     """
     Function to return Google Sheet data parsed by season.
 
@@ -567,6 +567,7 @@ def seasonal_dfs():
     summer = df.loc[df["Season"] == "Summer"]
     fall = df.loc[df["Season"] == "Fall"]
     winter = df.loc[df["Season"] == "Winter"]
+    
     return spring, summer, fall, winter
 
 
