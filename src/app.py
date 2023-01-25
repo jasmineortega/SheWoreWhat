@@ -567,7 +567,7 @@ def split_seasons():
     summer = df.loc[df["Season"] == "Summer"]
     fall = df.loc[df["Season"] == "Fall"]
     winter = df.loc[df["Season"] == "Winter"]
-    
+
     return spring, summer, fall, winter
 
 
@@ -605,7 +605,6 @@ app.layout = dbc.Container(
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
                     ],
-                    width={"offset": 5},
                 )
             ]
         ),
