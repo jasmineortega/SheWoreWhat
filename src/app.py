@@ -587,8 +587,7 @@ def plot_heatmap(top_10, df, z=0):
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
-            opacity=0.85
-            ),
+            opacity=0.85,
         )
         .properties(height=200, width=600)
         .configure_axis(
@@ -597,6 +596,7 @@ def plot_heatmap(top_10, df, z=0):
         .configure_title(color="#706f6c")
         .configure_view(strokeWidth=0)
     )
+
     return heat_plot
 
 
