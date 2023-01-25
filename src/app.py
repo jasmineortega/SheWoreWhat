@@ -185,8 +185,8 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#73d2de"),  # highlighted bar
-                alt.value("#e0ddd5"),
+                alt.value(0.85, "#73d2de"),  # highlighted bar
+                alt.value(0.85, "#e0ddd5"),
             ),
         )
         .configure_title(color="#706f6c")
