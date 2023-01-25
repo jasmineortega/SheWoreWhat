@@ -172,8 +172,7 @@ def worn(closet):
 
 def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
     most_worn = worn_df.nlargest(10, columns="Count")
-    closet_comp = 
-        alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
+    closet_comp = alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
