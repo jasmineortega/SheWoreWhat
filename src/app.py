@@ -83,18 +83,18 @@ def fetch_data():
 
 def counts(df=fetch_data()):
     """
-    Function to count number of times items have been worn in a dataframe.
+        Function to count number of times items have been worn in a dataframe.
 
-    Parameters:
-    ----------
-        df : pandas.DataFrame
-            Dataframe of items to count frequency worn. Default is Google Sheet data.
-
-    Returns:
-    --------
-        worn_df : pandas.DataFrame
-            Dataframe containing "ID", "Name", "Count", "Item",
-            "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
+        Parameters:
+        ----------
+            df : pandas.DataFrame
+                Dataframe of items to count frequency worn. Default is Google Sheet data.
+    g
+        Returns:
+        --------
+            worn_df : pandas.DataFrame
+                Dataframe containing "ID", "Name", "Count", "Item",
+                "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
     df_counts = (
         df.groupby(["value", "ID"])
@@ -148,10 +148,12 @@ def worn():
     return worn_df
 
 
-def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
+def plot_mostworn(
+    worn_df, item_name="Adidas Tennis Shoe", title="Ten Most Worn Pieces in 2023"
+):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
-        alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
+        alt.Chart(most_worn, title=title)
         .mark_bar(
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
