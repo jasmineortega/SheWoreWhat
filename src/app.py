@@ -62,57 +62,6 @@ def closet_df(path="data/ClosetData.csv"):
     return closet
 
 
-def closet_cat(df):
-    """
-    Function to parse closet df into five distinct datasets
-
-    1) Accessories
-    2) Bottoms
-    3) Full Body
-    4) Outerwear
-    5) Shoes
-    6) Tops
-
-    Parameters:
-    -----------
-        df : pandas.DataFrame
-            Dataframe obtained from closet_df function
-
-    Returns:
-    --------
-        acc_df : pandas.DataFrame
-            Dataframe containing only accessory data.
-
-        bottom_df : pandas.DataFrame
-            Dataframe containing only bottom data.
-
-        fb_df : pandas.DataFrame
-            Dataframe containing only full-body data.
-
-        out_df : pandas.DataFrame
-            Dataframe containing only outerwear data.
-
-        shoes_df : pandas.DataFrame
-            Dataframe containing only shoe data.
-
-        top_df : pandas.DataFrame
-            Dataframe containing only top data.
-
-    """
-    categories = ["top", "bottom", "fb", "outerwear", "acc", "shoes"]
-
-    for i in categories:
-        if i != "fb" or i != "acc":
-            globals()[f"{i}_df"] = df[df["Category"] == i.title()]
-
-    # hardcode bc running into global var issue with these two (empty df)
-    acc_df = df[df["Category"] == "Accessory"]
-    fb_df = df[df["Category"] == "Full Body"]
-    out_df = df[df["Category"] == "Outerwear"]
-
-    return acc_df, bottom_df, fb_df, out_df, shoes_df, top_df
-
-
 def fetch_data():
     """
     Function to fetch data from Google Sheet.
@@ -384,58 +333,6 @@ def plot_bought(worn_df):
     return plot
 
 
-def plot_facet(worn_df):
-    """
-    Function to plot top 5 most worn items per clothing category.
-
-    Parameters:
-    ----------
-        worn_df : pandas.DataFrame
-            Standardized dataframe obtained from worn function.
-
-    Returns:
-    --------
-        category_plot : altair.Chart
-            Six concatenated altair plots for Top, Bottom, Full Body, Outerwear, Accesories,
-            and Shoe categories.
-    """
-    categories = ["Top", "Bottom", "Full Body", "Outerwear", "Accessory", "Shoes"]
-
-    cat_plots = []
-
-    for i in categories:
-        category_worn = worn_df.loc[worn_df["Category"] == i].nlargest(
-            5, columns="Count"
-        )
-
-        category_plot = (
-            alt.Chart(category_worn, title=f"2023 Most Worn {i}")
-            .mark_bar(
-                color="#827191",
-            )
-            .encode(
-                alt.X("Name", title="", axis=alt.Axis(labelAngle=-45), sort="-y"),
-                alt.Y("Count", title="# of Times Worn", axis=alt.Axis(tickMinStep=1)),
-                alt.Tooltip(["Name", "Count"]),
-            )
-            .properties(height=200, width=150)
-        )
-        cat_plots.append(category_plot)
-
-    # configure altair charts
-    row1 = alt.hconcat(cat_plots[0], cat_plots[1], cat_plots[2])
-    row2 = alt.hconcat(cat_plots[3], cat_plots[4], cat_plots[5])
-
-    category_plot = (
-        alt.vconcat(row1, row2)
-        .configure_axis(
-            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
-        )
-        .configure_title(color="#706f6c")
-    )
-    return category_plot
-
-
 def top_10_df():
     """
     Function to return IDs and counts of top 10 most worn items.
@@ -697,7 +594,6 @@ app.layout = dbc.Container(
                                                                 ]
                                                             )
                                                         ],
-                                                        width={"size": 4},
                                                     ),
                                                 ]
                                             ),
