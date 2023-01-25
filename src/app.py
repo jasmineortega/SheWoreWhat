@@ -972,7 +972,6 @@ app.layout = dbc.Container(
         ),
     ],
     fluid=True,
-    always_open=True,
 )
 
 
