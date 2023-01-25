@@ -517,6 +517,59 @@ def plot_cpw(worn_df):
     return plot
 
 
+def season(day):
+    """
+    Function to assign season to day of year
+
+    Returns:
+    --------
+        s : str
+            Season that day of year in in.
+    """
+    # March 20 (79th day of year) = Spring Equinox
+    if day in range(79, 172):
+        s = "Spring"
+    # June 21 (172nd day of year) = Summer Solstice
+    elif day in range(172, 265):
+        s = "Summer"
+    # September 22 (265 day of year) = Fall Equinox
+    elif day in range(265, 355):
+        s = "Fall"
+    # December 21 (355th day of year) = Winter Solstice
+    # also need to include Jan 1 - March 19, 2023
+    else:
+        s = "Winter"
+    # also need to include Jan 1 - March 19, 2023
+
+    return s
+
+
+def seasonal_dfs():
+    """
+    Function to return Google Sheet data parsed by season.
+
+    Returns:
+        spring : pandas.DataFrame
+            Dataframe containing data from March 20, 2023 - June 20, 2023
+        summer : pandas.DataFrame
+            Dataframe containing data from June 21, 2023 - Sept 21, 2023
+        fall : pandas.DataFrame
+            Dataframe containing data from Sept 22, 2023 - Dec 20, 2023
+        winter : pandas.DataFrame
+            Dataframe containing data from January 1, 2023 - March 20, 2023
+            and December 21, 2023 to DEcember 31, 2023
+    """
+    df = fetch_data()
+    df["Day"] = df["Date"].dt.dayofyear
+    df["Season"] = df["Day"].map(season)
+
+    spring = df.loc[df["Season"] == "Spring"]
+    summer = df.loc[df["Season"] == "Summer"]
+    fall = df.loc[df["Season"] == "Fall"]
+    winter = df.loc[df["Season"] == "Winter"]
+    return spring, summer, fall, winter
+
+
 closet = closet_df()
 worn_df = worn(closet)
 top_id, top_item, heat_df = top_10_df()
