@@ -964,6 +964,7 @@ app.layout = dbc.Container(
                                     ),
                                 ],
                                 start_collapsed=True,
+                                always_open=True,
                             )
                         )
                     ]
