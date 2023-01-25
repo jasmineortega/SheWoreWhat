@@ -62,55 +62,23 @@ def closet_df(path="data/ClosetData.csv"):
     return closet
 
 
-def closet_cat(df):
+def fetch_data():
     """
-    Function to parse closet df into five distinct datasets
-
-    1) Accessories
-    2) Bottoms
-    3) Full Body
-    4) Outerwear
-    5) Shoes
-    6) Tops
-
-    Parameters:
-    -----------
-        df : pandas.DataFrame
-            Dataframe obtained from closet_df function
+    Function to fetch data from Google Sheet.
 
     Returns:
     --------
-        acc_df : pandas.DataFrame
-            Dataframe containing only accessory data.
-
-        bottom_df : pandas.DataFrame
-            Dataframe containing only bottom data.
-
-        fb_df : pandas.DataFrame
-            Dataframe containing only full-body data.
-
-        out_df : pandas.DataFrame
-            Dataframe containing only outerwear data.
-
-        shoes_df : pandas.DataFrame
-            Dataframe containing only shoe data.
-
-        top_df : pandas.DataFrame
-            Dataframe containing only top data.
 
     """
-    categories = ["top", "bottom", "fb", "outerwear", "acc", "shoes"]
+    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
+    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
+    df = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
 
-    for i in categories:
-        if i != "fb" or i != "acc":
-            globals()[f"{i}_df"] = df[df["Category"] == i.title()]
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["ID"] = df.value.str.extract("(\d+)").astype(int)
+    df = df[df.variable != "Note"]  # drop notes to self
 
-    # hardcode bc running into global var issue with these two (empty df)
-    acc_df = df[df["Category"] == "Accessory"]
-    fb_df = df[df["Category"] == "Full Body"]
-    out_df = df[df["Category"] == "Outerwear"]
-
-    return acc_df, bottom_df, fb_df, out_df, shoes_df, top_df
+    return df
 
 
 def worn(closet):
@@ -129,15 +97,9 @@ def worn(closet):
             "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
 
-    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
-    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
-    form = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
-
-    # extract ID number from value
-    form["ID"] = form.value.str.extract("(\d+)").astype(int)
-
-    form_counts = (
-        form.groupby(["value", "ID"])
+    df = fetch_data()
+    df_counts = (
+        df.groupby(["value", "ID"])
         .count()
         .reset_index()
         .rename(columns={"Date": "count"})
@@ -145,7 +107,7 @@ def worn(closet):
     )
 
     # left join closet + df
-    worn_df = pd.merge(closet, form_counts, how="left", on="ID")
+    worn_df = pd.merge(closet, df_counts, how="left", on="ID")
     worn_df["Name"] = worn_df["Brand"] + " " + worn_df["Item"]
     worn_df = worn_df[
         [
@@ -328,51 +290,6 @@ def plot_newitems(worn_df):
     return plot_bought
 
 
-def plot_categories(worn_df):
-    """
-    Function for categorial composition of closet.
-
-    Parameters:
-    -----------
-        worn_df : pandas.DataFrame
-            Standardized dataframe obtained from worn function.
-    Returns:
-    --------
-        plot : altair.Chart
-            Pie chart of clothing categories present in closet.
-    """
-    worn_df["Bought"] = worn_df["Bought"].str.replace(
-        "Secondhand, Thrifted", "Thrifted"
-    )
-    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Depop", "Vintage")
-    worn_df["Bought"] = worn_df["Bought"].str.replace("Secondhand, Gifted", "Gifted")
-
-    base = alt.Chart(worn_df, title="Closet Categories").encode(
-        theta=alt.Theta("count()", stack=True),
-        color="Category",
-        tooltip=["Category", "count()"],
-    )
-
-    cat = base.mark_arc(innerRadius=0, opacity=0.80)
-    txt = base.mark_text(radius=177, size=15).encode(
-        alt.Color(
-            "Category",
-            scale=alt.Scale(range=color_aes),
-            legend=None,
-        ),
-        text="Category",
-    )
-
-    plot_categories = cat + txt
-    plot_categories = (
-        plot_categories.configure_view(strokeWidth=0)
-        .configure_title(color="#706f6c")
-        .configure_axis(labelColor="#706f6c", titleColor="#706f6c")
-    )
-
-    return plot_categories
-
-
 def plot_bought(worn_df):
     """
     Function for secondhand vs new closet items.
@@ -416,58 +333,6 @@ def plot_bought(worn_df):
     return plot
 
 
-def plot_facet(worn_df):
-    """
-    Function to plot top 5 most worn items per clothing category.
-
-    Parameters:
-    ----------
-        worn_df : pandas.DataFrame
-            Standardized dataframe obtained from worn function.
-
-    Returns:
-    --------
-        category_plot : altair.Chart
-            Six concatenated altair plots for Top, Bottom, Full Body, Outerwear, Accesories,
-            and Shoe categories.
-    """
-    categories = ["Top", "Bottom", "Full Body", "Outerwear", "Accessory", "Shoes"]
-
-    cat_plots = []
-
-    for i in categories:
-        category_worn = worn_df.loc[worn_df["Category"] == i].nlargest(
-            5, columns="Count"
-        )
-
-        category_plot = (
-            alt.Chart(category_worn, title=f"2023 Most Worn {i}")
-            .mark_bar(
-                color="#827191",
-            )
-            .encode(
-                alt.X("Name", title="", axis=alt.Axis(labelAngle=-45), sort="-y"),
-                alt.Y("Count", title="# of Times Worn", axis=alt.Axis(tickMinStep=1)),
-                alt.Tooltip(["Name", "Count"]),
-            )
-            .properties(height=200, width=150)
-        )
-        cat_plots.append(category_plot)
-
-    # configure altair charts
-    row1 = alt.hconcat(cat_plots[0], cat_plots[1], cat_plots[2])
-    row2 = alt.hconcat(cat_plots[3], cat_plots[4], cat_plots[5])
-
-    category_plot = (
-        alt.vconcat(row1, row2)
-        .configure_axis(
-            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
-        )
-        .configure_title(color="#706f6c")
-    )
-    return category_plot
-
-
 def top_10_df():
     """
     Function to return IDs and counts of top 10 most worn items.
@@ -485,12 +350,7 @@ def top_10_df():
         df : pandas.DataFrame
             Dataframe containing data only for top 10 most worn items.
     """
-    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
-    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
-    df = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
-
-    df["Date"] = pd.to_datetime(df["Date"])
-    df["ID"] = df.value.str.extract("(\d+)").astype(int)
+    df = fetch_data()
 
     # column of day of week for one calender year
     time_df = pd.DataFrame()
@@ -615,13 +475,7 @@ def plot_cpw(worn_df):
             Scatter plot of item counts over price.
     """
 
-    # read in Google sheet idea
-    sheet_url = "https://docs.google.com/spreadsheets/d/1TP7HQZxiP6as_HHexcwkmDTeXOQQOLbUesZjHwKA-Q4/edit?resourcekey#gid=1344494584"
-    url_1 = sheet_url.replace("/edit?resourcekey#gid=", "/export?format=csv&gid=")
-    df = pd.read_csv(url_1).drop("Timestamp", axis=1).melt("Date").dropna()
-
-    df["Date"] = pd.to_datetime(df["Date"])
-    df["ID"] = df.value.str.extract("(\d+)").astype(int)
+    df = fetch_data()
 
     # calculate 2023 cost-per-wear
     complete_df = pd.merge(worn_df, df, how="inner", on="ID")
@@ -663,6 +517,60 @@ def plot_cpw(worn_df):
     return plot
 
 
+def season(day):
+    """
+    Function to assign season to day of year
+
+    Returns:
+    --------
+        s : str
+            Season that day of year in in.
+    """
+    # March 20 (79th day of year) = Spring Equinox
+    if day in range(79, 172):
+        s = "Spring"
+    # June 21 (172nd day of year) = Summer Solstice
+    elif day in range(172, 265):
+        s = "Summer"
+    # September 22 (265 day of year) = Fall Equinox
+    elif day in range(265, 355):
+        s = "Fall"
+    # December 21 (355th day of year) = Winter Solstice
+    # also need to include Jan 1 - March 19, 2023
+    else:
+        s = "Winter"
+    # also need to include Jan 1 - March 19, 2023
+
+    return s
+
+
+def split_seasons():
+    """
+    Function to return Google Sheet data parsed by season.
+
+    Returns:
+        spring : pandas.DataFrame
+            Dataframe containing data from March 20, 2023 - June 20, 2023
+        summer : pandas.DataFrame
+            Dataframe containing data from June 21, 2023 - Sept 21, 2023
+        fall : pandas.DataFrame
+            Dataframe containing data from Sept 22, 2023 - Dec 20, 2023
+        winter : pandas.DataFrame
+            Dataframe containing data from January 1, 2023 - March 20, 2023
+            and December 21, 2023 to DEcember 31, 2023
+    """
+    df = fetch_data()
+    df["Day"] = df["Date"].dt.dayofyear
+    df["Season"] = df["Day"].map(season)
+
+    spring = df.loc[df["Season"] == "Spring"]
+    summer = df.loc[df["Season"] == "Summer"]
+    fall = df.loc[df["Season"] == "Fall"]
+    winter = df.loc[df["Season"] == "Winter"]
+
+    return spring, summer, fall, winter
+
+
 closet = closet_df()
 worn_df = worn(closet)
 top_id, top_item, heat_df = top_10_df()
@@ -689,7 +597,6 @@ app.layout = dbc.Container(
                     [
                         html.P(
                             "Pardon my appearance: dashboard under construction still! "
-                            "Under constru"
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
@@ -740,7 +647,6 @@ app.layout = dbc.Container(
                                                                 ]
                                                             )
                                                         ],
-                                                        width={"size": 4},
                                                     ),
                                                 ]
                                             ),
