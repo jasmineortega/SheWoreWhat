@@ -4,22 +4,14 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 
-# color_aes = [
-#     "#ffbc42",  # gold
-#     "#d81159",  # magenta
-#     "#652d8f",  # purple
-#     "#7373de",  # lavender
-#     "#73d2de",  # light blue
-#     "#73de83",  # green
-# ]
 
 color_aes = [
     "#73de83",  # green
     "#73d2de",  # light blue
     "#7373de",  # lavender
-    "#652d8f",  # purple
-    "#d81159",  # magenta
-    "#ffbc42",  # gold
+    "#b173de",  # purple
+    "#de73a5",  # magenta
+    "#dec773",  # gold
 ]
 
 
