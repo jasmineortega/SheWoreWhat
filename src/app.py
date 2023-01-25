@@ -185,7 +185,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#7373de"),  # highlighted bar
+                alt.value("#73d2de"),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
         )
@@ -582,7 +582,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#7373de"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73d2de"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
