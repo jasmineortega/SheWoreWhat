@@ -81,23 +81,21 @@ def fetch_data():
     return df
 
 
-def worn(closet):
+def counts(df=fetch_data()):
     """
-    Function to merge raw closet data and collected 2023 data.
+    Function to count number of times items have been worn in a dataframe.
 
-    Parameters
+    Parameters:
     ----------
-        closet : pandas.DataFrame
-            Dataframe containing complete closet log.
+        df : pandas.DataFrame
+            Dataframe of items to count frequency worn. Default is Google Sheet data.
 
-    Returns
-    -------
+    Returns:
+    --------
         worn_df : pandas.DataFrame
-            Complete and standardized dataframe containing "ID", "Name", "count", "Item",
+            Dataframe containing "ID", "Name", "Count", "Item",
             "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
-
-    df = fetch_data()
     df_counts = (
         df.groupby(["value", "ID"])
         .count()
@@ -107,6 +105,7 @@ def worn(closet):
     )
 
     # left join closet + df
+    closet = closet_df()
     worn_df = pd.merge(closet, df_counts, how="left", on="ID")
     worn_df["Name"] = worn_df["Brand"] + " " + worn_df["Item"]
     worn_df = worn_df[
@@ -128,6 +127,23 @@ def worn(closet):
     ]
     worn_df = worn_df.fillna(0).rename(columns={"count": "Count"})
     worn_df["Count"] = worn_df["Count"].astype(int)
+
+    return worn_df
+
+
+def worn():
+    """
+    Function to merge raw closet data and collected 2023 data.
+
+    Returns
+    -------
+        worn_df : pandas.DataFrame
+            Complete and standardized dataframe containing "ID", "Name", "count", "Item",
+            "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
+    """
+    closet = closet_df()
+    df = fetch_data()
+    worn_df = counts(df)
 
     return worn_df
 
@@ -359,7 +375,7 @@ def top_10_df():
 
     # data wrangling to select top 10 most worn items
     closet = closet_df()
-    worn_df = worn(closet)
+    worn_df = worn()
     most_worn = worn_df.nlargest(10, columns="Count")
 
     # merge dataframes
@@ -572,7 +588,7 @@ def split_seasons():
 
 
 closet = closet_df()
-worn_df = worn(closet)
+worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
