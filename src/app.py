@@ -697,8 +697,8 @@ app.layout = dbc.Container(
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
                     ],
-                ),
-                width={"offset": 5}
+                    width={"offset": 5},
+                )
             ]
         ),
         dbc.Row(
