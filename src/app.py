@@ -692,8 +692,8 @@ app.layout = dbc.Container(
                             "this would be a fun project to help me analyze my personal style"
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
-                        style={'fontColor': '#218380'}
-                    ]
+                    ],
+                    style={"fontColor": "#218380"},
                 )
             ]
         ),
