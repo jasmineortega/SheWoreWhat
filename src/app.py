@@ -689,7 +689,6 @@ app.layout = dbc.Container(
                     [
                         html.P(
                             "Pardon my appearance: dashboard under construction still! "
-                            "Under constru"
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
