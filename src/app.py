@@ -588,7 +588,7 @@ def plot_heatmap(top_10, df, z=0):
             ),
             alt.Tooltip(["Date", "Day"]),
             opacity=alt.condition(
-                alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
+                alt.datum.Bool == 1, alt.value(0.85), alt.value(0.50)
             ),
         )
         .properties(height=200, width=600)
