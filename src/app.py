@@ -5,6 +5,16 @@ import pandas as pd
 import numpy as np
 
 
+color_aes = [
+    "#73de83",  # green
+    "#73d2de",  # light blue
+    "#7373de",  # lavender
+    "#b173de",  # purple
+    "#de73a5",  # magenta
+    "#dec773",  # gold
+]
+
+
 def closet_df(path="data/ClosetData.csv"):
     """
     Function to import CSV data and return df with unique identifiers.
@@ -165,7 +175,6 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
     closet_comp = (
         alt.Chart(most_worn, title="Ten Most Worn Pieces in 2023")
         .mark_bar(
-            color="#d81159",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
@@ -176,7 +185,7 @@ def plot_mostworn(worn_df, item_name="Adidas Tennis Shoe"):
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#218380"),  # highlights selected bar
+                alt.value("#73d2de"),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
         )
@@ -288,16 +297,7 @@ def plot_newitems(worn_df):
             theta=alt.Theta("count()", stack=True),
             color=alt.Color(
                 "Bought",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
                 legend=None,
             ),
             tooltip=["Bought", "count()"],
@@ -309,16 +309,7 @@ def plot_newitems(worn_df):
     txt = base.mark_text(angle=0, radius=180, size=15).encode(
         alt.Color(
             "Bought",
-            scale=alt.Scale(
-                range=[
-                    "#ffbc42",
-                    "#d81159",
-                    "#652d8f",
-                    "#25592a",
-                    "#218380",
-                    "#73d2de",
-                ]
-            ),
+            scale=alt.Scale(range=color_aes),
             legend=None,
         ),
         text="Bought",
@@ -364,9 +355,7 @@ def plot_categories(worn_df):
     txt = base.mark_text(radius=177, size=15).encode(
         alt.Color(
             "Category",
-            scale=alt.Scale(
-                range=["#ffbc42", "#d81159", "#652d8f", "#25592a", "#218380", "#73d2de"]
-            ),
+            scale=alt.Scale(range=color_aes),
             legend=None,
         ),
         text="Category",
@@ -412,16 +401,7 @@ def plot_bought(worn_df):
             alt.Y("Secondhand", sort="-x"),
             alt.Color(
                 "Bought",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
             ),
             tooltip="count()",
         )
@@ -602,7 +582,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#218380"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73d2de"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
@@ -666,22 +646,14 @@ def plot_cpw(worn_df):
             alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
             alt.Color(
                 "Category",
-                scale=alt.Scale(
-                    range=[
-                        "#ffbc42",
-                        "#d81159",
-                        "#652d8f",
-                        "#25592a",
-                        "#218380",
-                        "#73d2de",
-                    ]
-                ),
+                scale=alt.Scale(range=color_aes),
             ),
             alt.Size("CPW", scale=alt.Scale(domain=[0, 35]), legend=None),
             alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
+        .interactive()
     )
 
     return plot
@@ -702,8 +674,8 @@ app.layout = dbc.Container(
         dbc.Row(
             dbc.Col(
                 html.B("She Wore What 2023"),
-                style={"font-weight": "bold", "color": "#000000", "font-size": "150%"},
-                width={"offset": 5},
+                style={"font-weight": "bold", "color": "#218380", "font-size": "200%"},
+                width={"offset": 4},
             )
         ),
         html.Br(),
@@ -712,12 +684,14 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         html.P(
+                            "Pardon my appearance: dashboard under construction still! "
+                        ),
+                        html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, I thought "
                             "this would be a fun project to help me analyze my personal style "
                             "trends so I can make smarter decisions about my purchases in the future.",
                         ),
-                        html.P("Please note: project is still under construction :-) "),
                     ]
                 )
             ]
