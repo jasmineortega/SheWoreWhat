@@ -663,7 +663,7 @@ closet = closet_df()
 worn_df = worn(closet)
 top_id, top_item, heat_df = top_10_df()
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+app = Dash(__name__) #, external_stylesheets=[dbc.themes.LUX])
 server = app.server
 
 app.title = "She Wore What 2023"
