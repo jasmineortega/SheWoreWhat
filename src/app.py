@@ -943,6 +943,7 @@ app.layout = dbc.Container(
                                                             html.H4(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
+                                                            html.P("Placeholder for fun yet insightful commentary.")
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
                                                                 " was known, including items purchased secondhand. "
