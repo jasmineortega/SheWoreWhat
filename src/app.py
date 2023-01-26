@@ -172,7 +172,6 @@ def plot_mostworn(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
             ),
         )
-        .properties(height=200, width=200)
         # .configure_title(color="#706f6c")
         # .configure_axis(
         #     labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
