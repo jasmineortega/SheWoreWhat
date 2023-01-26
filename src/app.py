@@ -943,7 +943,9 @@ app.layout = dbc.Container(
                                                             html.H4(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
-                                                            html.P("Placeholder for fun yet insightful commentary.")
+                                                            html.P(
+                                                                "Placeholder for fun yet insightful commentary."
+                                                            ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
                                                                 " was known, including items purchased secondhand. "
@@ -973,10 +975,23 @@ app.layout = dbc.Container(
                                         title="Cost Per Wear",
                                     ),
                                     dbc.AccordionItem(
-                                        html.P(
-                                            "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
-                                            "factories, here are some articles and podcasts that I found very helpful: "
-                                        ),
+                                        [
+                                            html.P(
+                                                "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
+                                                "factories, here are some articles and podcasts that I found very helpful: "
+                                            ),
+                                            html.A(
+                                                "Binchtopia's SheInvestigation",
+                                                href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
+                                            ),
+                                            html.P(
+                                                "I was inspired by Blonde Broke & Bougie to start this project"
+                                            ),
+                                            html.A(
+                                                "Check out her 2022 closet wrapped",
+                                                href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                            ),
+                                        ],
                                         title="Resources",
                                     ),
                                 ],
