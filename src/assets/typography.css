@@ -1,15 +1,3 @@
-/* body {
-    font-family: "Gerogia", Serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #218380
-} */
 /* Typography */
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
@@ -61,6 +49,6 @@ p {
 
 a {
     font-size: 16px;
-    color: blue;
+    color: #215f83;
     text-decoration: none;
 }
