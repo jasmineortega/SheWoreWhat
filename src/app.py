@@ -910,7 +910,7 @@ app.layout = dbc.Container(
                                                                 ]
                                                             )
                                                         ],
-                                                        width={"size": 4},
+                                                        width={"size": 8},
                                                     ),
                                                 ]
                                             )
