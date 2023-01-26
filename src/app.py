@@ -141,7 +141,6 @@ def worn():
             Complete and standardized dataframe containing "ID", "Name", "count", "Item",
             "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
-    closet = closet_df()
     df = fetch_data()
     worn_df = counts(df)
 
@@ -482,7 +481,7 @@ def plot_heatmap(top_10, df, z=0):
     return heat_plot
 
 
-def plot_cpw(worn_df):
+def plot_cpw():
     """
     Function for 2023 cost-per-wear plot.
 
@@ -497,6 +496,7 @@ def plot_cpw(worn_df):
     """
 
     df = fetch_data()
+    worn_df = worn()
 
     # calculate 2023 cost-per-wear
     complete_df = pd.merge(worn_df, df, how="inner", on="ID")
