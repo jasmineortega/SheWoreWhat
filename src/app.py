@@ -149,7 +149,10 @@ def worn():
 
 
 def plot_mostworn(
-    worn_df, item_name="Adidas Tennis Shoe", title="Ten Most Worn Pieces in 2023"
+    worn_df,
+    item_name="Adidas Tennis Shoe",
+    title="Ten Most Worn Pieces in 2023",
+    highlight="#73d2de",
 ):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
@@ -165,7 +168,7 @@ def plot_mostworn(
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#73d2de"),  # highlighted bar
+                alt.value(highlight),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
             opacity=alt.condition(
