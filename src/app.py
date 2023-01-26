@@ -997,8 +997,6 @@ app.layout = dbc.Container(
                                 ],
                                 start_collapsed=True,
                                 always_open=True,
-                                id="accordion",
-                                className="my-custom-class",
                             )
                         )
                     ]
