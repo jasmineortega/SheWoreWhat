@@ -997,7 +997,7 @@ app.layout = dbc.Container(
                                 ],
                                 start_collapsed=True,
                                 always_open=True,
-                                style={"background-color": "#d8f2ec", "color": "black"},
+                                style={"card-header": {"background-color": "red"}},
                             )
                         )
                     ]
