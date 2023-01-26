@@ -997,7 +997,7 @@ app.layout = dbc.Container(
                                 ],
                                 start_collapsed=True,
                                 always_open=True,
-                                style={"card-header": {"background-color": "red"}},
+                                className="my-customa-class"
                             )
                         )
                     ]
