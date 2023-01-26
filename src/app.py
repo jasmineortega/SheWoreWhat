@@ -656,7 +656,7 @@ app.layout = dbc.Container(
         ),
         dbc.Row(
             dbc.Col(
-                html.B("by Jasmine Ortega"),
+                html.I("by Jasmine Ortega"),
                 style={"color": "#218380", "font-size": "150%"},
                 className="text-center",
             )
