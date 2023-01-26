@@ -993,6 +993,7 @@ app.layout = dbc.Container(
                                             ),
                                         ],
                                         title="Resources",
+                                        style={"color": "#d8f2ec"},
                                     ),
                                 ],
                                 start_collapsed=True,
