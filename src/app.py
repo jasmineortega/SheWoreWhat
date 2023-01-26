@@ -83,18 +83,18 @@ def fetch_data():
 
 def counts(df=fetch_data()):
     """
-        Function to count number of times items have been worn in a dataframe.
+    Function to count number of times items have been worn in a dataframe.
 
-        Parameters:
-        ----------
-            df : pandas.DataFrame
-                Dataframe of items to count frequency worn. Default is Google Sheet data.
-    g
-        Returns:
-        --------
-            worn_df : pandas.DataFrame
-                Dataframe containing "ID", "Name", "Count", "Item",
-                "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
+    Parameters:
+    ----------
+        df : pandas.DataFrame
+            Dataframe of items to count frequency worn. Default is Google Sheet data.
+
+    Returns:
+    --------
+        worn_df : pandas.DataFrame
+            Dataframe containing "ID", "Name", "Count", "Item",
+            "Category", "Sub-Category", "Color", "Pattern", "Brand", "Cost", "2023"
     """
     df_counts = (
         df.groupby(["value", "ID"])
@@ -150,10 +150,11 @@ def worn():
 def plot_mostworn(
     worn_df,
     item_name="Adidas Tennis Shoe",
+    i=10,
     title="Ten Most Worn Pieces in 2023",
     highlight="#73d2de",
 ):
-    most_worn = worn_df.nlargest(10, columns="Count")
+    most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title)
         .mark_bar(
@@ -616,6 +617,7 @@ def plot_seasons():
         x = plot_mostworn(
             season_df[i],
             title=f"{season_list[i]}: Most Worn Pieces",
+            i=5,
             highlight=color[i],
         )  # change winter to i once spring starts
         x = x.properties(height=100, width=200)
