@@ -53,6 +53,6 @@ a {
     text-decoration: none;
 }
 
-#accordion-1 .card-header {
-    background: yellow
+.accordion-toggle {
+    background-color: blue !important;
 }
