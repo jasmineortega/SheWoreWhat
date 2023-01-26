@@ -650,8 +650,15 @@ app.layout = dbc.Container(
         dbc.Row(
             dbc.Col(
                 html.B("She Wore What 2023"),
-                style={"font-weight": "bold", "color": "#218380", "font-size": "200%"},
-                width={"offset": 4},
+                style={"color": "#218380", "font-size": "200%"},
+                className="text-center",
+            )
+        ),
+        dbc.Row(
+            dbc.Col(
+                html.I("by Jasmine Ortega"),
+                style={"color": "#218380", "font-size": "150%"},
+                className="text-center",
             )
         ),
         html.Br(),
@@ -660,15 +667,17 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         html.P(
-                            "Pardon my appearance: dashboard under construction still! "
+                            html.I(
+                                "Pardon my appearance: I'm still under construction :-) "
+                            )
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
-                            "As a data scientist and sustainable fashion enthusiast, I thought "
-                            "this would be a fun project to help me analyze my personal style "
-                            "trends so I can make smarter decisions about my purchases in the future.",
+                            "As a data scientist and sustainable fashion enthusiast, this is a  "
+                            "fun side project to help me make smarter decisions about my purchases in the future.",
                         ),
                     ],
+                    className="text-center",
                 )
             ]
         ),
@@ -711,6 +720,7 @@ app.layout = dbc.Container(
                                                                 ]
                                                             )
                                                         ],
+                                                        width={"size": 4},
                                                     ),
                                                 ]
                                             ),
@@ -930,14 +940,15 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
-                                                            html.H4("Cost-per-wear"),
-                                                            html.P(
+                                                            html.H4(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
-                                                            html.Br(),
                                                             html.P(
+                                                                "Placeholder for fun yet insightful commentary."
+                                                            ),
+                                                            html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
-                                                                "was known, including items purchased secondhand. "
+                                                                " was known, including items purchased secondhand. "
                                                             ),
                                                         ]
                                                     ),
@@ -964,10 +975,23 @@ app.layout = dbc.Container(
                                         title="Cost Per Wear",
                                     ),
                                     dbc.AccordionItem(
-                                        html.P(
-                                            "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
-                                            "factories, here are some articles and podcasts that I found very helpful: "
-                                        ),
+                                        [
+                                            html.P(
+                                                "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
+                                                "factories, here are some articles and podcasts that I found very helpful: "
+                                            ),
+                                            html.A(
+                                                "Binchtopia's SheInvestigation",
+                                                href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
+                                            ),
+                                            html.P(
+                                                "I was inspired by Blonde Broke & Bougie to start this project"
+                                            ),
+                                            html.A(
+                                                "Check out her 2022 closet wrapped",
+                                                href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                            ),
+                                        ],
                                         title="Resources",
                                     ),
                                 ],
