@@ -887,30 +887,32 @@ app.layout = dbc.Container(
                                     dbc.AccordionItem(
                                         [
                                             dbc.Row(
-                                                dbc.Col(
-                                                    html.P(
-                                                        "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
-                                                        "Unfortunately, we are only one month into winter so the data is not there (yet!)"
+                                                [
+                                                    dbc.Col(
+                                                        html.P(
+                                                            "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
+                                                            "Unfortunately, we are only one month into winter so the data is not there (yet!)"
+                                                        ),
                                                     ),
-                                                ),
-                                                dbc.Col(
-                                                    [
-                                                        html.Div(
-                                                            [
-                                                                html.Iframe(
-                                                                    id="seasons",
-                                                                    style={
-                                                                        "border-width": "0",
-                                                                        "width": "100%",
-                                                                        "height": "400px",
-                                                                    },
-                                                                    srcDoc=plot_seasons().to_html(),
-                                                                )
-                                                            ]
-                                                        )
-                                                    ],
-                                                    width={"size": 4},
-                                                ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="seasons",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=plot_seasons().to_html(),
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ],
+                                                        width={"size": 4},
+                                                    ),
+                                                ]
                                             )
                                         ],
                                         title="Seasonal Trends",
