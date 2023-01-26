@@ -660,7 +660,9 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         html.P(
-                            "Pardon my appearance: dashboard under construction still! "
+                            html.I(
+                                "Pardon my appearance: dashboard under construction still! "
+                            )
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
