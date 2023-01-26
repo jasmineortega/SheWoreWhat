@@ -593,7 +593,7 @@ def split_seasons():
 
 
 def plot_seasons():
-    """ """
+    """fill in plz"""
     # split data
     spring, summer, fall, winter = split_seasons()
 
@@ -885,10 +885,34 @@ app.layout = dbc.Container(
                                         title="Most Worn Items of 2023",
                                     ),
                                     dbc.AccordionItem(
-                                        html.P(
-                                            "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
-                                            "Unfortunately, we are only one month into winter so the data is not there (yet!)"
-                                        ),
+                                        [
+                                            dbc.Row(
+                                                dbc.Col(
+                                                    html.P(
+                                                        "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
+                                                        "Unfortunately, we are only one month into winter so the data is not there (yet!)"
+                                                    ),
+                                                ),
+                                                dbc.Col(
+                                                    [
+                                                        html.Div(
+                                                            [
+                                                                html.Iframe(
+                                                                    id="seasons",
+                                                                    style={
+                                                                        "border-width": "0",
+                                                                        "width": "100%",
+                                                                        "height": "400px",
+                                                                    },
+                                                                    srcDoc=plot_seasons().to_html(),
+                                                                )
+                                                            ]
+                                                        )
+                                                    ],
+                                                    width={"size": 4},
+                                                ),
+                                            )
+                                        ],
                                         title="Seasonal Trends",
                                     ),
                                     # cost per wear
