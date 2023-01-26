@@ -995,7 +995,6 @@ app.layout = dbc.Container(
                                         title="Resources",
                                         id="accordion-1",
                                         className="my-custom-class",
-                                        label="Accordion button label",
                                     ),
                                 ],
                                 start_collapsed=True,
