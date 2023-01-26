@@ -618,7 +618,7 @@ def plot_seasons():
             title=f"{season_list[i]}: Most Worn Pieces",
             highlight=color[i],
         )  # change winter to i once spring starts
-        x = x.properties(height=150, width=200)
+        x = x.properties(height=100, width=200)
         plot_list.append(x)
 
     row1 = alt.vconcat(plot_list[3], plot_list[1])
