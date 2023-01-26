@@ -52,3 +52,7 @@ a {
     color: #218361;
     text-decoration: none;
 }
+
+#accordion .my-custom-class .card-header {
+    background-color: blue;
+}
