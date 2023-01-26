@@ -609,7 +609,7 @@ def plot_seasons():
     plot_list = []
 
     for i in range(0, 4):
-        x = plot_sznworn(
+        x = plot_mostworn(
             season_df[i],
             title=f"{season_list[i]}: Most Worn Pieces",
             highlight=color[i],
