@@ -651,7 +651,14 @@ app.layout = dbc.Container(
             dbc.Col(
                 html.B("She Wore What 2023"),
                 style={"color": "#218380", "font-size": "200%"},
-                width={"offset": 5},
+                className="text-center",
+            )
+        ),
+        dbc.Row(
+            dbc.Col(
+                html.B("Jasmine Ortega"),
+                style={"color": "#218380", "font-size": "150%"},
+                className="text-center",
             )
         ),
         html.Br(),
@@ -661,7 +668,7 @@ app.layout = dbc.Container(
                     [
                         html.P(
                             html.I(
-                                "Pardon my appearance: dashboard under construction still! "
+                                "Pardon my appearance: I'm still under construction :-) "
                             )
                         ),
                         html.P(
