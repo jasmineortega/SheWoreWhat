@@ -775,7 +775,17 @@ app.layout = dbc.Container(
                                                                         srcDoc=plot_mostworn(
                                                                             worn_df,
                                                                             top_item[0],
-                                                                        ).to_html(),
+                                                                        )
+                                                                        .configure_title(
+                                                                            color="#706f6c"
+                                                                        )
+                                                                        .configure_axis(
+                                                                            labelColor="#706f6c",
+                                                                            titleColor="#706f6c",
+                                                                            grid=False,
+                                                                            domain=False,
+                                                                        )
+                                                                        .to_html(),
                                                                     )
                                                                 ]
                                                             ),
