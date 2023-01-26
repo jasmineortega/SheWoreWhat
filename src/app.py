@@ -650,8 +650,8 @@ app.layout = dbc.Container(
         dbc.Row(
             dbc.Col(
                 html.B("She Wore What 2023"),
-                style={"font-weight": "bold", "color": "#218380", "font-size": "200%"},
-                width={"offset": 4},
+                style={"color": "#218380", "font-size": "200%"},
+                width={"offset": 5},
             )
         ),
         html.Br(),
