@@ -656,7 +656,7 @@ app.layout = dbc.Container(
         ),
         dbc.Row(
             dbc.Col(
-                html.I("by Jasmine Ortega"),
+                html.B("by Jasmine Ortega"),
                 style={"color": "#218380", "font-size": "150%"},
                 className="text-center",
             )
@@ -993,6 +993,9 @@ app.layout = dbc.Container(
                                             ),
                                         ],
                                         title="Resources",
+                                        id="accordion-1",
+                                        className="my-custom-class",
+                                        label="Accordion button label",
                                     ),
                                 ],
                                 start_collapsed=True,

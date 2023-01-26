@@ -52,3 +52,7 @@ a {
     color: #218361;
     text-decoration: none;
 }
+
+#accordion-1 .card-header {
+    background: yellow
+}
