@@ -946,9 +946,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "425px",
                                                                         },
-                                                                        srcDoc=plot_cpw(
-                                                                            worn_df
-                                                                        ).to_html(),
+                                                                        srcDoc=plot_cpw().to_html(),
                                                                     )
                                                                 ]
                                                             ),
