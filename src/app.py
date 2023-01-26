@@ -514,7 +514,7 @@ def plot_cpw():
             "Price",
         ]
     ]
-    complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(1)
+    complete_df["CPW"] = (complete_df["Price"] / complete_df["Count"]).round(2)
     complete_df["Cost Per Wear"] = "$" + complete_df["CPW"].astype(str)
     complete_df["Cost Per Wear"] = [
         i if i[-3] == "." else i + "0" for i in complete_df["Cost Per Wear"]
