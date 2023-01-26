@@ -149,7 +149,10 @@ def worn():
 
 
 def plot_mostworn(
-    worn_df, item_name="Adidas Tennis Shoe", title="Ten Most Worn Pieces in 2023"
+    worn_df,
+    item_name="Adidas Tennis Shoe",
+    title="Ten Most Worn Pieces in 2023",
+    highlight="#73d2de",
 ):
     most_worn = worn_df.nlargest(10, columns="Count")
     closet_comp = (
@@ -165,17 +168,17 @@ def plot_mostworn(
             alt.Tooltip("Count"),
             color=alt.condition(
                 alt.datum.Name == item_name,
-                alt.value("#73d2de"),  # highlighted bar
+                alt.value(highlight),  # highlighted bar
                 alt.value("#e0ddd5"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
             ),
         )
-        .configure_title(color="#706f6c")
-        .configure_axis(
-            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
-        )
+        # .configure_title(color="#706f6c")
+        # .configure_axis(
+        #     labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        # )
     )
     return closet_comp
 
@@ -589,6 +592,43 @@ def split_seasons():
     return spring, summer, fall, winter
 
 
+def plot_seasons():
+    """fill in plz"""
+    # split data
+    spring, summer, fall, winter = split_seasons()
+
+    # conduct counts on all four splits
+    spring = counts(spring)
+    summer = counts(summer)
+    fall = counts(fall)
+    winter = counts(winter)
+
+    season_list = ["Spring", "Summer", "Fall", "Winter"]
+    season_df = [spring, summer, fall, winter]
+    color = ["#d81159", "#73de83", "#ffbc42", "#73d2de"]
+    plot_list = []
+
+    for i in range(0, 4):
+        x = plot_mostworn(
+            season_df[i],
+            title=f"{season_list[i]}: Most Worn Pieces",
+            highlight=color[i],
+        )  # change winter to i once spring starts
+        x = x.properties(height=150, width=200)
+        plot_list.append(x)
+
+    row1 = alt.vconcat(plot_list[3], plot_list[1])
+    row2 = alt.vconcat(plot_list[2], plot_list[0])
+    final = (
+        alt.hconcat(row1, row2)
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+    )
+    return final
+
+
 closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
@@ -775,7 +815,17 @@ app.layout = dbc.Container(
                                                                         srcDoc=plot_mostworn(
                                                                             worn_df,
                                                                             top_item[0],
-                                                                        ).to_html(),
+                                                                        )
+                                                                        .configure_title(
+                                                                            color="#706f6c"
+                                                                        )
+                                                                        .configure_axis(
+                                                                            labelColor="#706f6c",
+                                                                            titleColor="#706f6c",
+                                                                            grid=False,
+                                                                            domain=False,
+                                                                        )
+                                                                        .to_html(),
                                                                     )
                                                                 ]
                                                             ),
@@ -835,10 +885,36 @@ app.layout = dbc.Container(
                                         title="Most Worn Items of 2023",
                                     ),
                                     dbc.AccordionItem(
-                                        html.P(
-                                            "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
-                                            "Unfortunately, we are only one month into winter so the data is not there (yet!)"
-                                        ),
+                                        [
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        html.P(
+                                                            "In this section I will investigate the winter/spring/fall/summer trends of my daily outfits. "
+                                                            "Unfortunately, we are only one month into winter so the data is not there (yet!)"
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="seasons",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=plot_seasons().to_html(),
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ],
+                                                        width={"size": 8},
+                                                    ),
+                                                ]
+                                            )
+                                        ],
                                         title="Seasonal Trends",
                                     ),
                                     # cost per wear
