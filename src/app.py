@@ -656,7 +656,7 @@ app.layout = dbc.Container(
         ),
         dbc.Row(
             dbc.Col(
-                html.B("Jasmine Ortega"),
+                html.B("by Jasmine Ortega"),
                 style={"color": "#218380", "font-size": "150%"},
                 className="text-center",
             )
@@ -673,9 +673,8 @@ app.layout = dbc.Container(
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
-                            "As a data scientist and sustainable fashion enthusiast, I thought "
-                            "this would be a fun project to help me analyze my personal style "
-                            "trends so I can make smarter decisions about my purchases in the future.",
+                            "As a data scientist and sustainable fashion enthusiast, this is a  "
+                            "fun side project to help me make smarter decisions about my purchases in the future.",
                         ),
                     ],
                     className="text-center",
