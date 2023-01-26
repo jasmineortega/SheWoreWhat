@@ -940,14 +940,12 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
-                                                            html.H4("Cost-per-wear"),
-                                                            html.P(
+                                                            html.H4(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
-                                                            html.Br(),
-                                                            html.P(
+                                                            html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
-                                                                "was known, including items purchased secondhand. "
+                                                                " was known, including items purchased secondhand. "
                                                             ),
                                                         ]
                                                     ),
