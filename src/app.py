@@ -985,11 +985,14 @@ app.layout = dbc.Container(
                                                 href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
                                             ),
                                             html.P(
-                                                "I was inspired by Blonde Broke & Bougie to start this project"
+                                                "In this episode, the girlies investigate the fashion giant Shein and explore ideas of ethical labor, sustainability, and trend cycles. "
                                             ),
                                             html.A(
-                                                "Check out her 2022 closet wrapped",
+                                                "BlondeBroke&Bougie's 2022 Closet Wrapped",
                                                 href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                            ),
+                                            html.P(
+                                                "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet."
                                             ),
                                         ],
                                         title="Resources",
