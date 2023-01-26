@@ -592,6 +592,43 @@ def split_seasons():
     return spring, summer, fall, winter
 
 
+def plot_seasons():
+    """ """
+    # split data
+    spring, summer, fall, winter = split_seasons()
+
+    # conduct counts on all four splits
+    spring = counts(spring)
+    summer = counts(summer)
+    fall = counts(fall)
+    winter = counts(winter)
+
+    season_list = ["Spring", "Summer", "Fall", "Winter"]
+    season_df = [spring, summer, fall, winter]
+    color = ["#d81159", "#73de83", "#ffbc42", "#73d2de"]
+    plot_list = []
+
+    for i in range(0, 4):
+        x = plot_sznworn(
+            season_df[i],
+            title=f"{season_list[i]}: Most Worn Pieces",
+            highlight=color[i],
+        )  # change winter to i once spring starts
+        x = x.properties(height=200, width=200)
+        plot_list.append(x)
+
+    row1 = alt.vconcat(plot_list[3], plot_list[1])
+    row2 = alt.vconcat(plot_list[2], plot_list[0])
+    final = (
+        alt.hconcat(row1, row2)
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+    )
+    return final
+
+
 closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
