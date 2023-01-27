@@ -1032,6 +1032,7 @@ app.layout = dbc.Container(
                                                                 "height": "225px",
                                                             },
                                                         ),
+                                                        width=1,
                                                     ),
                                                     dbc.Col(
                                                         [
