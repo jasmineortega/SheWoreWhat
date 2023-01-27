@@ -1032,7 +1032,7 @@ app.layout = dbc.Container(
                                                     ),
                                                     dbc.Col(
                                                         html.Img(
-                                                            src="src/assets/she.png",
+                                                            src="/assets/she.png",
                                                             alt="image",
                                                             width="100%",
                                                         ),
