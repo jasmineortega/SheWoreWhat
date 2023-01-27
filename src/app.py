@@ -1024,12 +1024,13 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
-                                                        [   html.Br(),
+                                                        [
+                                                            html.Br(),
                                                             html.Br(),
                                                             html.P(
                                                                 "Hi, I'm Jasmine -- the She in SheWoreWhat!"
                                                             ),
-                                                            html.Br()
+                                                            html.Br(),
                                                         ]
                                                     ),
                                                     dbc.Col(
@@ -1038,7 +1039,7 @@ app.layout = dbc.Container(
                                                             alt="image",
                                                             style={
                                                                 "width": "200px",
-                                                                "height": "300px",
+                                                                "height": "250px",
                                                             },
                                                         ),
                                                         width=4,
