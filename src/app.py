@@ -1037,7 +1037,6 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.Br(),
-                                                            html.Br(),
                                                             html.P(
                                                                 "Hi, I'm Jasmine -- the 'She' in SheWoreWhat!"
                                                             ),
@@ -1050,21 +1049,37 @@ app.layout = dbc.Container(
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                "If you'd like to learn more about how I built this project, check out the ",
                                                                 style={
-                                                                    "margin": "0",
-                                                                    "padding": "0",
+                                                                    "display": "inline-block"
                                                                 },
-                                                            ),
-                                                            html.A(
-                                                                "SheWoreWhat GitHub Repo",
-                                                                href="https://github.com/jasmineortega/SheWoreWhat",
-                                                                className="social-link",
-                                                                style={
-                                                                    "margin": "0",
-                                                                    "padding": "0",
-                                                                },
-                                                            ),
+                                                                children=[
+                                                                    "If you'd like to learn more about how I built this project, check out the ",
+                                                                    html.A(
+                                                                        "SheWoreWhat GitHub Repo",
+                                                                        href="https://github.com/jasmineortega/SheWoreWhat",
+                                                                        className="social-link",
+                                                                        style={
+                                                                            "display": "inline-block"
+                                                                        },
+                                                                    ),
+                                                                ],
+                                                            )
+                                                            # html.P(
+                                                            #     "If you'd like to learn more about how I built this project, check out the ",
+                                                            #     style={
+                                                            #         "margin": "0",
+                                                            #         "padding": "0",
+                                                            #     },
+                                                            # ),
+                                                            # html.A(
+                                                            #     "SheWoreWhat GitHub Repo",
+                                                            #     href="https://github.com/jasmineortega/SheWoreWhat",
+                                                            #     className="social-link",
+                                                            #     style={
+                                                            #         "margin": "0",
+                                                            #         "padding": "0",
+                                                            #     },
+                                                            # ),
                                                         ]
                                                     ),
                                                 ]
@@ -1105,7 +1120,7 @@ app.layout = dbc.Container(
                                     ),
                                 ],
                                 start_collapsed=True,
-                                always_open=True,
+                                # always_open=True,
                             )
                         )
                     ]
