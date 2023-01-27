@@ -1057,7 +1057,7 @@ app.layout = dbc.Container(
                                                         [
                                                             html.Br(),
                                                             html.P(
-                                                                "Hi, I'm Jasmine —— the 'She' in SheWoreWhat!"
+                                                                "Hi, I'm Jasmine — the 'She' in SheWoreWhat!"
                                                             ),
                                                             html.P(
                                                                 "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
