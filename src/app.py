@@ -1021,49 +1021,68 @@ app.layout = dbc.Container(
                                     ),
                                     dbc.AccordionItem(
                                         [
-                                            html.P("Hi, I'm Jasmine -- the "),
-                                            html.I("She "),
-                                            html.P("in SheWoreWhat!"),
-                                            html.Br(),
-                                            html.P(
-                                                "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
-                                                "However, oftentimes, the conversation around fashion feels inaccessible. "
-                                                "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
-                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and style journey. :-)"
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "Hi, I'm Jasmine -- the She in SheWoreWhat!"
+                                                            ),
+                                                        ]
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Img(
+                                                            src="src/assets/she.jpg",
+                                                            alt="image",
+                                                            width="100%",
+                                                        ),
+                                                        width=4,
+                                                    ),
+                                                ]
                                             ),
-                                            html.Br(),
-                                            html.A(
-                                                "SheWoreWhat GitHub Repo",
-                                                href="https://github.com/jasmineortega/SheWoreWhat",
+                                            dbc.Row(
+                                                [
+                                                    html.Br(),
+                                                    html.P(
+                                                        "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
+                                                        "However, oftentimes, the conversation around fashion feels inaccessible. "
+                                                        "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
+                                                        "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and style journey. :-)"
+                                                    ),
+                                                    html.Br(),
+                                                    html.A(
+                                                        "SheWoreWhat GitHub Repo",
+                                                        href="https://github.com/jasmineortega/SheWoreWhat",
+                                                    ),
+                                                    html.P(
+                                                        "If you'd like to learn more about how I built this project, check out the GitHub Repo"
+                                                    ),
+                                                    html.Br(),
+                                                    html.P(
+                                                        "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
+                                                    ),
+                                                    html.A(
+                                                        "BlondeBroke&Bougie's 2022 Closet Wrapped",
+                                                        href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                                    ),
+                                                    html.P(
+                                                        "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
+                                                        "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
+                                                    ),
+                                                    html.A(
+                                                        "How the 20 Year Trend Cycle Collapsed",
+                                                        href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
+                                                    ),
+                                                    html.Br(),
+                                                    html.I(
+                                                        "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
+                                                        "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
+                                                        "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
+                                                        "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
+                                                        "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
+                                                    ),
+                                                ]
                                             ),
-                                            html.P(
-                                                "If you'd like to learn more about how I built this project, check out the GitHub Repo"
-                                            ),
-                                            html.Br(),
-                                            html.P(
-                                                "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
-                                            ),
-                                            html.A(
-                                                "BlondeBroke&Bougie's 2022 Closet Wrapped",
-                                                href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
-                                            ),
-                                            html.P(
-                                                "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
-                                                "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
-                                            ),
-                                            html.A(
-                                                "How the 20 Year Trend Cycle Collapsed",
-                                                href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
-                                            ),
-                                            html.Br(),
-                                            html.I(
-                                                "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
-                                                "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
-                                                "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
-                                                "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
-                                                "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
-                                            ),
-                                            html.Br(),
                                         ],
                                         title="About the Author",
                                     ),
