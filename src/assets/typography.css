@@ -16,7 +16,7 @@ h5,
 h6 {
     font-family: 'Righteous', cursive;
     font-weight: bold;
-    color: #218380
+    color: #218380;
 }
 
 h1 {
@@ -60,4 +60,9 @@ a {
 .social-link {
     font-family: Arial, sans-serif;
     color: #7373de;
+}
+
+.intro {
+    font-family: Arial, sans-serif;
+    color: #538f8d;
 }
