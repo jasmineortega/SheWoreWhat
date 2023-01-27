@@ -668,13 +668,15 @@ app.layout = dbc.Container(
                     [
                         html.P(
                             html.I(
-                                "Pardon my appearance: I'm still under construction :-) "
+                                "Pardon my appearance: I'm still under construction :-) ",
+                                className="intro",
                             )
                         ),
                         html.P(
                             "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, this is a  "
                             "fun side project to help me make smarter decisions about my purchases in the future.",
+                            className="intro",
                         ),
                     ],
                     className="text-center",

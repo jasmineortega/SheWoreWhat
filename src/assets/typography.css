@@ -45,7 +45,6 @@ h6 {
 
 p {
     font-family: Arial, sans-serif;
-    /* color: #538f8d; */
 }
 
 i {
@@ -61,4 +60,9 @@ a {
 .social-link {
     font-family: Arial, sans-serif;
     color: #7373de;
+}
+
+.intro {
+    font-family: Arial, sans-serif;
+    color: #538f8d;
 }
