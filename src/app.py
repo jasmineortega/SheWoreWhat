@@ -1077,58 +1077,46 @@ app.layout = dbc.Container(
                                                     html.P(
                                                         "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
                                                     ),
-                                                    html.Ul(
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
                                                         [
-                                                            html.Li(
+                                                            html.Ul(
                                                                 [
-                                                                    html.A(
-                                                                        "BlondeBroke&Bougie's 2022 Closet Wrapped",
-                                                                        href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                                                    html.Li(
+                                                                        [
+                                                                            html.A(
+                                                                                "BlondeBroke&Bougie's 2022 Closet Wrapped",
+                                                                                href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                                                            ),
+                                                                            html.P(
+                                                                                "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
+                                                                                "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
+                                                                            ),
+                                                                        ]
                                                                     ),
-                                                                    html.P(
-                                                                        "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
-                                                                        "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
-                                                                    ),
-                                                                ]
-                                                            ),
-                                                            html.Li(
-                                                                [
-                                                                    html.A(
-                                                                        "How the 20 Year Trend Cycle Collapsed",
-                                                                        href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
-                                                                    ),
-                                                                    html.Br(),
-                                                                    html.I(
-                                                                        "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
-                                                                        "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
-                                                                        "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
-                                                                        "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
-                                                                        "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
+                                                                    html.Li(
+                                                                        [
+                                                                            html.A(
+                                                                                "How the 20 Year Trend Cycle Collapsed",
+                                                                                href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
+                                                                            ),
+                                                                            html.Br(),
+                                                                            html.I(
+                                                                                "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
+                                                                                "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
+                                                                                "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
+                                                                                "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
+                                                                                "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
+                                                                            ),
+                                                                        ]
                                                                     ),
                                                                 ]
                                                             ),
                                                         ]
                                                     )
-                                                    # html.A(
-                                                    #     "BlondeBroke&Bougie's 2022 Closet Wrapped",
-                                                    #     href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
-                                                    # ),
-                                                    # html.P(
-                                                    #     "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
-                                                    #     "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
-                                                    # ),
-                                                    # html.A(
-                                                    #     "How the 20 Year Trend Cycle Collapsed",
-                                                    #     href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
-                                                    # ),
-                                                    # html.Br(),
-                                                    # html.I(
-                                                    #     "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
-                                                    #     "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
-                                                    #     "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
-                                                    #     "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
-                                                    #     "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
-                                                    # ),
                                                 ]
                                             ),
                                         ],
