@@ -976,48 +976,56 @@ app.layout = dbc.Container(
                                     ),
                                     dbc.AccordionItem(
                                         [
-                                            html.P(
-                                                "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
-                                                "factories, I have included some links below:"
+                                            dbc.Row(
+                                                html.P(
+                                                    "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
+                                                    "factories, I have included some links below:"
+                                                ),
                                             ),
-                                            html.A(
-                                                "Why The Fashion Revolution Must Be Intersectional",
-                                                href="https://peppermintmag.com/fashion-revolution-week-2021/",
+                                            dbc.Row(
+                                                dbc.Col(
+                                                    [
+                                                        html.A(
+                                                            "Why The Fashion Revolution Must Be Intersectional",
+                                                            href="https://peppermintmag.com/fashion-revolution-week-2021/",
+                                                        ),
+                                                        html.Br(),
+                                                        html.I(
+                                                            "Women of colour make up 80% of the 74 million textile workers worldwide, "
+                                                            "yet despite this, the faces of ethical fashion and sustainability remain "
+                                                            "mostly white and affluent and are deep-rooted in privilege. We can’t talk "
+                                                            "about a fashion revolution without discussing the important role of intersectionality."
+                                                        ),
+                                                        html.Br(),
+                                                        html.Br(),
+                                                        html.A(
+                                                            "Can I Buy Fast Fashion and Not Feel Guilty?",
+                                                            href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
+                                                        ),
+                                                        html.Br(),
+                                                        html.I(
+                                                            "Wherever you buy, [the] solution — wear your products more — is absolutely key."
+                                                        ),
+                                                        html.Br(),
+                                                        html.Br(),
+                                                        html.A(
+                                                            "Binchtopia's SheInvestigation",
+                                                            href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
+                                                        ),
+                                                        html.Br(),
+                                                        html.I(
+                                                            "In this episode, the girlies investigate the fashion giant SheIn and explore ideas of ethical labor, sustainability, and trend cycles. "
+                                                        ),
+                                                        html.Br(),
+                                                        html.Br(),
+                                                        html.P(
+                                                            "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
+                                                            "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
+                                                        ),
+                                                        html.Br(),
+                                                    ]
+                                                )
                                             ),
-                                            html.Br(),
-                                            html.I(
-                                                "Women of colour make up 80% of the 74 million textile workers worldwide, "
-                                                "yet despite this, the faces of ethical fashion and sustainability remain "
-                                                "mostly white and affluent and are deep-rooted in privilege. We can’t talk "
-                                                "about a fashion revolution without discussing the important role of intersectionality."
-                                            ),
-                                            html.Br(),
-                                            html.Br(),
-                                            html.A(
-                                                "Can I Buy Fast Fashion and Not Feel Guilty?",
-                                                href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
-                                            ),
-                                            html.Br(),
-                                            html.I(
-                                                "Wherever you buy, [the] solution — wear your products more — is absolutely key."
-                                            ),
-                                            html.Br(),
-                                            html.Br(),
-                                            html.A(
-                                                "Binchtopia's SheInvestigation",
-                                                href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
-                                            ),
-                                            html.Br(),
-                                            html.I(
-                                                "In this episode, the girlies investigate the fashion giant SheIn and explore ideas of ethical labor, sustainability, and trend cycles. "
-                                            ),
-                                            html.Br(),
-                                            html.Br(),
-                                            html.P(
-                                                "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
-                                                "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
-                                            ),
-                                            html.Br(),
                                         ],
                                         title="Resources",
                                     ),
@@ -1040,7 +1048,7 @@ app.layout = dbc.Container(
                                                         [
                                                             html.Br(),
                                                             html.P(
-                                                                "Hi, I'm Jasmine -- the 'She' in SheWoreWhat!"
+                                                                "Hi, I'm Jasmine —— the 'She' in SheWoreWhat!"
                                                             ),
                                                             html.P(
                                                                 "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
