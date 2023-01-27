@@ -986,8 +986,8 @@ app.layout = dbc.Container(
                                             ),
                                             html.Br(),
                                             html.I(
-                                                "If you are in a position to do so, decolonise your wardrobe and buy from ethical and Black-owned brands..."
-                                                " The face of sustainability is white and affluent. Challenge the narrative!"
+                                                "Women of colour make up 80% of the 74 million textile workers worldwide, "
+                                                "yet despite this, the faces of ethical fashion and sustainability remain mostly white and affluent and are deep-rooted in privilege."
                                             ),
                                             html.Br(),
                                             html.Br(),
@@ -997,7 +997,7 @@ app.layout = dbc.Container(
                                             ),
                                             html.Br(),
                                             html.I(
-                                                "Wherever you buy, your solution — wear your products more — is absolutely key."
+                                                "Wherever you buy, [the] solution — wear your products more — is absolutely key."
                                             ),
                                             html.Br(),
                                             html.Br(),
@@ -1053,7 +1053,7 @@ app.layout = dbc.Container(
                                                                 children=[
                                                                     "If you'd like to learn more about how I built this project, check out the ",
                                                                     html.A(
-                                                                        "SheWoreWhat GitHub Repo",
+                                                                        "SheWoreWhat GitHub Repo.",
                                                                         href="https://github.com/jasmineortega/SheWoreWhat",
                                                                         className="social-link",
                                                                         style={
