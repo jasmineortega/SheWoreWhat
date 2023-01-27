@@ -1016,15 +1016,32 @@ app.layout = dbc.Container(
                                                 "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
                                             ),
                                             html.Br(),
+                                        ],
+                                        title="Resources",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
+                                            html.P("Hi, I'm Jasmine -- the "),
+                                            html.I("She "),
+                                            html.P("in SheWoreWhat!"),
+                                            html.Br(),
                                             html.P(
                                                 "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
-                                                "However, oftentimes, the conversation around fashion feels inaccessible (which is maybe part of the problem). "
+                                                "However, oftentimes, the conversation around fashion feels inaccessible. "
                                                 "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
-                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and personal style journey. :-)"
+                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and style journey. :-)"
+                                            ),
+                                            html.Br(),
+                                            html.A(
+                                                "SheWoreWhat GitHub Repo",
+                                                href="https://github.com/jasmineortega/SheWoreWhat",
+                                            ),
+                                            html.P(
+                                                "If you'd like to learn more about how I built this project, check out the GitHub Repo"
                                             ),
                                             html.Br(),
                                             html.P(
-                                                "Here are a few sources of my inspiration for SheWoreWhat:"
+                                                "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
                                             ),
                                             html.A(
                                                 "BlondeBroke&Bougie's 2022 Closet Wrapped",
@@ -1048,7 +1065,7 @@ app.layout = dbc.Container(
                                             ),
                                             html.Br(),
                                         ],
-                                        title="Resources",
+                                        title="About the Author",
                                     ),
                                 ],
                                 start_collapsed=True,
