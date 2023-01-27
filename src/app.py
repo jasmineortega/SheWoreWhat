@@ -1050,12 +1050,20 @@ app.layout = dbc.Container(
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                "If you'd like to learn more about how I built this project, check out the "
+                                                                "If you'd like to learn more about how I built this project, check out the ",
+                                                                style={
+                                                                    "margin": "0",
+                                                                    "padding": "0",
+                                                                },
                                                             ),
                                                             html.A(
                                                                 "SheWoreWhat GitHub Repo",
                                                                 href="https://github.com/jasmineortega/SheWoreWhat",
                                                                 className="social-link",
+                                                                style={
+                                                                    "margin": "0",
+                                                                    "padding": "0",
+                                                                },
                                                             ),
                                                         ]
                                                     ),
