@@ -1024,16 +1024,6 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "Hi, I'm Jasmine -- the She in SheWoreWhat!"
-                                                            ),
-                                                            html.Br(),
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
                                                         html.Img(
                                                             src="/assets/she.png",
                                                             alt="image",
@@ -1042,7 +1032,16 @@ app.layout = dbc.Container(
                                                                 "height": "225px",
                                                             },
                                                         ),
-                                                        width=4,
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.Br(),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "Hi, I'm Jasmine -- the She in SheWoreWhat!"
+                                                            ),
+                                                            html.Br(),
+                                                        ]
                                                     ),
                                                 ]
                                             ),
