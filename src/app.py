@@ -984,7 +984,7 @@ app.layout = dbc.Container(
                                                 "Why The Fashion Revolution Must Be Intersectional",
                                                 href="https://peppermintmag.com/fashion-revolution-week-2021/",
                                             ),
-                                            html.P(
+                                            html.I(
                                                 "If you are in a position to do so, decolonise your wardrobe and buy from ethical and Black-owned brands..."
                                                 " The face of sustainability is white and affluent. Challenge the narrative!"
                                             ),
@@ -992,33 +992,51 @@ app.layout = dbc.Container(
                                                 "Can I Buy Fast Fashion and Not Feel Guilty?",
                                                 href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
                                             ),
-                                            html.P(
+                                            html.I(
                                                 "Wherever you buy, your solution — wear your products more — is absolutely key."
                                             ),
                                             html.A(
                                                 "Binchtopia's SheInvestigation",
                                                 href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
                                             ),
-                                            html.P(
+                                            html.I(
                                                 "In this episode, the girlies investigate the fashion giant Shein and explore ideas of ethical labor, sustainability, and trend cycles. "
                                             ),
                                             html.Br(),
                                             html.P(
-                                                "While all this discussion is good, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
-                                                "it's important to not get caught up in the exciting marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet!"
+                                                "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
+                                                "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
                                             ),
                                             html.Br(),
                                             html.P(
-                                                "And here is where my idea for SheWoreWhat began:"
+                                                "There were a lot of sources of inspiration for SheWoreWhat:"
                                             ),
                                             html.A(
                                                 "BlondeBroke&Bougie's 2022 Closet Wrapped",
                                                 href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
                                             ),
                                             html.P(
-                                                "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet."
-                                                "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com/"
+                                                "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
+                                                "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
+                                                
                                             ),
+                                            html.A(
+                                                "How the 20 Year Trend Cycle Collapsed",
+                                                href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed"
+                                            ),
+                                            html.I(
+                                                "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
+                                                "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
+                                                "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
+                                                "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
+                                                "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
+                                            )
+                                            html.P(
+                                                "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
+                                                "However, oftentimes, the conversation around fashion feels inaccessible (which is maybe part of the problem). "
+                                                "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
+                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and personal style journey. :-) "
+                                            )
                                         ],
                                         title="Resources",
                                     ),
