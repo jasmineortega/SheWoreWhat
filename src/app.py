@@ -1053,6 +1053,9 @@ app.layout = dbc.Container(
                                                 ]
                                             ),
                                             dbc.Row(
+                                                html.Br(),
+                                            ),
+                                            dbc.Row(
                                                 [
                                                     html.Br(),
                                                     html.Br(),
