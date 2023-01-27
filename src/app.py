@@ -944,7 +944,7 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                "Placeholder for fun yet insightful commentary."
+                                                                "Placeholder for fun yet insightful commentary. P.S. This plot is interactive, you can zoom in on items. "
                                                             ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
@@ -984,10 +984,12 @@ app.layout = dbc.Container(
                                                 "Why The Fashion Revolution Must Be Intersectional",
                                                 href="https://peppermintmag.com/fashion-revolution-week-2021/",
                                             ),
+                                            html.Br(),
                                             html.I(
                                                 "If you are in a position to do so, decolonise your wardrobe and buy from ethical and Black-owned brands..."
                                                 " The face of sustainability is white and affluent. Challenge the narrative!"
                                             ),
+                                            html.Br(),
                                             html.A(
                                                 "Can I Buy Fast Fashion and Not Feel Guilty?",
                                                 href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
@@ -995,6 +997,7 @@ app.layout = dbc.Container(
                                             html.I(
                                                 "Wherever you buy, your solution — wear your products more — is absolutely key."
                                             ),
+                                            html.Br(),
                                             html.A(
                                                 "Binchtopia's SheInvestigation",
                                                 href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
