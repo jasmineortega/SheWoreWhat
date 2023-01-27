@@ -978,7 +978,22 @@ app.layout = dbc.Container(
                                         [
                                             html.P(
                                                 "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
-                                                "factories, here are some articles and podcasts that I found very helpful: "
+                                                "factories, I have included some links below:"
+                                            ),
+                                            html.A(
+                                                "Why The Fashion Revolution Must Be Intersectional",
+                                                href="https://peppermintmag.com/fashion-revolution-week-2021/",
+                                            ),
+                                            html.P(
+                                                "If you are in a position to do so, decolonise your wardrobe and buy from ethical and Black-owned brands..."
+                                                " The face of sustainability is white and affluent. Challenge the narrative!"
+                                            ),
+                                            html.A(
+                                                "Can I Buy Fast Fashion and Not Feel Guilty?",
+                                                href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
+                                            ),
+                                            html.P(
+                                                "Wherever you buy, your solution — wear your products more — is absolutely key."
                                             ),
                                             html.A(
                                                 "Binchtopia's SheInvestigation",
@@ -987,13 +1002,22 @@ app.layout = dbc.Container(
                                             html.P(
                                                 "In this episode, the girlies investigate the fashion giant Shein and explore ideas of ethical labor, sustainability, and trend cycles. "
                                             ),
+                                            html.Br(),
+                                            html.P(
+                                                "While all this discussion is good, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
+                                                "it's important to not get caught up in the exciting marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet!"
+                                            )
+                                            html.Br(),
+                                            html.P(
+                                                "And here is where my idea for SheWoreWhat began:"),
                                             html.A(
                                                 "BlondeBroke&Bougie's 2022 Closet Wrapped",
                                                 href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
                                             ),
                                             html.P(
                                                 "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet."
-                                            ),
+                                                "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com/"
+                                            )
                                         ],
                                         title="Resources",
                                     ),
