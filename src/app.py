@@ -993,6 +993,7 @@ app.layout = dbc.Container(
                                                                             "Why The Fashion Revolution Must Be Intersectional",
                                                                             href="https://peppermintmag.com/fashion-revolution-week-2021/",
                                                                         ),
+                                                                        html.Br(),
                                                                         html.I(
                                                                             "Women of colour make up 80% of the 74 million textile workers worldwide, "
                                                                             "yet despite this, the faces of ethical fashion and sustainability remain "
@@ -1007,6 +1008,7 @@ app.layout = dbc.Container(
                                                                             "Can I Buy Fast Fashion and Not Feel Guilty?",
                                                                             href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
                                                                         ),
+                                                                        html.Br(),
                                                                         html.I(
                                                                             "Wherever you buy, [the] solution — wear your products more — is absolutely key."
                                                                         ),
@@ -1018,21 +1020,18 @@ app.layout = dbc.Container(
                                                                             "Binchtopia's SheInvestigation",
                                                                             href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
                                                                         ),
+                                                                        html.Br(),
                                                                         html.I(
                                                                             "In this episode, the girlies investigate the fashion giant SheIn and explore ideas of ethical labor, sustainability, and trend cycles. "
                                                                         ),
                                                                     ]
                                                                 ),
-                                                                html.Li(
-                                                                    [
-                                                                        html.P(
-                                                                            "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
-                                                                            "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
-                                                                        ),
-                                                                    ]
-                                                                ),
                                                             ]
-                                                        )
+                                                        ),
+                                                        html.P(
+                                                            "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
+                                                            "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
+                                                        ),
                                                     ]
                                                 )
                                             ),
