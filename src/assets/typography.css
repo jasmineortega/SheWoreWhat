@@ -57,6 +57,7 @@ a {
     text-decoration: none;
 }
 
-/* .accordion-toggle {
-    background-color: blue !important;
-} */
+.social-link {
+    font-family: Arial, sans-serif;
+    color: #7373de;
+}

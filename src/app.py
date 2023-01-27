@@ -1048,6 +1048,15 @@ app.layout = dbc.Container(
                                                                 "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
                                                                 "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and style journey. :-)"
                                                             ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "If you'd like to learn more about how I built this project, check out the "
+                                                            ),
+                                                            html.A(
+                                                                "SheWoreWhat GitHub Repo",
+                                                                href="https://github.com/jasmineortega/SheWoreWhat",
+                                                                className="social-link",
+                                                            ),
                                                         ]
                                                     ),
                                                 ]
@@ -1057,17 +1066,6 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
-                                                    dbc.Link(
-                                                        "SheWoreWhat GitHub Repo",
-                                                        href="https://github.com/jasmineortega/SheWoreWhat",
-                                                    ),
-                                                    html.A(
-                                                        "SheWoreWhat GitHub Repo",
-                                                        href="https://github.com/jasmineortega/SheWoreWhat",
-                                                    ),
-                                                    html.P(
-                                                        "If you'd like to learn more about how I built this project, check out the GitHub Repo"
-                                                    ),
                                                     html.Br(),
                                                     html.P(
                                                         "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
