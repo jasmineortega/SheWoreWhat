@@ -1057,6 +1057,10 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
+                                                    dbc.Link(
+                                                        "SheWoreWhat GitHub Repo",
+                                                        href="https://github.com/jasmineortega/SheWoreWhat",
+                                                    ),
                                                     html.A(
                                                         "SheWoreWhat GitHub Repo",
                                                         href="https://github.com/jasmineortega/SheWoreWhat",
