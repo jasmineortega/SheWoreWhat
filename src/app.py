@@ -656,7 +656,7 @@ app.layout = dbc.Container(
         ),
         dbc.Row(
             dbc.Col(
-                html.I("by Jasmine Ortega"),
+                html.B("by Jasmine Ortega"),
                 style={"color": "#218380", "font-size": "150%"},
                 className="text-center",
             )
@@ -944,7 +944,7 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                "Placeholder for fun yet insightful commentary."
+                                                                "Placeholder for fun yet insightful commentary. P.S. This plot is interactive, you can zoom in on items. "
                                                             ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
@@ -978,21 +978,113 @@ app.layout = dbc.Container(
                                         [
                                             html.P(
                                                 "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
-                                                "factories, here are some articles and podcasts that I found very helpful: "
+                                                "factories, I have included some links below:"
                                             ),
+                                            html.A(
+                                                "Why The Fashion Revolution Must Be Intersectional",
+                                                href="https://peppermintmag.com/fashion-revolution-week-2021/",
+                                            ),
+                                            html.Br(),
+                                            html.I(
+                                                "If you are in a position to do so, decolonise your wardrobe and buy from ethical and Black-owned brands..."
+                                                " The face of sustainability is white and affluent. Challenge the narrative!"
+                                            ),
+                                            html.Br(),
+                                            html.Br(),
+                                            html.A(
+                                                "Can I Buy Fast Fashion and Not Feel Guilty?",
+                                                href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
+                                            ),
+                                            html.Br(),
+                                            html.I(
+                                                "Wherever you buy, your solution — wear your products more — is absolutely key."
+                                            ),
+                                            html.Br(),
+                                            html.Br(),
                                             html.A(
                                                 "Binchtopia's SheInvestigation",
                                                 href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
                                             ),
+                                            html.Br(),
+                                            html.I(
+                                                "In this episode, the girlies investigate the fashion giant Shein and explore ideas of ethical labor, sustainability, and trend cycles. "
+                                            ),
+                                            html.Br(),
+                                            html.Br(),
                                             html.P(
-                                                "I was inspired by Blonde Broke & Bougie to start this project"
+                                                "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
+                                                "it's important to not get caught up in the tantalizing marketing of 'sustainable fashion'. The most sustainable items are the ones that are already in your closet! :-)"
                                             ),
-                                            html.A(
-                                                "Check out her 2022 closet wrapped",
-                                                href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
-                                            ),
+                                            html.Br(),
                                         ],
                                         title="Resources",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "Hi, I'm Jasmine -- the She in SheWoreWhat!"
+                                                            ),
+                                                        ]
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Img(
+                                                            src="/assets/she.png",
+                                                            alt="image",
+                                                            width="100%",
+                                                        ),
+                                                        width=4,
+                                                    ),
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    html.Br(),
+                                                    html.P(
+                                                        "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
+                                                        "However, oftentimes, the conversation around fashion feels inaccessible. "
+                                                        "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
+                                                        "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and style journey. :-)"
+                                                    ),
+                                                    html.Br(),
+                                                    html.A(
+                                                        "SheWoreWhat GitHub Repo",
+                                                        href="https://github.com/jasmineortega/SheWoreWhat",
+                                                    ),
+                                                    html.P(
+                                                        "If you'd like to learn more about how I built this project, check out the GitHub Repo"
+                                                    ),
+                                                    html.Br(),
+                                                    html.P(
+                                                        "Finally, I'd like to link are a few sources of my inspiration for SheWoreWhat:"
+                                                    ),
+                                                    html.A(
+                                                        "BlondeBroke&Bougie's 2022 Closet Wrapped",
+                                                        href="https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en",
+                                                    ),
+                                                    html.P(
+                                                        "This TikTok came across my FYP and inspired me to see what insights I could gather from tracking my closet. "
+                                                        "Becca sells the Excel template she used in this video, which can be found at https://blondebrokeandbougie.com"
+                                                    ),
+                                                    html.A(
+                                                        "How the 20 Year Trend Cycle Collapsed",
+                                                        href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
+                                                    ),
+                                                    html.Br(),
+                                                    html.I(
+                                                        "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
+                                                        "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
+                                                        "cheap garments online. Instead of fashion being dominated by a couple of seasons and collections a year, "
+                                                        "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
+                                                        "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
+                                                    ),
+                                                ]
+                                            ),
+                                        ],
+                                        title="About the Author",
                                     ),
                                 ],
                                 start_collapsed=True,

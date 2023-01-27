@@ -47,8 +47,16 @@ p {
     font-family: Arial, sans-serif;
 }
 
+i {
+    font-family: Arial, sans-serif;
+}
+
 a {
     font-size: 16px;
-    color: #218361;
+    color: #7373de;
     text-decoration: none;
 }
+
+/* .accordion-toggle {
+    background-color: blue !important;
+} */
