@@ -1034,7 +1034,7 @@ app.layout = dbc.Container(
                                                         html.Img(
                                                             src="/assets/she.png",
                                                             alt="image",
-                                                            width="100%",
+                                                            style={'width': '200px', 'height':'200px'})
                                                         ),
                                                         width=4,
                                                     ),
