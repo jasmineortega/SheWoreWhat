@@ -990,21 +990,26 @@ app.layout = dbc.Container(
                                                 " The face of sustainability is white and affluent. Challenge the narrative!"
                                             ),
                                             html.Br(),
+                                            html.Br(),
                                             html.A(
                                                 "Can I Buy Fast Fashion and Not Feel Guilty?",
                                                 href="https://www.nytimes.com/2022/05/20/fashion/fast-fashion-sustainable-clothing.html",
                                             ),
+                                            html.Br(),
                                             html.I(
                                                 "Wherever you buy, your solution — wear your products more — is absolutely key."
                                             ),
+                                            html.Br(),
                                             html.Br(),
                                             html.A(
                                                 "Binchtopia's SheInvestigation",
                                                 href="https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727",
                                             ),
+                                            html.Br(),
                                             html.I(
                                                 "In this episode, the girlies investigate the fashion giant Shein and explore ideas of ethical labor, sustainability, and trend cycles. "
                                             ),
+                                            html.Br(),
                                             html.Br(),
                                             html.P(
                                                 "Above all, the most important action an individual can take is to buy less! While this isn't the most fun answer,"
@@ -1026,6 +1031,7 @@ app.layout = dbc.Container(
                                                 "How the 20 Year Trend Cycle Collapsed",
                                                 href="https://www.vice.com/en/article/bvmkm8/how-the-20-year-trend-cycle-collapsed",
                                             ),
+                                            html.Br(),
                                             html.I(
                                                 "The dark side of the trend cycle being shortened is that it’s inarguably happening, at least in part, "
                                                 "because of fast fashion. Though we know of its devastating environmental impact, we are still buying "
@@ -1033,6 +1039,7 @@ app.layout = dbc.Container(
                                                 "companies push new clothes all year around and fuel our obsession with faster and faster micro-trends. "
                                                 "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
                                             ),
+                                            html.Br(),
                                             html.P(
                                                 "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
                                                 "However, oftentimes, the conversation around fashion feels inaccessible (which is maybe part of the problem). "
