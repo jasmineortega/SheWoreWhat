@@ -1017,7 +1017,14 @@ app.layout = dbc.Container(
                                             ),
                                             html.Br(),
                                             html.P(
-                                                "There were a lot of sources of inspiration for SheWoreWhat:"
+                                                "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
+                                                "However, oftentimes, the conversation around fashion feels inaccessible (which is maybe part of the problem). "
+                                                "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
+                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and personal style journey. :-)"
+                                            ),
+                                            html.Br(),
+                                            html.P(
+                                                "Here are a few sources of my inspiration for SheWoreWhat:"
                                             ),
                                             html.A(
                                                 "BlondeBroke&Bougie's 2022 Closet Wrapped",
@@ -1040,12 +1047,6 @@ app.layout = dbc.Container(
                                                 "As we’ve seen this year, as soon as something is coined on TikTok, it’ll be available to buy online."
                                             ),
                                             html.Br(),
-                                            html.P(
-                                                "The intersection of fast-fashion, personal style, and sustainability is something I'm really passionate about. "
-                                                "However, oftentimes, the conversation around fashion feels inaccessible (which is maybe part of the problem). "
-                                                "This project was a conglomeration of topics that have been bouncing around my head for a few years. I'm by no means "
-                                                "an expert, but I did enjoy unpacking my own fashion habits as a path to improve my personal sustainability and personal style journey. :-) "
-                                            ),
                                         ],
                                         title="Resources",
                                     ),
