@@ -169,7 +169,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#f5f0e4"),
+                alt.value("#e0dfd7"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
