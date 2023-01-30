@@ -169,7 +169,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#e0ddd5"),
+                alt.value("#f5f0e4"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
@@ -464,7 +464,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#b6f0e2"]),
+                scale=alt.Scale(domain=[0, 1], range=["#f5f0e4", "#b6f0e2"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
