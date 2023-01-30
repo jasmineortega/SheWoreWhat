@@ -638,6 +638,8 @@ def plot_seasons():
 closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
+cost_df = worn_df[worn_df["Price"] > 0]
+avg_price = round(cost_df["Price"].mean(), 2
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -946,7 +948,9 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                "Placeholder for fun yet insightful commentary. P.S. This plot is interactive, you can zoom in on items. "
+                                                                f"The average price for an item in my closet was ${avg_price}"
+                                                                "In the plot to the right, we can see how much wear I got out of each item using cost-per-wear."
+                                                                "Placeholder for fun yet insightful commentary on long term trends. P.S. This plot is interactive! Try zooming in on data points. "
                                                             ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
