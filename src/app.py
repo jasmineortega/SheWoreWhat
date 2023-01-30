@@ -524,7 +524,7 @@ def plot_cpw():
 
     plot = (
         alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
-        .mark_circle(opacity=0.70, size=200)
+        .mark_circle(opacity=0.70, size=200, shape="diamond")
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 185))),
             alt.Y("Count", scale=alt.Scale(domain=(0, 25)), title="Times Worn"),
@@ -532,7 +532,10 @@ def plot_cpw():
                 "Category",
                 scale=alt.Scale(range=color_aes),
             ),
-            # alt.Size("CPW", scale=alt.Scale(domain=[0, 25]), legend=None),
+            alt.Fill(
+                "Category",
+                scale=alt.Scale(range=color_aes),
+            ),
             alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
