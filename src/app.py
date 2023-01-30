@@ -635,11 +635,16 @@ def plot_seasons():
     return final
 
 
+# variables used for plots
 closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
+
+# variables for text content
 cost_df = worn_df[worn_df["Price"] > 0]
 avg_price = round(cost_df["Price"].mean(), 2)
+avg_worn = round(cost_df["Count"].mean(), 1)
+avg_cpw = avg_price / avg_worn
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -948,9 +953,10 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                "In the plot to the right, we can see how much wear I got out of each item using cost-per-wear. "
-                                                                f"The average price for an item in my closet is ${avg_price}. "
-                                                                "As we can see, there are a few 'pricy' items I have splurged on, but I tend to get a lot of wear out of those pieces, espeically shoes!  "
+                                                                "In this plot, we look at the true 'cost' of an item over the course of 2023. "
+                                                                f"In general, the average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost per wear of {avg_cpw}. "
+                                                                "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
+                                                                "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
                                                                 "[Placeholder for commentary on long term trends]. "
                                                             ),
                                                             html.Br(),
