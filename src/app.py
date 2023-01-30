@@ -534,7 +534,6 @@ def plot_cpw():
             ),
             # alt.Size("CPW", scale=alt.Scale(domain=[0, 25]), legend=None),
             alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
-            shape="star:N",
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
