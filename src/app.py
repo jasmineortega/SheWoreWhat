@@ -639,7 +639,7 @@ closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
 cost_df = worn_df[worn_df["Price"] > 0]
-avg_price = round(cost_df["Price"].mean(), 2
+avg_price = round(cost_df["Price"].mean(), 2)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
