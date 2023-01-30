@@ -611,7 +611,7 @@ def plot_seasons():
 
     season_list = ["Spring", "Summer", "Fall", "Winter"]
     season_df = [spring, summer, fall, winter]
-    color = ["#d81159", "#73de83", "#ffbc42", "#73d2de"]
+    color = ["#b6f0e2", "#73de83", "#ffbc42", "#73d2de"]
     plot_list = []
 
     for i in range(0, 4):
