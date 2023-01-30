@@ -152,7 +152,7 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#73de83",
+    highlight="#d8f2ec",
 ):
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
@@ -464,7 +464,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73de83"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#d8f2ec"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
