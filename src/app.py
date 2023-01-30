@@ -152,7 +152,7 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#73d2de",
+    highlight="#a6e3d4",
 ):
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
@@ -169,7 +169,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#e0ddd5"),
+                alt.value("#f5f0e4"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
@@ -464,7 +464,7 @@ def plot_heatmap(top_10, df, z=0):
             alt.Y("Day", sort=weekdays, title=""),
             alt.Color(
                 "Bool",
-                scale=alt.Scale(domain=[0, 1], range=["#e0ddd5", "#73d2de"]),
+                scale=alt.Scale(domain=[0, 1], range=["#e0dfd7", "#a6e3d4"]),
                 legend=None,
             ),
             alt.Tooltip(["Date", "Day"]),
@@ -610,7 +610,7 @@ def plot_seasons():
 
     season_list = ["Spring", "Summer", "Fall", "Winter"]
     season_df = [spring, summer, fall, winter]
-    color = ["#d81159", "#73de83", "#ffbc42", "#73d2de"]
+    color = ["#b6f0e2", "#73de83", "#ffbc42", "#73d2de"]
     plot_list = []
 
     for i in range(0, 4):
@@ -1143,7 +1143,6 @@ app.layout = dbc.Container(
                                     ),
                                 ],
                                 start_collapsed=True,
-                                # always_open=True,
                             )
                         )
                     ]
