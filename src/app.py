@@ -948,9 +948,14 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                f"The average price for an item in my closet was ${avg_price}"
-                                                                "In the plot to the right, we can see how much wear I got out of each item using cost-per-wear."
-                                                                "Placeholder for fun yet insightful commentary on long term trends. P.S. This plot is interactive! Try zooming in on data points. "
+                                                                "In the plot to the right, we can see how much wear I got out of each item using cost-per-wear. "
+                                                                f"The average price for an item in my closet is ${avg_price}. "
+                                                                "As we can see, there are a few 'pricy' items I have splurged on, but I tend to get a lot of wear out of those pieces, espeically shoes!  "
+                                                                "[Placeholder for commentary on long term trends]. "
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "P.S. This plot is interactive! Try zooming in on data points. "
                                                             ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
