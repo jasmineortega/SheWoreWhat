@@ -154,10 +154,11 @@ def plot_mostworn(
     title="Ten Most Worn Pieces in 2023",
     highlight="#a6e3d4",
 ):
-    selector = alt.selection_single(selected={"Name": worn_df.iloc[0]["Name"]})
+    selector = alt.selection_single(selected={empty='all', fields=['Name'],
+                                    init={'Name': item_name})
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
-        alt.Chart(most_worn, title=title)
+        alt.Chart(most_worn, title=title, selection=selector)
         .mark_bar(
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
