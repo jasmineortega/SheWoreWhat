@@ -152,9 +152,9 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#a6e3d4"
-    ):
-    
+    highlight="#a6e3d4",
+):
+
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title)
@@ -170,7 +170,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#f5f0e4")
+                alt.value("#f5f0e4"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
@@ -241,6 +241,7 @@ def plot_color(worn_df):
             ),
             legend=None,
         ),
+        order=alt.Order(sort="ascending"),
         tooltip=["Color", "count()"],
     )
 
@@ -680,9 +681,9 @@ app.layout = dbc.Container(
                             )
                         ),
                         html.P(
-                            "Hi! My name is Jasmine and I'm tracking every single item of clothing I wore in 2023. "
+                            "Hi! I'm tracking every single item of clothing I wore in 2023. "
                             "As a data scientist and sustainable fashion enthusiast, this is a  "
-                            "fun side project to help me make smarter decisions about my purchases in the future.",
+                            "fun  project to help inform smarter decisions about my closet purchases in the future.",
                             className="intro",
                         ),
                     ],
@@ -705,8 +706,10 @@ app.layout = dbc.Container(
                                                         [
                                                             html.H4("The process"),
                                                             html.P(
-                                                                "The first thing I did was take stock of everything in my closet -- "
-                                                                "all 99 pieces. The most frequent colors that appeared in my closet were black and white, followed by navy and green"
+                                                                "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contained. "
+                                                                "So I took stock of everything in my closet — all "
+                                                                f"{len(worn_df)} pieces. The most frequent colors in my closet are 44 black pieces, 13 white pieces, "
+                                                                "with a tie of 7 navy and 7 green pieces. "
                                                             ),
                                                             html.Br(),
                                                         ]
@@ -738,7 +741,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.P(
-                                                                "In 2023, I added 1 new item to my closet. Of these items, "
+                                                                "In 2023, I added 1 new items to my closet for a grand total of $45. Of these items, "
                                                                 "100% of these items were pre-loved (obtained through secondhand "
                                                                 "stores or hand me down)."
                                                             )
