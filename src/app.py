@@ -959,7 +959,7 @@ app.layout = dbc.Container(
                                                                 "In this plot, we look at the true 'cost' of an item over the course of 2023. "
                                                             ),
                                                             html.P(
-                                                                f"In general, the average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
+                                                                f"The average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
                                                                 "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
                                                                 "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
                                                             ),
