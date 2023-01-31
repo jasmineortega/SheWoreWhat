@@ -152,8 +152,9 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#e0dfd7",
-):
+    highlight="#a6e3d4"
+    )
+    
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title)
@@ -169,7 +170,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#f5f0e4"),
+                alt.value("#f5f0e4")
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
@@ -524,7 +525,7 @@ def plot_cpw():
 
     plot = (
         alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
-        .mark_circle(opacity=0.70, size=200)
+        .mark_circle(opacity=0.40, size=200)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 185))),
             alt.Y("Count", scale=alt.Scale(domain=(0, 25)), title="Times Worn"),
@@ -532,7 +533,6 @@ def plot_cpw():
                 "Category",
                 scale=alt.Scale(range=color_aes),
             ),
-            # alt.Size("CPW", scale=alt.Scale(domain=[0, 25]), legend=None),
             alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
@@ -635,9 +635,16 @@ def plot_seasons():
     return final
 
 
+# variables used for plots
 closet = closet_df()
 worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
+
+# variables for text content
+cost_df = worn_df[worn_df["Price"] > 0]
+avg_price = round(cost_df["Price"].mean(), 2)
+avg_worn = round(cost_df["Count"].mean(), 1)
+avg_cpw = round(avg_price / avg_worn, 2)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -946,7 +953,16 @@ app.layout = dbc.Container(
                                                                 "Cost-per-wear: price of item / number of times worn in a single year"
                                                             ),
                                                             html.P(
-                                                                "Placeholder for fun yet insightful commentary. P.S. This plot is interactive, you can zoom in on items. "
+                                                                "In this plot, we look at the true 'cost' of an item over the course of 2023. "
+                                                            ),
+                                                            html.P(
+                                                                f"The average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
+                                                                "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
+                                                                "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "P.S. This plot is interactive! Try zooming in on data points. "
                                                             ),
                                                             html.I(
                                                                 "Note: cost-per-wear was only calculated for items for which the price"
