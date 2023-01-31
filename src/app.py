@@ -153,7 +153,7 @@ def plot_mostworn(
     i=10,
     title="Ten Most Worn Pieces in 2023",
     highlight="#a6e3d4"
-    )
+    ):
     
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
