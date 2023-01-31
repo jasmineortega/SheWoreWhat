@@ -2,9 +2,9 @@
 SheWoreWhat 2023
 ===========
 
-**Under construction as of Jan 24, 2023**
+**Under construction**
 
-A dashboard displaying personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku! 
+Personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku! 
 
 The Process
 -----------
@@ -13,7 +13,7 @@ The Process
 
 The Dashboard:
 -------------
-The dashboard itself is composed of four sections (*for now*)
+The dashboard itself is composed of six sections
 
 1. Wardrobe Analysis
   - Here, I took stock of the items that exist in my closet. What colors dominate my closet? How many of my items were purchased secondhand, new?
@@ -25,12 +25,12 @@ The dashboard itself is composed of four sections (*for now*)
 4. Cost-Per-Wear
   - Here, I calculated the price-per-wear for each item in my clost (where price is known). Which item was the most cost-efficient? Were the pricy items in my closet worth the money? This is a useful metric I can refer to when thinking about adding a new piece to my wardrobe. 
   - *Note:* Majority of items in my closet were purchased prior to 2023. Thus, cost-per-wear here is calculated only for the year 2023 for ease of comparasion. Most of the prices I've listed for items were verified by online reciepts or credit card statements. 
-
+5. Resources
+  - Sustainable fashion links.
+6. About me
 
 Credits
 -------
-* Binchtopia's `'SheInvestigation' <https://podcasts.apple.com/us/podcast/sheinvestigation/id1542744511?i=1000585638727>`_ episode, which inspired me to reflect on the exploitative nature of fast fashion in relation to my personal shopping habits.
-* BlondeBrokeAndBougie's `Closet Wrapped <https://www.tiktok.com/@blondebrokeandbougie/video/7175604635976355118?is_copy_url=1&is_from_webapp=v1&lang=en>`_
 * Free software: MIT license
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 

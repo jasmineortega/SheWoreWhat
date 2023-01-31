@@ -152,8 +152,9 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#a6e3d4",
-):
+    highlight="#a6e3d4"
+    )
+    
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title)
@@ -169,7 +170,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#e0dfd7"),
+                alt.value("#f5f0e4")
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
