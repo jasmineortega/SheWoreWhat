@@ -152,9 +152,9 @@ def plot_mostworn(
     item_name="Adidas Tennis Shoe",
     i=10,
     title="Ten Most Worn Pieces in 2023",
-    highlight="#a6e3d4"
-    ):
-    
+    highlight="#a6e3d4",
+):
+    selector = alt.selection_single(init={"Name": item_name})
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title)
@@ -168,13 +168,9 @@ def plot_mostworn(
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
             alt.Tooltip("Count"),
             color=alt.condition(
-                alt.datum.Name == item_name,
-                alt.value(highlight),  # highlighted bar
-                alt.value("#f5f0e4")
+                selector, alt.value(highlight), alt.value("#f5f0e4")  # highlighted bar
             ),
-            opacity=alt.condition(
-                alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
-            ),
+            opacity=alt.condition(selector, alt.value(0.85), alt.value(0.50)),
         )
         # .configure_title(color="#706f6c")
         # .configure_axis(
@@ -1173,7 +1169,14 @@ app.layout = dbc.Container(
 @app.callback(Output("top10", "srcDoc"), Input("item_name", "value"))
 def update_highlight(item_name):
     x = item_name[1]
-    return plot_mostworn(worn_df, x).to_html()
+    return (
+        plot_mostworn(worn_df, x)
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+        .to_html()
+    )
 
 
 @app.callback(Output("heatmap_item", "srcDoc"), Input("item_name", "value"))
