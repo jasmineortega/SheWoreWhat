@@ -928,7 +928,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        srcDoc=plot_seasons().to_html(),
+                                                                        # srcDoc=plot_seasons().to_html(),
                                                                     )
                                                                 ]
                                                             )
