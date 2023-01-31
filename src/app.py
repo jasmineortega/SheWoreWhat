@@ -154,9 +154,8 @@ def plot_mostworn(
     title="Ten Most Worn Pieces in 2023",
     highlight="#a6e3d4",
 ):
-    selector = alt.selection_single(
-        empty="all", fields=["Name"], init={"Name": item_name}
-    )
+    selector = alt.selection_single(empty="all", fields=["Name"])
+
     most_worn = worn_df.nlargest(i, columns="Count")
     closet_comp = (
         alt.Chart(most_worn, title=title, selection=selector)
@@ -170,10 +169,14 @@ def plot_mostworn(
             alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
             alt.Tooltip("Count"),
             color=alt.condition(
-                selector, alt.value(highlight), alt.value("#f5f0e4")  # highlighted bar
+                selector,
+                alt.value(highlight),  # highlighted bar
+                alt.value("#f5f0e4"),
+                legend=None,
             ),
             opacity=alt.condition(selector, alt.value(0.85), alt.value(0.50)),
         )
+        .add_selection(selector)
         # .configure_title(color="#706f6c")
         # .configure_axis(
         #     labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
@@ -928,7 +931,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        # srcDoc=plot_seasons().to_html(),
+                                                                        srcDoc=plot_seasons().to_html(),
                                                                     )
                                                                 ]
                                                             )
