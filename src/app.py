@@ -771,7 +771,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.P(
                                                                 f"Of these new items, I'm happy to report that {new_percent_thrifted:.2f}% were pre-loved, "
-                                                                "In an effort to make my closet more sustainable, it's my goal for the majority of my closet to be secondhand. "
+                                                                "In an effort to make my closet more sustainable, it's my goal for the majority of my closet to be secondhand! "
                                                                 f"Currently {all_percent_thrifted:.2f}% of my closet is secondhand."
                                                             ),
                                                         ]
@@ -866,8 +866,9 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     html.P(
-                                                        "My most worn pieces really ran the gamut. But I'm not surprised that my most worn item is "
-                                                        f"my {top_item[0]}. "
+                                                        f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
+                                                        "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
+                                                        "those shoes nearly everyday."
                                                     )
                                                 ]
                                             ),
@@ -945,6 +946,10 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.P(
+                                                                "Based off these plots, I definitely think I can justify splurging on shoes in the future. "
+                                                            ),
+                                                            html.Br(),
                                                             html.P(
                                                                 "While this data is interesting, I'm curious how my style habits evolved with the seasons."
                                                                 "So let's take a peek at the most worn item per season."
