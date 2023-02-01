@@ -739,26 +739,26 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
-                                                    dbc.Col(
-                                                        [
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="bought",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "400px",
-                                                                        },
-                                                                        srcDoc=plot_bought(
-                                                                            worn_df
-                                                                        ).to_html(),
-                                                                    )
-                                                                ]
-                                                            )
-                                                        ],
-                                                        width={"size": 6},
-                                                    ),
+                                                    # dbc.Col(
+                                                    #     [
+                                                    #         html.Div(
+                                                    #             [
+                                                    #                 html.Iframe(
+                                                    #                     id="bought",
+                                                    #                     style={
+                                                    #                         "border-width": "0",
+                                                    #                         "width": "100%",
+                                                    #                         "height": "400px",
+                                                    #                     },
+                                                    #                     srcDoc=plot_bought(
+                                                    #                         worn_df
+                                                    #                     ).to_html(),
+                                                    #                 )
+                                                    #             ]
+                                                    #         )
+                                                    #     ],
+                                                    #     width={"size": 6},
+                                                    # ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
@@ -781,11 +781,12 @@ app.layout = dbc.Container(
                                                     ),
                                                     dbc.Col(
                                                         [
+                                                            html.Br(),
                                                             html.P(
                                                                 "In 2023, I added 1 new items to my closet for a grand total of $45. Of these items, "
                                                                 "100% of these items were pre-loved (obtained through secondhand "
                                                                 "stores or hand me down)."
-                                                            )
+                                                            ),
                                                         ],
                                                         width={"size": 4},
                                                     ),
