@@ -746,26 +746,21 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
-                                                    # dbc.Col(
-                                                    #     [
-                                                    #         html.Div(
-                                                    #             [
-                                                    #                 html.Iframe(
-                                                    #                     id="bought",
-                                                    #                     style={
-                                                    #                         "border-width": "0",
-                                                    #                         "width": "100%",
-                                                    #                         "height": "400px",
-                                                    #                     },
-                                                    #                     srcDoc=plot_bought(
-                                                    #                         worn_df
-                                                    #                     ).to_html(),
-                                                    #                 )
-                                                    #             ]
-                                                    #         )
-                                                    #     ],
-                                                    #     width={"size": 6},
-                                                    # ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.H4(
+                                                                "Newest Closet Additions in 2023"
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
+                                                                f"spent a grand total of ${annual_spent}. Of these items, "
+                                                                f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
+                                                                "stores or hand me down)."
+                                                            ),
+                                                            html.Br(),
+                                                        ]
+                                                    ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
@@ -786,18 +781,18 @@ app.layout = dbc.Container(
                                                         ],
                                                         width={"size": 4},
                                                     ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.P(
-                                                                f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
-                                                                f"spent a grand total of ${annual_spent}. Of these items, "
-                                                                f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
-                                                                "stores or hand me down)."
-                                                            ),
-                                                        ],
-                                                        width={"size": 7},
-                                                    ),
+                                                    # dbc.Col(
+                                                    #     [
+                                                    #         html.Br(),
+                                                    #         html.P(
+                                                    #             f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
+                                                    #             f"spent a grand total of ${annual_spent}. Of these items, "
+                                                    #             f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
+                                                    #             "stores or hand me down)."
+                                                    #         ),
+                                                    #     ],
+                                                    #     width={"size": 7},
+                                                    # ),
                                                 ]
                                             ),
                                         ],
