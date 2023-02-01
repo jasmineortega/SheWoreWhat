@@ -650,7 +650,7 @@ avg_worn = round(cost_df["Count"].mean(), 1)
 avg_cpw = round(avg_price / avg_worn, 2)
 
 # bought in 2023
-df_2023 = df.loc[df["2023"] == "Yes"]
+df_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
 percent_thrifted = df_2023["Bought"].str.count("Secondhand").sum() / len(df_2023) * 100
 annual_spent = worn_df["Price"].sum().round(2)
 
