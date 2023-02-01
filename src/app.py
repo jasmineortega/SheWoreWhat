@@ -703,6 +703,10 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
+                                                        [],
+                                                        width={"size": 4},
+                                                    ),
+                                                    dbc.Col(
                                                         [
                                                             html.H4("The process"),
                                                             html.Br(),
