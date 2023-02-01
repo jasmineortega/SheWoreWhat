@@ -529,7 +529,7 @@ def plot_cpw():
         .mark_circle(opacity=0.40, size=200)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 185))),
-            alt.Y("Count", scale=alt.Scale(domain=(0, 25)), title="Times Worn"),
+            alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
             alt.Color(
                 "Category",
                 scale=alt.Scale(range=color_aes),
@@ -642,10 +642,22 @@ worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
 
 # variables for text content
+
+# closet analysis
 cost_df = worn_df[worn_df["Price"] > 0]
 avg_price = round(cost_df["Price"].mean(), 2)
 avg_worn = round(cost_df["Count"].mean(), 1)
 avg_cpw = round(avg_price / avg_worn, 2)
+
+# bought in 2023
+df_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
+new_percent_thrifted = (
+    df_2023["Bought"].str.count("Secondhand").sum() / len(df_2023) * 100
+)
+all_percent_thrifted = (
+    worn_df["Bought"].str.count("Secondhand").sum() / len(worn_df) * 100
+)
+annual_spent = df_2023["Price"].sum()
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -705,13 +717,21 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4("The process"),
+                                                            html.Br(),
                                                             html.P(
                                                                 "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contained. "
-                                                                "So I took stock of everything in my closet — all "
-                                                                f"{len(worn_df)} pieces. The most frequent colors in my closet are 44 black pieces, 13 white pieces, "
-                                                                "with a tie of 7 navy and 7 green pieces. "
                                                             ),
                                                             html.Br(),
+                                                            html.P(
+                                                                f"To organize the {len(worn_df) - 1} pieces in my closet, "
+                                                                "I sorted these items into 6 categories: tops, accessories, bottoms, full body (dresses, jumpsuits), shoes, and outerwear (coats, etc)."
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "Most notably, I logged the primary color of each garment. "
+                                                                "The top 3 colors present in my closet were black, white, and a tie between green and navy. "
+                                                                "My top two colors being neutrals was not surprising, as I tend to lean toward more plain, basic pieces! "
+                                                            ),
                                                         ]
                                                     ),
                                                     dbc.Col(
@@ -740,20 +760,28 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.H4(
+                                                                "Newest Closet Additions in 2023"
+                                                            ),
+                                                            html.Br(),
                                                             html.P(
-                                                                "In 2023, I added 1 new items to my closet for a grand total of $45. Of these items, "
-                                                                "100% of these items were pre-loved (obtained through secondhand "
-                                                                "stores or hand me down)."
-                                                            )
-                                                        ],
-                                                        width={"size": 8},
+                                                                f"In 2023 (so far), I've added {len(df_2023)} new items to my closet and "
+                                                                f"spent a grand total of ${annual_spent:.2f}. "
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                f"Of these new items, I'm happy to report that {new_percent_thrifted:.2f}% were pre-loved, "
+                                                                "In an effort to make my closet more sustainable, it's my goal for the majority of my closet to be secondhand! "
+                                                                f"Currently {all_percent_thrifted:.2f}% of my closet is secondhand."
+                                                            ),
+                                                        ]
                                                     ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
-                                                                        id="facet-items",
+                                                                        id="new_items",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
@@ -770,41 +798,57 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
+                                        ],
+                                        title="Wardrobe Analysis",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
                                             dbc.Row(
                                                 [
+                                                    dbc.Col(
+                                                        [
+                                                            html.H4(
+                                                                "Cost-per-wear: price of item / number of times worn in a single year"
+                                                            ),
+                                                            html.P(
+                                                                "In this plot, we look at the true 'cost' of an item over the course of 2023 (so far). "
+                                                            ),
+                                                            html.P(
+                                                                f"The average price for an item in my closet is ${avg_price}, worn {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
+                                                                "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
+                                                                "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
+                                                                "P.S. This plot is interactive! Try zooming in on data points. "
+                                                            ),
+                                                            html.I(
+                                                                "Note: cost-per-wear was only calculated for items for which the price"
+                                                                " was known, including items purchased secondhand. "
+                                                            ),
+                                                        ]
+                                                    ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
-                                                                        id="bought",
+                                                                        id="costperwear",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
-                                                                            "height": "400px",
+                                                                            "height": "425px",
                                                                         },
-                                                                        srcDoc=plot_bought(
-                                                                            worn_df
-                                                                        ).to_html(),
+                                                                        srcDoc=plot_cpw().to_html(),
                                                                     )
                                                                 ]
-                                                            )
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Br(),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "I try my best to reduce buying 'new' clothing items as much as possible. "
-                                                                "Currently, about 50% of my closet is secondhand!"
                                                             ),
                                                         ]
                                                     ),
                                                 ]
-                                            ),
+                                            )
                                         ],
-                                        title="Wardrobe Analysis",
+                                        title="Cost Per Wear",
                                     ),
                                     dbc.AccordionItem(
                                         [
@@ -821,10 +865,10 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
+                                                    html.Br(),
                                                     html.P(
-                                                        "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item is "
-                                                        "my Adidas tennis shoes. They are my go-to workout shoe and I try to workout a few times a week!"
-                                                    )
+                                                        "Now let's explore the most worn items overall (including items I do not have price data on). "
+                                                    ),
                                                 ]
                                             ),
                                             dbc.Row(
@@ -902,6 +946,12 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.P(
+                                                                f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
+                                                                "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
+                                                                "those shoes nearly everyday! I definitely think I can justify splurging on shoes in the future. "
+                                                            ),
+                                                            html.Br(),
+                                                            html.P(
                                                                 "While this data is interesting, I'm curious how my style habits evolved with the seasons."
                                                                 "So let's take a peek at the most worn item per season."
                                                             ),
@@ -944,56 +994,6 @@ app.layout = dbc.Container(
                                             )
                                         ],
                                         title="Seasonal Trends",
-                                    ),
-                                    # cost per wear
-                                    dbc.AccordionItem(
-                                        [
-                                            dbc.Row(
-                                                [
-                                                    dbc.Col(
-                                                        [
-                                                            html.H4(
-                                                                "Cost-per-wear: price of item / number of times worn in a single year"
-                                                            ),
-                                                            html.P(
-                                                                "In this plot, we look at the true 'cost' of an item over the course of 2023. "
-                                                            ),
-                                                            html.P(
-                                                                f"The average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
-                                                                "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
-                                                                "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
-                                                            ),
-                                                            html.Br(),
-                                                            html.P(
-                                                                "P.S. This plot is interactive! Try zooming in on data points. "
-                                                            ),
-                                                            html.I(
-                                                                "Note: cost-per-wear was only calculated for items for which the price"
-                                                                " was known, including items purchased secondhand. "
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    dbc.Col(
-                                                        [
-                                                            html.Div(
-                                                                [
-                                                                    html.Iframe(
-                                                                        id="costperwear",
-                                                                        style={
-                                                                            "border-width": "0",
-                                                                            "width": "100%",
-                                                                            "height": "425px",
-                                                                        },
-                                                                        srcDoc=plot_cpw().to_html(),
-                                                                    )
-                                                                ]
-                                                            ),
-                                                        ]
-                                                    ),
-                                                ]
-                                            )
-                                        ],
-                                        title="Cost Per Wear",
                                     ),
                                     dbc.AccordionItem(
                                         [
@@ -1176,7 +1176,17 @@ app.layout = dbc.Container(
 @app.callback(Output("top10", "srcDoc"), Input("item_name", "value"))
 def update_highlight(item_name):
     x = item_name[1]
-    return plot_mostworn(worn_df, x).to_html()
+    return (
+        plot_mostworn(worn_df, x)
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c",
+            titleColor="#706f6c",
+            grid=False,
+            domain=False,
+        )
+        .to_html()
+    )
 
 
 @app.callback(Output("heatmap_item", "srcDoc"), Input("item_name", "value"))
