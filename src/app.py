@@ -814,7 +814,7 @@ app.layout = dbc.Container(
                                                                 "In this plot, we look at the true 'cost' of an item over the course of 2023 (so far). "
                                                             ),
                                                             html.P(
-                                                                f"The average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
+                                                                f"The average price for an item in my closet is ${avg_price}, worn {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
                                                                 "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
                                                                 "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
                                                             ),
@@ -865,11 +865,16 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
+                                                    html.Br(),
+                                                    html.P(
+                                                        "Now let's explore the most worn items overall, including items I do not have price data on. "
+                                                    ),
+                                                    html.Br(),
                                                     html.P(
                                                         f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
                                                         "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
-                                                        "those shoes nearly everyday."
-                                                    )
+                                                        "those shoes nearly everyday!"
+                                                    ),
                                                 ]
                                             ),
                                             dbc.Row(
@@ -994,56 +999,6 @@ app.layout = dbc.Container(
                                         ],
                                         title="Seasonal Trends",
                                     ),
-                                    # cost per wear
-                                    # dbc.AccordionItem(
-                                    #     [
-                                    #         dbc.Row(
-                                    #             [
-                                    #                 dbc.Col(
-                                    #                     [
-                                    #                         html.H4(
-                                    #                             "Cost-per-wear: price of item / number of times worn in a single year"
-                                    #                         ),
-                                    #                         html.P(
-                                    #                             "In this plot, we look at the true 'cost' of an item over the course of 2023. "
-                                    #                         ),
-                                    #                         html.P(
-                                    #                             f"The average price for an item in my closet is ${avg_price}, worn an average of {avg_worn}x, for an average cost-per-wear of ${avg_cpw}. "
-                                    #                             "I'm pretty happy with these metrics, as they tell me that most items in my closet have a high-rate of rewearability. "
-                                    #                             "Even with the few 'pricy' items I have splurged on, I tend to get a lot of wear out of those pieces, espeically shoes!  "
-                                    #                         ),
-                                    #                         html.Br(),
-                                    #                         html.P(
-                                    #                             "P.S. This plot is interactive! Try zooming in on data points. "
-                                    #                         ),
-                                    #                         html.I(
-                                    #                             "Note: cost-per-wear was only calculated for items for which the price"
-                                    #                             " was known, including items purchased secondhand. "
-                                    #                         ),
-                                    #                     ]
-                                    #                 ),
-                                    #                 dbc.Col(
-                                    #                     [
-                                    #                         html.Div(
-                                    #                             [
-                                    #                                 html.Iframe(
-                                    #                                     id="costperwear",
-                                    #                                     style={
-                                    #                                         "border-width": "0",
-                                    #                                         "width": "100%",
-                                    #                                         "height": "425px",
-                                    #                                     },
-                                    #                                     srcDoc=plot_cpw().to_html(),
-                                    #                                 )
-                                    #                             ]
-                                    #                         ),
-                                    #                     ]
-                                    #                 ),
-                                    #             ]
-                                    #         )
-                                    #     ],
-                                    #     title="Cost Per Wear",
-                                    # ),
                                     dbc.AccordionItem(
                                         [
                                             dbc.Row(
