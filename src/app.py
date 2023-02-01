@@ -642,10 +642,17 @@ worn_df = worn()
 top_id, top_item, heat_df = top_10_df()
 
 # variables for text content
+
+# closet analysis
 cost_df = worn_df[worn_df["Price"] > 0]
 avg_price = round(cost_df["Price"].mean(), 2)
 avg_worn = round(cost_df["Count"].mean(), 1)
 avg_cpw = round(avg_price / avg_worn, 2)
+
+# bought in 2023
+df_2023 = df.loc[df["2023"] == "Yes"]
+percent_thrifted = df_2023["Bought"].str.count("Secondhand").sum() / len(df_2023) * 100
+annual_spent = worn_df["Price"].sum().round(2)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -783,8 +790,9 @@ app.layout = dbc.Container(
                                                         [
                                                             html.Br(),
                                                             html.P(
-                                                                "In 2023, I added 1 new items to my closet for a grand total of $45. Of these items, "
-                                                                "100% of these items were pre-loved (obtained through secondhand "
+                                                                f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
+                                                                f"spent a grand total of ${annual_spent}. Of these items, "
+                                                                f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
                                                                 "stores or hand me down)."
                                                             ),
                                                         ],
@@ -811,8 +819,8 @@ app.layout = dbc.Container(
                                             dbc.Row(
                                                 [
                                                     html.P(
-                                                        "My most worn pieces of clothing really ran the gamut. I'm not surprised that my most worn item is "
-                                                        "my Adidas tennis shoes. They are my go-to workout shoe and I try to workout a few times a week!"
+                                                        "My most worn pieces really ran the gamut. But I'm not surprised that my most worn item is "
+                                                        f"my {top_item[0]}. "
                                                     )
                                                 ]
                                             ),
