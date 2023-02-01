@@ -705,6 +705,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4("The process"),
+                                                            html.Br(),
                                                             html.P(
                                                                 "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contained. "
                                                                 "So I took stock of everything in my closet — all "
@@ -738,22 +739,12 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
-                                                    # dbc.Col(
-                                                    #     [
-                                                    #         html.P(
-                                                    #             "In 2023, I added 1 new items to my closet for a grand total of $45. Of these items, "
-                                                    #             "100% of these items were pre-loved (obtained through secondhand "
-                                                    #             "stores or hand me down)."
-                                                    #         )
-                                                    #     ],
-                                                    #     width={"size": 8},
-                                                    # ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
-                                                                        id="facet-items",
+                                                                        id="bought",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
@@ -766,14 +757,14 @@ app.layout = dbc.Container(
                                                                 ]
                                                             )
                                                         ],
-                                                        width={"size": 4},
+                                                        width={"size": 6},
                                                     ),
                                                     dbc.Col(
                                                         [
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
-                                                                        id="bought",
+                                                                        id="new_items",
                                                                         style={
                                                                             "border-width": "0",
                                                                             "width": "100%",
@@ -800,39 +791,6 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
-                                            # dbc.Row(
-                                            #     [
-                                            # dbc.Col(
-                                            #     [
-                                            #         html.Div(
-                                            #             [
-                                            #                 html.Iframe(
-                                            #                     id="bought",
-                                            #                     style={
-                                            #                         "border-width": "0",
-                                            #                         "width": "100%",
-                                            #                         "height": "400px",
-                                            #                     },
-                                            #                     srcDoc=plot_newitems(
-                                            #                         worn_df
-                                            #                     ).to_html(),
-                                            #                 )
-                                            #             ]
-                                            #         )
-                                            #     ]
-                                            # ),
-                                            #         dbc.Col(
-                                            #             [
-                                            #                 html.Br(),
-                                            #                 html.Br(),
-                                            #                 html.P(
-                                            #                     "I try my best to reduce buying 'new' clothing items as much as possible. "
-                                            #                     "Currently, about 50% of my closet is secondhand!"
-                                            #                 ),
-                                            #             ]
-                                            #         ),
-                                            #     ]
-                                            # ),
                                         ],
                                         title="Wardrobe Analysis",
                                     ),
