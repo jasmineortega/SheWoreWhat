@@ -796,7 +796,7 @@ app.layout = dbc.Container(
                                                                 "stores or hand me down)."
                                                             ),
                                                         ],
-                                                        width={"size": 6},
+                                                        width={"size": 7},
                                                     ),
                                                 ]
                                             ),
