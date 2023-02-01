@@ -759,7 +759,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        srcDoc=plot_newitems(
+                                                                        srcDoc=plot_bought(
                                                                             worn_df
                                                                         ).to_html(),
                                                                     )
@@ -783,7 +783,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        srcDoc=plot_bought(
+                                                                        srcDoc=plot_newitems(
                                                                             worn_df
                                                                         ).to_html(),
                                                                     )
