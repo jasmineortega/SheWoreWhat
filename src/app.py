@@ -651,8 +651,13 @@ avg_cpw = round(avg_price / avg_worn, 2)
 
 # bought in 2023
 df_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
-percent_thrifted = df_2023["Bought"].str.count("Secondhand").sum() / len(df_2023) * 100
-annual_spent = df_2023["Price"].sum().round(2)
+new_percent_thrifted = (
+    df_2023["Bought"].str.count("Secondhand").sum() / len(df_2023) * 100
+)
+all_percent_thrifted = (
+    worn_df["Bought"].str.count("Secondhand").sum() / len(worn_df) * 100
+)
+annual_spent = df_2023["Price"].sum()
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY])
 server = app.server
@@ -760,12 +765,15 @@ app.layout = dbc.Container(
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
-                                                                f"spent a grand total of ${annual_spent}. Of these items, "
-                                                                f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
-                                                                "stores or hand me down)."
+                                                                f"In 2023 (so far), I've added {len(df_2023)} new items to my closet and "
+                                                                f"spent a grand total of ${annual_spent:.2f}. "
                                                             ),
                                                             html.Br(),
+                                                            html.P(
+                                                                f"Of these new items, I'm happy to report that {new_percent_thrifted:.2f}% were pre-loved, "
+                                                                "In an effort to make my closet more sustainable, it's my goal for the majority of my closet to be secondhand. "
+                                                                f"Currently {new_percent_thrifted:.2f}% of my closet is secondhand."
+                                                            ),
                                                         ]
                                                     ),
                                                     dbc.Col(
