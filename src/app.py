@@ -867,13 +867,7 @@ app.layout = dbc.Container(
                                                 [
                                                     html.Br(),
                                                     html.P(
-                                                        "Now let's explore the most worn items overall, including items I do not have price data on. "
-                                                    ),
-                                                    html.Br(),
-                                                    html.P(
-                                                        f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
-                                                        "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
-                                                        "those shoes nearly everyday!"
+                                                        "Now let's explore the most worn items overall (including items I do not have price data on). "
                                                     ),
                                                 ]
                                             ),
@@ -952,7 +946,9 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.P(
-                                                                "Based off these plots, I definitely think I can justify splurging on shoes in the future. "
+                                                                f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
+                                                                "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
+                                                                "those shoes nearly everyday! I definitely think I can justify splurging on shoes in the future. "
                                                             ),
                                                             html.Br(),
                                                             html.P(
