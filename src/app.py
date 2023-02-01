@@ -715,11 +715,19 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.P(
                                                                 "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contained. "
-                                                                "So I took stock of everything in my closet — all "
-                                                                f"{len(worn_df)} pieces. The most frequent colors in my closet are 44 black pieces, 13 white pieces, "
-                                                                "with a tie of 7 navy and 7 green pieces. "
                                                             ),
                                                             html.Br(),
+                                                            html.P()
+                                                                "f"To organize the {len(worn_df) - 1} pieces in my closet, "
+                                                                "I sorted these items into 6 categories: Tops, Accessories, Bottoms, Full Body (dresses, jumpsuits), Shoes, and Outerwear (coats, etc)"
+                                                            ,
+                                                            html.Br(),
+                                                            html.P(
+                                                                "Most notably, I logged the primary color of each garment. "
+                                                                "The top 3 colors present in my closet were black, white, and a tie between green and navy. "
+                                                                "My top two colors being neutrals was not surprising, as I tend to lean toward more plain, basic pieces. "
+                                                                "I like to describe my style as 'grandmillenial librarian'."
+                                                            ),
                                                         ]
                                                     ),
                                                     dbc.Col(
@@ -781,18 +789,6 @@ app.layout = dbc.Container(
                                                         ],
                                                         width={"size": 4},
                                                     ),
-                                                    # dbc.Col(
-                                                    #     [
-                                                    #         html.Br(),
-                                                    #         html.P(
-                                                    #             f"In 2023 (so far), I've added {len(worn_df)} new items to my closet and "
-                                                    #             f"spent a grand total of ${annual_spent}. Of these items, "
-                                                    #             f"{percent_thrifted}% of these items were pre-loved (obtained through secondhand "
-                                                    #             "stores or hand me down)."
-                                                    #         ),
-                                                    #     ],
-                                                    #     width={"size": 7},
-                                                    # ),
                                                 ]
                                             ),
                                         ],
