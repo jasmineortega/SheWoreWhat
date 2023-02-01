@@ -1180,7 +1180,17 @@ app.layout = dbc.Container(
 @app.callback(Output("top10", "srcDoc"), Input("item_name", "value"))
 def update_highlight(item_name):
     x = item_name[1]
-    return plot_mostworn(worn_df, x).to_html()
+    return (
+        plot_mostworn(worn_df, x)
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c",
+            titleColor="#706f6c",
+            grid=False,
+            domain=False,
+        )
+        .to_html()
+    )
 
 
 @app.callback(Output("heatmap_item", "srcDoc"), Input("item_name", "value"))
