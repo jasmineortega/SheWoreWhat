@@ -529,7 +529,7 @@ def plot_cpw():
         .mark_circle(opacity=0.40, size=200)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 185))),
-            alt.Y("Count", scale=alt.Scale(domain=(0, 25)), title="Times Worn"),
+            alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
             alt.Color(
                 "Category",
                 scale=alt.Scale(range=color_aes),
