@@ -3,8 +3,7 @@ SheWoreWhat 2023
 ===========
 
 **Under construction**
-
-Personal wardrobe analytics to better inform future closet purchases in terms of cost-per-wear, color, and seasonal trends. Built with Python, Dash, and Altair. Hosted on Heroku! 
+A data-driven project focused on analyzing personal wardrobe trends through visualization. The project provides an organized dashboard of cost-per-wear, frequency of wear, and seasonality to advise more cost-effect wardrobe purchases. Built using Python and CSS.
 
 The Process
 -----------
