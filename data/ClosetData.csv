@@ -2,7 +2,7 @@
 Turtleneck,Top,Sweater,Black,Plain,Zara,"Secondhand, Thrifted",cheap,,
 Tropical Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
 Leopard Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
-Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,50
+Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,33
 Shirt,Top,Shirt,"Black, White",Cheetah,Free People,"Secondhand, Depop",cheap,,
 Body Suit,Top,Shirt,Black,Plain,Express,New,cheap,,25
 Body Suit,Top,Shirt,White,Plain,Express,New,cheap,,25
@@ -11,12 +11,12 @@ Sandals,Shoes,Sandal,"Black, White",Yin-Yang,Paloma Wool,New,expensive,,175
 Boots,Shoes,Boots,Black,Plain,Blondo,New,expensive,,150
 Beanie,Accessory,Hat,"Tan, White",Stripe,Athleta,New,cheap,,20
 Coat,Outerwear,Coat,"Black, White","Fur, Houndstooth",Zara,"Secondhand, Thrifted",Cheap,,25
-Crossback Sports Bra,Top,Workout ,Black,Plain,Aerie,New,Cheap,,20
-Sports Bra - White,Top,Workout ,White,Plain,Aerie,New,Cheap,,25
-Sports Bra - Clay,Top,Workout ,Clay,Plain,Aerie,New,Cheap,,25
-Sports Bra - Navy ,Top,Workout ,Navy,Plain,Aerie,New,Cheap,,25
-Sports Bra - Green,Top,Workout ,Green,Plain,Aerie,New,Cheap,,25
-Sports Bra - Black,Top,Workout ,Black,Plain,Aerie,New,Cheap,,25
+Crossback Sports Bra,Top,Workout ,Black,Plain,Aerie,New,Cheap,,14
+Sports Bra - White,Top,Workout ,White,Plain,Aerie,New,Cheap,,13
+Sports Bra - Clay,Top,Workout ,Clay,Plain,Aerie,New,Cheap,,13
+Sports Bra - Navy ,Top,Workout ,Navy,Plain,Aerie,New,Cheap,,14
+Sports Bra - Green,Top,Workout ,Green,Plain,Aerie,New,Cheap,,14
+Sports Bra - Black,Top,Workout ,Black,Plain,Aerie,New,Cheap,,18
 V-neck,Top,Sweater,Navy,Plain,Brandy Melville,"Secondhand, Thrifted",Cheap,,
 Sweater,Top,Sweater,Green,Plain,Express,"Secondhand, Thrifted",Cheap,,
 Pullover,Top,Sweater,Gray,Logo,UBC,"Secondhand, Thrifted",Cheap,,
@@ -47,7 +47,7 @@ Sleeveless Turtleneck,Top,Tanktop,Navy,Plain,Valerie Stevens,"Secondhand, Thrift
 Sleeveless Mockneck,Top,Tanktop,"Pink, Silver",Plain,By Design,"Secondhand, Thrifted",cheap,,
 Vest,Top,Vest,White,Plain,No Brand,"Secondhand, Thrifted",cheap,,
 Tank,Top,Tanktop,Yellow,Plain,Weavers Girl,"Secondhand, Thrifted",cheap,,
-Square-neck Tank,Top,Tanktop,Black,Plain,American Eagle,New,cheap,,
+Square-neck Tank,Top,Tanktop,Black,Plain,American Eagle,New,cheap,,14
 Cutout Tank,Top,Tanktop,Black,Plain,Vero Moda,New,cheap,,19
 Crewneck Sweater,Top,Sweater,Gray,Logo,Glossier,"Secondhand, Thrifted",cheap,,
 Maxi Dress,Full Body,Dress,Burgundy,Plain,Pull + Bear,New,pricy,,
@@ -96,7 +96,7 @@ Baseball Cap,Accessory,Hat,White,Logo,Davis Farmer's Market,New,cheap,,
 Sunglasses,Accessory,Glasses,"Black, Gold",Plain,Ray-Ban,New,expensive,,160
 Tights,Accessory,Tight,Black,Plain,H&M,New,cheap,,
 Workout Tank,Top,Tanktop,"Pink, White",Floral,EVCR,New,cheap,,
-Biker Shorts,Bottom,Shorts,Black,Plain,Aerie,New,cheap,,
+Biker Shorts,Bottom,Shorts,Black,Plain,Aerie,New,cheap,,26
 Corset,Top,Shirt,Black,Lace,No Brand,"Secondhand, Thrifted",expensive,Yes,45
 Sports Jacket,Outerwear,Jacket,"Blue, Black",Plain,Jamie Sadock,"Secondhand, Thrifted",cheap,Yes,10
 Cropped Tank,Top,Shirt,Beige,Knit,No Comment,"Secondhand, Thrifted",cheap,Yes,5
