@@ -20,6 +20,7 @@ The dashboard itself is composed of six sections
 2. Most Worn Items of 2023
   - This is the interesting stuff -- which specific items in my closet were worn the most? A GitHub contribution-like heatmap in this section allows for the visualization of the top 10 most worn items over the calender year.
   - As 2023 is still ongoing, this section is updated weekly. 
+  - More interesting: which items in my closet were the least worn? Are there any commonalities between these items so I know which items to avoid purchasing in the future?
 3. Seasonal Trends
   - As the weather changes, so will the items that dominate the season.This section will most likely be completed post-humously per season. It's only January 17, 2023 at the time I'm writing this. Only 62 days left of winter!!
 4. Cost-Per-Wear
