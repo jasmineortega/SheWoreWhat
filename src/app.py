@@ -184,7 +184,7 @@ def plot_mostworn(
     return closet_comp
 
 
-def plot_leastworn():
+def plot_leastworn(worn_df):
 
     least_worn = worn_df.nsmallest(10, columns="Count")
     plot_leastworn = (
@@ -992,13 +992,15 @@ app.layout = dbc.Container(
                                                     ),
                                                     dbc.Col(
                                                         html.Iframe(
-                                                            id="heatmap_item",
+                                                            id="least-worn",
                                                             style={
                                                                 "border-width": "0",
                                                                 "width": "100%",
                                                                 "height": "400px",
                                                             },
-                                                            srcDoc=plot_newitems().to_html(),
+                                                            srcDoc=plot_leastworn(
+                                                                worn_df
+                                                            ).to_html(),
                                                         ),
                                                     ),
                                                 ]
