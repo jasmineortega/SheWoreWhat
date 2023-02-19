@@ -987,7 +987,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         html.P(
                                                             "It's equally as important to look at the data for items I wore the least."
-                                                            f"Out of {len(worn)} items, {n_leastworn} have not been worn."
+                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn."
                                                         ),
                                                     ),
                                                     dbc.Col(
