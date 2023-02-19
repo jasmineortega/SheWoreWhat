@@ -978,12 +978,29 @@ app.layout = dbc.Container(
                                                                 "those shoes nearly everyday! I definitely think I can justify splurging on shoes in the future. "
                                                             ),
                                                             html.Br(),
-                                                            html.P(
-                                                                "It's equally as important to look at the data for items I wore the least."
-                                                                f"Out of {len(worn)} items, {n_leastworn} have not been worn."
-                                                            ),
                                                         ]
                                                     )
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        html.P(
+                                                            "It's equally as important to look at the data for items I wore the least."
+                                                            f"Out of {len(worn)} items, {n_leastworn} have not been worn."
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="heatmap_item",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_newitems().to_html(),
+                                                        ),
+                                                    ),
                                                 ]
                                             ),
                                         ],
