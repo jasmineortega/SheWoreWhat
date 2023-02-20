@@ -1000,6 +1000,10 @@ app.layout = dbc.Container(
                                                                 "those shoes nearly everyday! "
                                                             ),
                                                             html.Br(),
+                                                            html.P(
+                                                            "It's equally as important to look at the data for items I wore the least. "
+                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
+                                                        ),
                                                         ]
                                                     )
                                                 ]
@@ -1018,13 +1022,6 @@ app.layout = dbc.Container(
                                                                 worn_df
                                                             ).to_html(),
                                                         ),
-                                                    ),
-                                                    dbc.Col(
-                                                        html.P(
-                                                            "It's equally as important to look at the data for items I wore the least. "
-                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
-                                                        ),
-                                                        width={"size": 3},
                                                     ),
                                                     dbc.Col(
                                                         html.Iframe(
