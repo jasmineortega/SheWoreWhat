@@ -208,6 +208,28 @@ def plot_leastworn(worn_df):
     return plot_leastworn
 
 
+def plot_leastworn_cat():
+
+    df = worn_df[worn_df["Count"] == 0].groupby("Category").count().reset_index()
+
+    base = (
+        alt.Chart(df, title="Breakdown of Least Worn Items")
+        .mark_arc(innerRadius=100)
+        .encode(
+            theta=alt.Theta("Count"),
+            color=alt.Color("Category"),
+            tooltip=["Category", "Count"],
+        )
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+        .configure_view(strokeWidth=0)
+    )
+
+    return base
+
+
 def plot_color(worn_df):
     """
     Function for color composition of color.
@@ -986,8 +1008,8 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         html.P(
-                                                            "It's equally as important to look at the data for items I wore the least."
-                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn."
+                                                            "It's equally as important to look at the data for items I wore the least. "
+                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
                                                         ),
                                                     ),
                                                     dbc.Col(
@@ -999,6 +1021,19 @@ app.layout = dbc.Container(
                                                                 "height": "400px",
                                                             },
                                                             srcDoc=plot_leastworn(
+                                                                worn_df
+                                                            ).to_html(),
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="least-worn-cat",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_leastworn_cat(
                                                                 worn_df
                                                             ).to_html(),
                                                         ),
