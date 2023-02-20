@@ -996,8 +996,8 @@ app.layout = dbc.Container(
                                                         [
                                                             html.P(
                                                                 f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
-                                                                "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
-                                                                "those shoes nearly everyday! I definitely think I can justify splurging on shoes in the future. "
+                                                                "I try to workout out a few days a week, so this tracks with the data. I wore "
+                                                                "those shoes nearly everyday! "
                                                             ),
                                                             html.Br(),
                                                         ]
@@ -1006,13 +1006,6 @@ app.layout = dbc.Container(
                                             ),
                                             dbc.Row(
                                                 [
-                                                    dbc.Col(
-                                                        html.P(
-                                                            "It's equally as important to look at the data for items I wore the least. "
-                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
-                                                        ),
-                                                        width={"size": 2},
-                                                    ),
                                                     dbc.Col(
                                                         html.Iframe(
                                                             id="least-worn",
@@ -1025,6 +1018,13 @@ app.layout = dbc.Container(
                                                                 worn_df
                                                             ).to_html(),
                                                         ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.P(
+                                                            "It's equally as important to look at the data for items I wore the least. "
+                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
+                                                        ),
+                                                        width={"size": 3},
                                                     ),
                                                     dbc.Col(
                                                         html.Iframe(
