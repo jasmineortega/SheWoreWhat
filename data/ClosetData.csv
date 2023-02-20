@@ -3,7 +3,7 @@ Turtleneck,Top,Sweater,Black,Plain,Zara,"Secondhand, Thrifted",cheap,,
 Tropical Tank,Top,Tanktop,"Black, Red, Gold",Feather,Plisse ,"Secondhand, Thrifted",cheap,,
 Leopard Tank,Top,Tanktop,"Black, Tan",Leopard,Plisse ,"Secondhand, Thrifted",cheap,,15
 Jeans,Bottom,Pants,Blue,Plain,Aerie,New,cheap,,33
-Shirt,Top,Shirt,"Black, White",Cheetah,Free People,"Secondhand, Depop",cheap,,
+Shirt,Top,Shirt,"Black, White",Cheetah,Free People,"Secondhand, Depop",cheap,,13
 Body Suit,Top,Shirt,Black,Plain,Express,New,cheap,,25
 Body Suit,Top,Shirt,White,Plain,Express,New,cheap,,25
 Skort,Bottom,Skirt,Black,Plain,Girlfriend Collective,New,pricy,,73
@@ -21,11 +21,11 @@ V-neck,Top,Sweater,Navy,Plain,Brandy Melville,"Secondhand, Thrifted",Cheap,,
 Sweater,Top,Sweater,Green,Plain,Express,"Secondhand, Thrifted",Cheap,,
 Pullover,Top,Sweater,Gray,Logo,UBC,"Secondhand, Thrifted",Cheap,,
 Miniskirt,Bottom,Skirt,"Black, White",Houndstooth,Forever 21,"Secondhand, Thrifted",Cheap,,
-Leggings - Brown,Bottom,Workout ,Brown,Plain,Aerie,New,cheap,,35
+Leggings - Brown,Bottom,Workout ,Brown,Plain,Aerie,New,cheap,,20
 Leggings - Navy,Bottom,Workout ,Navy,Plain,Aerie,New,cheap,,35
-Leggings - Green,Bottom,Workout ,Green,Plain,Aerie,New,cheap,,35
+Leggings - Green,Bottom,Workout ,Green,Plain,Aerie,New,cheap,,23
 Leggings - Red,Bottom,Workout ,Red,Plain,Aerie,New,cheap,,35
-Leggings - Black,Bottom,Workout ,Black,Plain,Aerie,New,cheap,,35
+Leggings - Black,Bottom,Workout ,Black,Plain,Aerie,New,cheap,,20
 Yoga Pant,Bottom,Workout ,Black,Plain,Aerie,New,cheap,,30
 Tank,Top,Workout ,Black,Logo,American Apparel,"Secondhand, Thrifted",cheap,,
 Shirt,Top,Shirt,White,Logo,Clueless,"Secondhand, Thrifted",cheap,,
@@ -85,7 +85,7 @@ Christmas Tree Hoops,Accessory,Jewelry,Gold,Plain,No Brand,"Secondhand, Thrifted
 Square Hoops,Accessory,Jewelry,Gold,Plain,TJ Maxx,New,cheap,,
 Puffer,Outerwear,Coat,Green,Plain,Hollister,New,pricy,,63
 Tote Bag,Accessory,Bag,Green,Logo,UBC,New,cheap,,20
-Purse,Accessory,Bag,White,Vintage,No Brand,"Secondhand, Depop",cheap,,20
+Purse,Accessory,Bag,White,Vintage,No Brand,"Secondhand, Depop",cheap,,13
 Bow,Accessory,Hat,Black,Plain,Target,New,cheap,,10
 Snake Tights,Accessory,Tight,Black,Snake,Amazon,New,cheap,,21
 Purse,Accessory,Bag,Silver,Rhinestone,Francesca's,New,pricy,,
@@ -101,5 +101,5 @@ Corset,Top,Shirt,Black,Lace,No Brand,"Secondhand, Thrifted",expensive,Yes,45
 Sports Jacket,Outerwear,Jacket,"Blue, Black",Plain,Jamie Sadock,"Secondhand, Thrifted",cheap,Yes,10
 Cropped Tank,Top,Shirt,Beige,Knit,No Comment,"Secondhand, Thrifted",cheap,Yes,5
 Chain Bikini,Full Body,Swimming,"Black, Gold",Plain,Victoria Secret,New,pricy,,39
-Puffer,Outerwear,Jacket,Black,Plain,Uniqlo,"Secondhand, Thrifted",cheap,Yes,13
+Puffer Jacket,Outerwear,Jacket,Black,Plain,Uniqlo,"Secondhand, Thrifted",cheap,Yes,13
 Mockneck,Top,Shirt,Black,Plain,Uniqlo,"Secondhand, Thrifted",cheap,Yes,9

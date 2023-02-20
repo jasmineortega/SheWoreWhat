@@ -184,6 +184,52 @@ def plot_mostworn(
     return closet_comp
 
 
+def plot_leastworn(worn_df):
+
+    least_worn = worn_df.nsmallest(10, columns="Count")
+    plot_leastworn = (
+        alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
+        .mark_bar(
+            color="#d81159",
+            cornerRadiusBottomRight=10,
+            cornerRadiusTopRight=10,
+            opacity=0.85,
+        )
+        .encode(
+            alt.Y("Name", title="", axis=alt.Axis(labelAngle=-0), sort="-x"),
+            alt.X("Count", title="Times Worn", axis=alt.Axis(tickMinStep=1)),
+            alt.Tooltip("Count"),
+        )
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+    )
+    return plot_leastworn
+
+
+def plot_leastworn_cat(worn_df):
+
+    df = worn_df[worn_df["Count"] == 0].groupby("Category").count().reset_index()
+
+    base = (
+        alt.Chart(df, title="Breakdown of Least Worn Items")
+        .mark_arc(innerRadius=100)
+        .encode(
+            theta=alt.Theta("Count"),
+            color=alt.Color("Category", scale=alt.Scale(range=color_aes)),
+            tooltip=["Category", "Count"],
+        )
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+        .configure_view(strokeWidth=0)
+    )
+
+    return base
+
+
 def plot_color(worn_df):
     """
     Function for color composition of color.
@@ -526,7 +572,7 @@ def plot_cpw():
 
     plot = (
         alt.Chart(complete_df, title="2023 Cost Per Wear (CPW)")
-        .mark_circle(opacity=0.80, size=60)
+        .mark_circle(opacity=0.80, size=80)
         .encode(
             alt.X("Price", scale=alt.Scale(domain=(0, 185))),
             alt.Y("Count", scale=alt.Scale(domain=(0, 40)), title="Times Worn"),
@@ -649,6 +695,9 @@ avg_price = round(cost_df["Price"].mean(), 2)
 avg_worn = round(cost_df["Count"].mean(), 1)
 avg_cpw = round(avg_price / avg_worn, 2)
 
+# most worn / least worn
+n_leastworn = len(worn_df[worn_df["Count"] == 0])
+
 # bought in 2023
 df_2023 = worn_df.loc[worn_df["2023"] == "Yes"]
 new_percent_thrifted = (
@@ -761,7 +810,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4(
-                                                                "Newest Closet Additions in 2023"
+                                                                "New Additions in 2023"
                                                             ),
                                                             html.Br(),
                                                             html.P(
@@ -945,22 +994,56 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.H4("Least Worn Items"),
                                                             html.P(
                                                                 f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
-                                                                "As I try to workout out a few days a week, this tracks with the yearly data I collected. I wore "
-                                                                "those shoes nearly everyday! I definitely think I can justify splurging on shoes in the future. "
+                                                                "I try to workout out a few days a week, so this tracks with the data. I wore "
+                                                                "those shoes nearly everyday! "
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                "While this data is interesting, I'm curious how my style habits evolved with the seasons."
-                                                                "So let's take a peek at the most worn item per season."
+                                                                "It's equally as important to look at the data for items I wore the least. "
+                                                                f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
                                                             ),
                                                         ]
                                                     )
                                                 ]
                                             ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="least-worn",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_leastworn(
+                                                                worn_df
+                                                            ).to_html(),
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="least-worn-cat",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_leastworn_cat(
+                                                                worn_df
+                                                            ).to_html(),
+                                                        ),
+                                                    ),
+                                                ]
+                                            ),
+                                            dbc.Row(
+                                                [dbc.Col([html.H4("Conclusions")])]
+                                            ),
                                         ],
-                                        title="Most Worn Items of 2023",
+                                        title="Most and Least Worn Items of 2023",
                                     ),
                                     dbc.AccordionItem(
                                         [
@@ -991,7 +1074,10 @@ app.layout = dbc.Container(
                                                         width={"size": 8},
                                                     ),
                                                 ]
-                                            )
+                                            ),
+                                            dbc.Row(
+                                                [dbc.Col([html.H4("Conclusions")])]
+                                            ),
                                         ],
                                         title="Seasonal Trends",
                                     ),
