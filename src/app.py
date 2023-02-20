@@ -217,7 +217,7 @@ def plot_leastworn_cat(worn_df):
         .mark_arc(innerRadius=100)
         .encode(
             theta=alt.Theta("Count"),
-            color=alt.Color("Category"),
+            color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=False),
             tooltip=["Category", "Count"],
         )
         .configure_title(color="#706f6c")
