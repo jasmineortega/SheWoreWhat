@@ -1011,6 +1011,7 @@ app.layout = dbc.Container(
                                                             "It's equally as important to look at the data for items I wore the least. "
                                                             f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
                                                         ),
+                                                        width={"size": 2},
                                                     ),
                                                     dbc.Col(
                                                         html.Iframe(
