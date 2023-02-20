@@ -208,7 +208,7 @@ def plot_leastworn(worn_df):
     return plot_leastworn
 
 
-def plot_leastworn_cat():
+def plot_leastworn_cat(worn_df):
 
     df = worn_df[worn_df["Count"] == 0].groupby("Category").count().reset_index()
 
@@ -810,7 +810,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4(
-                                                                "Newest Closet Additions in 2023"
+                                                                "New Closet Additions in 2023"
                                                             ),
                                                             html.Br(),
                                                             html.P(
