@@ -810,7 +810,7 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4(
-                                                                "New Closet Additions in 2023"
+                                                                "New Additions in 2023"
                                                             ),
                                                             html.Br(),
                                                             html.P(
@@ -1038,6 +1038,11 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
+                                            dbc.Row([
+                                                dbc.Col([
+                                                    html.H4("Takeaways:")
+                                                ])
+                                            ])
                                         ],
                                         title="Most Worn Items of 2023",
                                     ),
