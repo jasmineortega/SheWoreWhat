@@ -1039,7 +1039,9 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
-                                            dbc.Row([dbc.Col([html.H4("Takeaways")])]),
+                                            dbc.Row(
+                                                [dbc.Col([html.H4("Conclusions")])]
+                                            ),
                                         ],
                                         title="Most and Least Worn Items of 2023",
                                     ),
@@ -1072,7 +1074,10 @@ app.layout = dbc.Container(
                                                         width={"size": 8},
                                                     ),
                                                 ]
-                                            )
+                                            ),
+                                            dbc.Row(
+                                                [dbc.Col([html.H4("Conclusions")])]
+                                            ),
                                         ],
                                         title="Seasonal Trends",
                                     ),
