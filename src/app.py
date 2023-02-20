@@ -994,6 +994,7 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.H4("Least Worn Items"),
                                                             html.P(
                                                                 f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
                                                                 "I try to workout out a few days a week, so this tracks with the data. I wore "
@@ -1001,9 +1002,9 @@ app.layout = dbc.Container(
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                            "It's equally as important to look at the data for items I wore the least. "
-                                                            f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
-                                                        ),
+                                                                "It's equally as important to look at the data for items I wore the least. "
+                                                                f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
+                                                            ),
                                                         ]
                                                     )
                                                 ]
@@ -1038,13 +1039,9 @@ app.layout = dbc.Container(
                                                     ),
                                                 ]
                                             ),
-                                            dbc.Row([
-                                                dbc.Col([
-                                                    html.H4("Takeaways:")
-                                                ])
-                                            ])
+                                            dbc.Row([dbc.Col([html.H4("Takeaways")])]),
                                         ],
-                                        title="Most Worn Items of 2023",
+                                        title="Most and Least Worn Items of 2023",
                                     ),
                                     dbc.AccordionItem(
                                         [
