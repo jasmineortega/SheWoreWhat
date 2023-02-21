@@ -213,7 +213,7 @@ def plot_leastworn_cat(worn_df):
     df = worn_df[worn_df["Count"] == 0].groupby("Category").count().reset_index()
 
     base = (
-        alt.Chart(df, title="Breakdown of Least Worn Items")
+        alt.Chart(df, title="Category Breakdown of Least Worn Items")
         .mark_arc(innerRadius=100)
         .encode(
             theta=alt.Theta("Count"),
@@ -325,7 +325,7 @@ def plot_newitems(worn_df):
 
     base = (
         alt.Chart(new_2023, title="New Items Purchased in 2023")
-        .mark_arc()
+        .mark_arc(innerRadius=100)
         .encode(
             theta=alt.Theta("count()", stack=True),
             color=alt.Color(
