@@ -1010,19 +1010,6 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         html.Iframe(
-                                                            id="least-worn",
-                                                            style={
-                                                                "border-width": "0",
-                                                                "width": "100%",
-                                                                "height": "400px",
-                                                            },
-                                                            srcDoc=plot_leastworn(
-                                                                worn_df
-                                                            ).to_html(),
-                                                        ),
-                                                    ),
-                                                    dbc.Col(
-                                                        html.Iframe(
                                                             id="least-worn-cat",
                                                             style={
                                                                 "border-width": "0",
@@ -1030,6 +1017,19 @@ app.layout = dbc.Container(
                                                                 "height": "400px",
                                                             },
                                                             srcDoc=plot_leastworn_cat(
+                                                                worn_df
+                                                            ).to_html(),
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="least-worn",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_leastworn(
                                                                 worn_df
                                                             ).to_html(),
                                                         ),
