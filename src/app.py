@@ -214,7 +214,7 @@ def plot_leastworn_cat(worn_df):
 
     base = (
         alt.Chart(df, title="Category Breakdown of Least Worn Items")
-        .mark_arc(innerRadius=100)
+        .mark_arc(innerRadius=100, opacity=0.85)
         .encode(
             theta=alt.Theta("Count"),
             color=alt.Color("Category", scale=alt.Scale(range=color_aes)),
