@@ -186,7 +186,7 @@ def plot_mostworn(
 
 def plot_leastworn(worn_df):
 
-    least_worn = worn_df.nsmallest(10, columns="Count")
+    least_worn = worn_df.nsmallest(50, columns="Count")
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
@@ -917,6 +917,8 @@ app.layout = dbc.Container(
                                                     html.Br(),
                                                     html.P(
                                                         "Now let's explore the most worn items overall (including items I do not have price data on). "
+                                                        f"My most worn piece is {top_item[0]}. I workout a few days a week, so this tracks. I wore "
+                                                        "those shoes to the gym nearly everyday! "
                                                     ),
                                                 ]
                                             ),
@@ -995,11 +997,6 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4("Least Worn Items"),
-                                                            html.P(
-                                                                f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
-                                                                "I try to workout out a few days a week, so this tracks with the data. I wore "
-                                                                "those shoes nearly everyday! "
-                                                            ),
                                                             html.Br(),
                                                             html.P(
                                                                 "It's equally as important to look at the data for items I wore the least. "
