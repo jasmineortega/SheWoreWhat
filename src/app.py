@@ -186,7 +186,7 @@ def plot_mostworn(
 
 def plot_leastworn(worn_df):
 
-    least_worn = worn_df[worn_df["Count"] > 0].nsmallest(10, columns="Count")
+    least_worn = worn_df[worn_df["Count"] > 0].nsmallest(15, columns="Count")
 
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
