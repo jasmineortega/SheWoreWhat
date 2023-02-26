@@ -191,7 +191,7 @@ def plot_leastworn(worn_df):
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
-            color="#d81159",
+            color="#73d2de",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
