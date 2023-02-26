@@ -186,7 +186,7 @@ def plot_mostworn(
 
 def plot_leastworn(worn_df):
 
-    least_worn = worn_df.nsmallest(10, columns="Count")
+    least_worn = worn_df.nsmallest(50, columns="Count")
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
@@ -213,8 +213,8 @@ def plot_leastworn_cat(worn_df):
     df = worn_df[worn_df["Count"] == 0].groupby("Category").count().reset_index()
 
     base = (
-        alt.Chart(df, title="Breakdown of Least Worn Items")
-        .mark_arc(innerRadius=100)
+        alt.Chart(df, title="Category Breakdown of Least Worn Items")
+        .mark_arc(innerRadius=100, opacity=0.85)
         .encode(
             theta=alt.Theta("Count"),
             color=alt.Color("Category", scale=alt.Scale(range=color_aes)),
@@ -337,7 +337,7 @@ def plot_newitems(worn_df):
         )
     )
 
-    cat = base.mark_arc(innerRadius=0, opacity=0.85)
+    cat = base.mark_arc(innerRadius=100, opacity=0.85)
 
     txt = base.mark_text(angle=0, radius=180, size=15).encode(
         alt.Color(
@@ -917,6 +917,8 @@ app.layout = dbc.Container(
                                                     html.Br(),
                                                     html.P(
                                                         "Now let's explore the most worn items overall (including items I do not have price data on). "
+                                                        f"My most worn piece is {top_item[0]}. I workout a few days a week, so this tracks. I wore "
+                                                        "those shoes to the gym nearly everyday! "
                                                     ),
                                                 ]
                                             ),
@@ -995,11 +997,6 @@ app.layout = dbc.Container(
                                                     dbc.Col(
                                                         [
                                                             html.H4("Least Worn Items"),
-                                                            html.P(
-                                                                f"As we saw in the previous section, my most worn piece is {top_item[0]}. "
-                                                                "I try to workout out a few days a week, so this tracks with the data. I wore "
-                                                                "those shoes nearly everyday! "
-                                                            ),
                                                             html.Br(),
                                                             html.P(
                                                                 "It's equally as important to look at the data for items I wore the least. "
@@ -1013,19 +1010,6 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         html.Iframe(
-                                                            id="least-worn",
-                                                            style={
-                                                                "border-width": "0",
-                                                                "width": "100%",
-                                                                "height": "400px",
-                                                            },
-                                                            srcDoc=plot_leastworn(
-                                                                worn_df
-                                                            ).to_html(),
-                                                        ),
-                                                    ),
-                                                    dbc.Col(
-                                                        html.Iframe(
                                                             id="least-worn-cat",
                                                             style={
                                                                 "border-width": "0",
@@ -1033,6 +1017,19 @@ app.layout = dbc.Container(
                                                                 "height": "400px",
                                                             },
                                                             srcDoc=plot_leastworn_cat(
+                                                                worn_df
+                                                            ).to_html(),
+                                                        ),
+                                                    ),
+                                                    dbc.Col(
+                                                        html.Iframe(
+                                                            id="least-worn",
+                                                            style={
+                                                                "border-width": "0",
+                                                                "width": "100%",
+                                                                "height": "400px",
+                                                            },
+                                                            srcDoc=plot_leastworn(
                                                                 worn_df
                                                             ).to_html(),
                                                         ),
@@ -1080,6 +1077,18 @@ app.layout = dbc.Container(
                                             ),
                                         ],
                                         title="Seasonal Trends",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
+                                            dbc.Row(
+                                                html.P(
+                                                    "This year I experimented with renting clothes through websites like Nuuly. I like the idea of "
+                                                    "renting pieces for special occasions or just to spice things up without a big closet commitmment."
+                                                    "Here is the data collected on items I rented."
+                                                ),
+                                            ),
+                                        ],
+                                        title="Renting Clothes",
                                     ),
                                     dbc.AccordionItem(
                                         [
