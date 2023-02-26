@@ -186,7 +186,8 @@ def plot_mostworn(
 
 def plot_leastworn(worn_df):
 
-    least_worn = worn_df.nsmallest(50, columns="Count")
+    least_worn = worn_df[worn_df["Count"] > 0].nsmallest(10, columns="Count")
+
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
@@ -814,7 +815,7 @@ app.layout = dbc.Container(
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                f"In 2023 (so far), I've added {len(df_2023)} new items to my closet and "
+                                                                f"In 2023, I've added {len(df_2023)} new items to my closet and "
                                                                 f"spent a grand total of ${annual_spent:.2f}. "
                                                             ),
                                                             html.Br(),
@@ -1000,7 +1001,7 @@ app.layout = dbc.Container(
                                                             html.Br(),
                                                             html.P(
                                                                 "It's equally as important to look at the data for items I wore the least. "
-                                                                f"Out of {len(worn_df)} items, {n_leastworn} have not been worn. "
+                                                                f"Out of {len(worn_df)} items, {n_leastworn} pieces were not worn in 2023. "
                                                             ),
                                                         ]
                                                     )
