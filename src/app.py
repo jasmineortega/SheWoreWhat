@@ -170,7 +170,7 @@ def plot_mostworn(
             color=alt.condition(
                 alt.datum.Name == item_name,
                 alt.value(highlight),  # highlighted bar
-                alt.value("#f5f0e4"),
+                alt.value("#e0dfd7"),
             ),
             opacity=alt.condition(
                 alt.datum.Name == item_name, alt.value(0.85), alt.value(0.50)
@@ -191,7 +191,7 @@ def plot_leastworn(worn_df):
     plot_leastworn = (
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
-            color="#73d2de",
+            color="#a6e3d4",
             cornerRadiusBottomRight=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
