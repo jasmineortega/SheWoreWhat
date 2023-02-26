@@ -1082,6 +1082,18 @@ app.layout = dbc.Container(
                                         [
                                             dbc.Row(
                                                 html.P(
+                                                    "This year I experimented with renting clothes through websites like Nuuly. I like the idea of "
+                                                    "renting pieces for special occasions or just to spice things up without a big closet commitmment."
+                                                    "Here is the data collected on items I rented."
+                                                ),
+                                            ),
+                                        ],
+                                        title="Renting Clothes",
+                                    ),
+                                    dbc.AccordionItem(
+                                        [
+                                            dbc.Row(
+                                                html.P(
                                                     "If you are interested in learning more about the environmental impact and ethics of clothing made in fast-fashion "
                                                     "factories, I have included some links below:"
                                                 ),
