@@ -330,7 +330,7 @@ def plot_newitems(worn_df):
         .encode(
             theta=alt.Theta("count()", stack=True),
             color=alt.Color("Bought", scale=alt.Scale(range=color_aes),
-                            alt.Legend(orient="top")),
+                            legend=alt.Legend(orient="top")),
             tooltip=["Bought", "count()"],
         )
     )
