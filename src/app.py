@@ -329,24 +329,16 @@ def plot_newitems(worn_df):
         .mark_arc()
         .encode(
             theta=alt.Theta("count()", stack=True),
-            color=alt.Color("Bought", scale=alt.Scale(range=color_aes)),
+            color=alt.Color("Bought", scale=alt.Scale(range=color_aes),
+                            alt.Legend(orient="top")),
             tooltip=["Bought", "count()"],
         )
     )
 
     cat = base.mark_arc(innerRadius=100, opacity=0.85)
 
-    # txt = base.mark_text(angle=0, radius=180, size=15).encode(
-    #     alt.Color(
-    #         "Bought",
-    #         scale=alt.Scale(range=color_aes),
-    #         legend=None,
-    #     ),
-    #     text="Bought",
-    # )
-    plot_bought = cat
     plot_bought = (
-        plot_bought.configure_title(color="#706f6c")
+        cat.configure_title(color="#706f6c")
         .configure_axis(
             grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
         )
