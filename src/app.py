@@ -801,6 +801,9 @@ app.layout = dbc.Container(
                                                 [
                                                     dbc.Col(
                                                         [
+                                                            html.H4(
+                                                                "New Additions in 2023"
+                                                            ),
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
@@ -815,15 +818,12 @@ app.layout = dbc.Container(
                                                                         ).to_html(),
                                                                     )
                                                                 ]
-                                                            )
+                                                            ),
                                                         ],
-                                                        width={"size": 4},
+                                                        width={"size": 5},
                                                     ),
                                                     dbc.Col(
                                                         [
-                                                            html.H4(
-                                                                "New Additions in 2023"
-                                                            ),
                                                             html.Br(),
                                                             html.P(
                                                                 f"In 2023, I've added {len(df_2023)} new items to my closet and "
