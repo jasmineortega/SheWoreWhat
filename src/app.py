@@ -329,8 +329,11 @@ def plot_newitems(worn_df):
         .mark_arc()
         .encode(
             theta=alt.Theta("count()", stack=True),
-            color=alt.Color("Bought", scale=alt.Scale(range=color_aes),
-                            legend=alt.Legend(orient="top")),
+            color=alt.Color(
+                "Bought",
+                scale=alt.Scale(range=color_aes),
+                legend=alt.Legend(orient="left"),
+            ),
             tooltip=["Bought", "count()"],
         )
     )
