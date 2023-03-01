@@ -804,6 +804,10 @@ app.layout = dbc.Container(
                                                             html.H4(
                                                                 "New Additions in 2023"
                                                             ),
+                                                            html.P(
+                                                                f"In 2023, I've added {len(df_2023)} new items to my closet and "
+                                                                f"spent a grand total of ${annual_spent:.2f}. "
+                                                            ),
                                                             html.Div(
                                                                 [
                                                                     html.Iframe(
@@ -824,12 +828,6 @@ app.layout = dbc.Container(
                                                     ),
                                                     dbc.Col(
                                                         [
-                                                            html.Br(),
-                                                            html.P(
-                                                                f"In 2023, I've added {len(df_2023)} new items to my closet and "
-                                                                f"spent a grand total of ${annual_spent:.2f}. "
-                                                            ),
-                                                            html.Br(),
                                                             html.P(
                                                                 f"Of these new items, I'm happy to report that {new_percent_thrifted:.2f}% were pre-loved, "
                                                                 "In an effort to make my closet more sustainable, it's my goal for the majority of my closet to be secondhand! "
