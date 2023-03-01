@@ -798,14 +798,14 @@ app.layout = dbc.Container(
                                                 ]
                                             ),
                                             dbc.Row(
-                                                html.H4(
-                                                                "New Additions in 2023"
-                                                            ),
-                                                            html.P(
-                                                                f"In 2023, I've added {len(df_2023)} new items to my closet and "
-                                                                f"spent a grand total of ${annual_spent:.2f}. "
-                                                            ),
-                                                ),
+                                                [
+                                                    html.H4("New Additions in 2023"),
+                                                    html.P(
+                                                        f"In 2023, I've added {len(df_2023)} new items to my closet and "
+                                                        f"spent a grand total of ${annual_spent:.2f}. "
+                                                    ),
+                                                ]
+                                            ),
                                             dbc.Row(
                                                 [
                                                     dbc.Col(
