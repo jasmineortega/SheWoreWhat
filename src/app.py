@@ -326,7 +326,7 @@ def plot_newitems(worn_df):
 
     base = (
         alt.Chart(new_2023, title="New Items Purchased in 2023")
-        .mark_arc()
+        .mark_arc(opacity=0.85)
         .encode(
             theta=alt.Theta("count()", stack=True),
             color=alt.Color(
