@@ -760,7 +760,7 @@ app.layout = dbc.Container(
                                                             html.H4("The process"),
                                                             html.Br(),
                                                             html.P(
-                                                                "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contained. "
+                                                                "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contains. "
                                                             ),
                                                             html.Br(),
                                                             html.P(
@@ -833,6 +833,13 @@ app.layout = dbc.Container(
                                                             ),
                                                         ],
                                                         width={"size": 5},
+                                                    ),
+                                                    dbc.Col(
+                                                        [
+                                                            html.P(
+                                                                "Placeholder for plot. "
+                                                            ),
+                                                        ]
                                                     ),
                                                 ]
                                             ),
