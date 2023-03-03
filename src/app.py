@@ -572,7 +572,7 @@ def plot_cpw():
                 "Category",
                 scale=alt.Scale(range=color_aes),
             ),
-            alt.Tooltip(["Name", "Category", "Cost Per Wear", "Count"]),
+            alt.Tooltip(["Name", "Category", "Cost Per Wear", "Price", "Count"]),
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
