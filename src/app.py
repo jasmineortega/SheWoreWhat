@@ -735,8 +735,7 @@ app.layout = dbc.Container(
                         ),
                         html.P(
                             "Hi! I'm tracking every single item of clothing I wore in 2023. "
-                            "As a data scientist and sustainable fashion enthusiast, this is a  "
-                            "fun  project to help inform smarter decisions about my closet purchases in the future.",
+                            "This is a fun little side project to help inform smarter decisions about my closet purchases in the future.",
                             className="intro",
                         ),
                     ],
