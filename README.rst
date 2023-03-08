@@ -2,7 +2,7 @@
 SheWoreWhat 2023
 ===========
 
-**Under construction**
+**Under construction** 
 
 A data-driven project focused on analyzing personal wardrobe trends through visualization. The project provides an organized dashboard of cost-per-wear, frequency of wear, and seasonality to advise more cost-effect wardrobe purchases. Built using Python, CSS.
 
