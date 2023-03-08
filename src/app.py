@@ -185,7 +185,7 @@ def plot_mostworn(
     closet_comp = (
         alt.Chart(most_worn, title=title)
         .mark_bar(
-            cornerRadiusBottomRight=10,
+            cornerRadiusTopLeft=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
         )
@@ -218,7 +218,7 @@ def plot_leastworn(worn_df):
         alt.Chart(least_worn, title="Ten Least Worn Pieces in 2023")
         .mark_bar(
             color="#a6e3d4",
-            cornerRadiusBottomRight=10,
+            cornerRadiusTopLeft=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
         )
