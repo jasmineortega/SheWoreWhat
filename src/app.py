@@ -204,7 +204,8 @@ def plot_leastworn(worn_df):
         .configure_title(color="#706f6c")
         .configure_axis(
             labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
-        ).configure_view(strokeWidth=0)
+        )
+        .configure_view(strokeWidth=0)
     )
     return plot_leastworn
 
@@ -390,6 +391,7 @@ def plot_bought(worn_df):
             grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
         )
         .properties(height=200)
+        .configure_view(strokeWidth=0)
     )
     return plot
 
@@ -576,6 +578,7 @@ def plot_cpw():
         )
         .configure_axis(grid=False, labelColor="#706f6c", titleColor="#706f6c")
         .configure_title(color="#706f6c")
+        .configure_view(strokeWidth=0)
         .interactive()
     )
 
@@ -670,6 +673,7 @@ def plot_seasons():
         .configure_axis(
             labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
         )
+        .configure_view(strokeWidth=0)
     )
     return final
 
