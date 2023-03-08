@@ -154,13 +154,13 @@ def plot_categories(worn_df):
     plot = (
         alt.Chart(df, title="Closet Categories")
         .mark_bar(
-            cornerRadiusBottomRight=10,
+            cornerRadiusTopLeft=10,
             cornerRadiusTopRight=10,
             opacity=0.85,
         )
         .encode(
-            x=alt.X("Category", sort="y"),
-            y="Count",
+            y=alt.Y("Category", sort="x"),
+            x="Count",
             color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=None),
             tooltip=["Category", "Count"],
         )
