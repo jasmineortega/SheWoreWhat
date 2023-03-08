@@ -759,18 +759,19 @@ app.layout = dbc.Container(
                                                             html.H4("The process"),
                                                             html.Br(),
                                                             html.P(
-                                                                "Before I began collecting my daily outfit data in 2023, it was important to first understand what my closet contains. "
+                                                                "Before I began collecting daily outfit data in 2023, it was important to first understand what my closet contained. "
                                                             ),
                                                             html.Br(),
                                                             html.P(
                                                                 f"To organize the {len(worn_df) - 1} pieces in my closet, "
-                                                                "I sorted these items into 6 categories: tops, accessories, bottoms, full body (dresses, jumpsuits), shoes, and outerwear (coats, etc)."
+                                                                "I sorted everything into 6 categories: tops, accessories, bottoms, full body (dresses, jumpsuits), shoes, and outerwear (coats, etc). "
+                                                                "For my own sanity, I didn't include lougewear, socks, underwear, etc. "
                                                             ),
                                                             html.Br(),
                                                             html.P(
-                                                                "Most notably, I logged the primary color of each garment. "
-                                                                "The top 3 colors present in my closet were black, white, and a tie between green and navy. "
-                                                                "My top two colors being neutrals was not surprising, as I tend to lean toward more plain, basic pieces! "
+                                                                "In addition, I logged the primary color of each garment. "
+                                                                "The top 3 colors in my closet were black, white, and a tie between green and navy. "
+                                                                "The number of neutrals was not surprising at all, but I didn't expect to own SO much black. "
                                                             ),
                                                         ]
                                                     ),
@@ -800,7 +801,7 @@ app.layout = dbc.Container(
                                                 [
                                                     html.H4("New Additions in 2023"),
                                                     html.P(
-                                                        f"In 2023, I added {len(df_2023)} new items to my closet for"
+                                                        f"In 2023, I added {len(df_2023)} new items to  "
                                                         f"a grand total of ${annual_spent:.2f}. "
                                                     ),
                                                     html.Br(),
