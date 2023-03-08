@@ -910,6 +910,9 @@ app.layout = dbc.Container(
                                                         [
                                                             html.Div(
                                                                 [
+                                                                    html.P(
+                                                                        "Fix: weird axes and generally make plots fill space"
+                                                                    ),
                                                                     html.Iframe(
                                                                         id="categories",
                                                                         style={
@@ -920,7 +923,7 @@ app.layout = dbc.Container(
                                                                         srcDoc=plot_new_concat(
                                                                             worn_df
                                                                         ).to_html(),
-                                                                    )
+                                                                    ),
                                                                 ]
                                                             ),
                                                         ],
