@@ -147,6 +147,32 @@ def worn():
     return worn_df
 
 
+def plot_categories(worn_df):
+
+    df = worn_df[worn_df["2023"] == "Yes"].groupby("Category").count().reset_index()
+
+    plot = (
+        alt.Chart(df, title="Closet Categories")
+        .mark_bar(
+            cornerRadiusBottomRight=10,
+            cornerRadiusTopRight=10,
+            opacity=0.85,
+        )
+        .encode(
+            y=alt.Y("Category", sort="x"),
+            x="Count",
+            color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=None),
+            tooltip=["Category", "Count"],
+        )
+        .configure_title(color="#706f6c")
+        .configure_axis(
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
+        )
+        .configure_view(strokeWidth=0)
+    )
+    return plot
+
+
 def plot_mostworn(
     worn_df,
     item_name="Adidas Tennis Shoe",
@@ -769,7 +795,7 @@ app.layout = dbc.Container(
                                                             html.P(
                                                                 f"To organize the {len(worn_df) - 1} pieces in my closet, "
                                                                 "I sorted everything into 6 categories: tops, accessories, bottoms, full body (dresses, jumpsuits), shoes, and outerwear (coats, etc). "
-                                                                "For my own sanity, I didn't include lougewear, socks, underwear, etc. "
+                                                                "For my own sanity, I didn't include loungewear, socks, underwear, etc. "
                                                             ),
                                                             html.Br(),
                                                             html.P(
@@ -840,10 +866,23 @@ app.layout = dbc.Container(
                                                     ),
                                                     dbc.Col(
                                                         [
-                                                            html.P(
-                                                                "Placeholder for plot. "
+                                                            html.Div(
+                                                                [
+                                                                    html.Iframe(
+                                                                        id="categories",
+                                                                        style={
+                                                                            "border-width": "0",
+                                                                            "width": "100%",
+                                                                            "height": "400px",
+                                                                        },
+                                                                        srcDoc=plot_categories(
+                                                                            worn_df
+                                                                        ).to_html(),
+                                                                    )
+                                                                ]
                                                             ),
-                                                        ]
+                                                        ],
+                                                        width={"size": 5},
                                                     ),
                                                 ]
                                             ),
