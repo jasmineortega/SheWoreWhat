@@ -365,17 +365,57 @@ def plot_newitems(worn_df):
         )
     )
 
-    cat = base.mark_arc(innerRadius=100, opacity=0.85)
+    plot_bought = base.mark_arc(innerRadius=100, opacity=0.85)
 
-    plot_bought = (
-        cat.configure_title(color="#706f6c")
+    # plot_bought = (
+    #     cat.configure_title(color="#706f6c")
+    #     .configure_axis(
+    #         grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+    #     )
+    #     .configure_view(strokeWidth=0)
+    # )
+
+    return plot_bought
+
+
+def plot_new_concat(worn_df):
+    df1 = worn_df[worn_df["2023"] == "Yes"].groupby("Category").count().reset_index()
+    df2 = worn_df[worn_df["2023"] == "Yes"]
+
+    barplot = (
+        alt.Chart(df1, title="Closet Categories")
+        .mark_bar(
+            cornerRadiusTopLeft=10,
+            cornerRadiusTopRight=10,
+            opacity=0.85,
+        )
+        .encode(
+            y=alt.Y("Category", sort="x", title=""),
+            x="Count",
+            color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=None),
+            tooltip=["Category", "Count"],
+        )
+    )
+
+    boxplot = (
+        alt.Chart(df2, title="Price of New Items")
+        .mark_boxplot()
+        .encode(
+            y=alt.Y("Category"),
+            x=alt.X("Price", axis=alt.Axis(format="$")),
+            color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=None),
+        )
+    )
+
+    final_plot = (
+        alt.vconcat(barplot, boxplot)
+        .configure_title(color="#706f6c")
         .configure_axis(
-            grid=False, domain=False, labelColor="#706f6c", titleColor="#706f6c"
+            labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
         )
         .configure_view(strokeWidth=0)
     )
-
-    return plot_bought
+    return final_plot
 
 
 def plot_bought(worn_df):
@@ -877,7 +917,7 @@ app.layout = dbc.Container(
                                                                             "width": "100%",
                                                                             "height": "400px",
                                                                         },
-                                                                        srcDoc=plot_categories(
+                                                                        srcDoc=plot_new_concat(
                                                                             worn_df
                                                                         ).to_html(),
                                                                     )
