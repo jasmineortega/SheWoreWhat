@@ -204,7 +204,7 @@ def plot_leastworn(worn_df):
         .configure_title(color="#706f6c")
         .configure_axis(
             labelColor="#706f6c", titleColor="#706f6c", grid=False, domain=False
-        )
+        ).configure_view(strokeWidth=0)
     )
     return plot_leastworn
 
