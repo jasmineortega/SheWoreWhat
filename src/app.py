@@ -987,6 +987,9 @@ app.layout = dbc.Container(
                                                                             grid=False,
                                                                             domain=False,
                                                                         )
+                                                                        .configure_view(
+                                                                            strokeWidth=0
+                                                                        )
                                                                         .to_html(),
                                                                     )
                                                                 ]
