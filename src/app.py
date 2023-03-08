@@ -159,7 +159,7 @@ def plot_categories(worn_df):
             opacity=0.85,
         )
         .encode(
-            y=alt.Y("Category", sort="x"),
+            y=alt.Y("Category", sort="x", title=""),
             x="Count",
             color=alt.Color("Category", scale=alt.Scale(range=color_aes), legend=None),
             tooltip=["Category", "Count"],
